@@ -1,6 +1,8 @@
 # mohitb117.github.io
 A Repository for my profile as a Software Engineer and a Human Being. 
 
+![avatar](https://images.weserv.nl/?url=avatars.githubusercontent.com/u/3359983?v=4&h=300&w=300&fit=cover&mask=circle&maxage=7d)
+
 1555 Main St,  
 Rahway NJ  
 [<u>mohitb117@gmail.com</u>](mailto:mohitb117@gmail.com)  
