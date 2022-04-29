@@ -26,7 +26,7 @@ Employment History
 </tr>
 <tr class="odd">
 <td><p><u>Amazon Inc. -</u> <a href="https://play.google.com/store/apps/details?id=com.amazon.phseven.prod"><u>Amazon Care</u></a></p>
-<p><u>Software Development Engineer</u> <u>Apr ’18 - Present</u></p>
+<p><u>Software Development Engineer</u> <u>Apr ’18 - Nov'21</u></p>
 <ul>
 <li><p>Built Audio/Video conferencing capability within Android App by leveraging WebRTC and leverage Amazon Connect for Queuing participants and build instrumentation monitoring audio/video quality in real time (<a href="https://patft.uspto.gov/netacgi/nph-Parser?Sect1=PTO1&amp;Sect2=HITOFF&amp;d=PALL&amp;p=1&amp;u=/netahtml/PTO/srchnum.htm&amp;r=1&amp;f=G&amp;l=50&amp;s1=11,038,933.PN.&amp;OS=PN/11,038,933&amp;RS=PN/11,038,933"><u>also awarded patent for it by USPTO</u></a>).</p></li>
 <li><p>Creating a QoS measurement scheme for baselining WebRTC video calls using raw WebRTC stats.</p></li>
