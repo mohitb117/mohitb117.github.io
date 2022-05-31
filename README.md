@@ -56,7 +56,7 @@ Employment History
 <li><p>Implemented Complex <em>Intent Handling</em> mechanism for Silk on FireTablets and FireTv platforms and improved end to end and unit test coverage for the codepaths around the feature to allow external apps to open Silk and Silk to redirect 2-P and 3-P deep links on Android/FireOS platform.</p></li>
 </ul>
 <ul>
-<li><p>Fix Multiple Memory Leaks and detect performance issues within Silk "Send Feedback" mechanism to allow a smooth customer experience by minimizing network calls and re-using cached customer session information</p></li>
+<li><p>Fix multiple “memory leaks” and detected performance issues within Silk "Send Feedback” flow to allow a smooth customer experience by minimizing network calls and re-using cached customer session information.</p></li>
 </ul></td>
 </tr>
 <tr class="even">
