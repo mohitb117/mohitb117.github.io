@@ -19,10 +19,17 @@ Employment History
 <tbody>
 <tr class="even">
 <td><p><u>DoorDash -</u> <a href="https://get.doordash.com/en-us/blog/grocery-delivery-trends"><u>Grocery</u></a></p>
-<p><u>Software Development Engineer</u> <u>Nov ’21 - Present</u></p>
+<p><u>Senior Software Development Engineer</u> <u>Nov ’21 - Present</u></p>
+<p><u>Product Engineering - New Verticals</u></p>
+<p><u>Working on New Verticals Engineering Checkout Workflows for Multiple Android apps.</u></p>
 <ul>
-<li><p>Working on New Verticals Engineering Checkout Workflows for Multiple Android apps.</p></li>
+
+<li><p> Worked on the DoorDash driver and consumer android apps and built time sensitive features and investigations that allowed Doordash to recover costs and improve profitability in the Convenience and Grocery Business Verticals.</p></li>
+<li><p>Worked with cross functional collaborators across multiple teams to build features across different business domains while minimizing duplication of engineering effort in the android app. </p></li>
+<li><p>Improved testability and measurement of business facing features with telemetry to monitor feature rollouts via A/B experimentation frameworks.</p></li>
+<li><p>Mentored junior engineers and collaborated with engineering leadership to raise mobile dev awareness across non-mobile focus stakeholders. </p></li>
 </ul></td>
+
 </tr>
 <tr class="odd">
 <td><p><u>Amazon Inc. -</u> <a href="https://play.google.com/store/apps/details?id=com.amazon.phseven.prod"><u>Amazon Care</u></a></p>
@@ -39,7 +46,7 @@ Employment History
 </tr>
 <tr class="even">
 <td><p><u>Amazon Inc. - Amazon Flex App</u></p>
-<p><u>Software Development Engineer</u> <u>Sept ’17 - Apr’18</u></p>
+<p><u>Senior Software Development Engineer</u> <u>Sept ’17 - Apr’18</u></p>
 <ul>
 <li><p>Worked as a Platform Engineer on the Amazon Flex app and worked on large scale performance issues on the Flex App, primarily Memory and UI Thread performance.</p></li>
 <li><p>Created a in-app mechanism to record CPU, Network, Memory, Battery stats in a particular UX workflow to allow profiling customer facing features and detect performance regressions.</p></li>
