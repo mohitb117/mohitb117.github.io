@@ -435,12 +435,12 @@
     <div class="company-logo">
       <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6a/DoorDash_Logo.svg/2880px-DoorDash_Logo.svg.png" alt="DoorDash">
     </div>
-    <span><span class="company-name">DoorDash - Grocery</span><span class="job-separator">|</span><span class="job-title">Sr. Software Engineer / Mobile Tech Lead</span></span>
+    <span><span class="company-name">DoorDash - Grocery</span><span class="job-separator">|</span><span class="job-title">Sr. Software Engineer | New Verticals Mobile Tech Lead</span></span>
   </div>
   <span class="date-range">Nov '21 - Present (3+ years)</span>
 </div>
 
-**Mobile Consumer Experience & Platform** - Served as Mobile Technical Lead building Android and backend features while leading iOS engineers to architect scalable solutions enabling flexible experimentation driven by backend configurations with minimal mobile changes. Key deliverables serving millions of daily orders: (1) Built Order Confirmation UI flow from scratch to match iOS parity - surface for ETA, order details (pickup/delivery address, items), and ad placements for savings; (2) Architected backend-driven Dynamic Delivery Options framework with backend infrastructure + Android UI logic, led iOS adoption; (3) Migrated 30+ post-checkout features to unified Consumer Android app with split shipment support enabling multi-store order fulfillment; (4) Implemented Cart Redirection (Single/Multi-item) using DoorDash's SDUI framework and Rescheduling UI redesign.
+**Mobile Consumer Experience** - Serving as Mobile Technical Lead building Android and backend features while leading iOS engineers to architect scalable solutions enabling flexible experimentation driven by backend configurations with minimal mobile changes. Key deliverables serving millions of daily orders: (1) Built Order Confirmation UI flow from scratch to match iOS parity - surface for ETA, order details (pickup/delivery address, items), and ad placements for savings; (2) Architected backend-driven Dynamic Delivery Options framework with backend infrastructure + Android UI logic, led iOS adoption; (3) Migrated 30+ post-checkout features to unified Consumer Android app with split shipment support enabling multi-store order fulfillment; (4) Implemented Cart Redirection (Single/Multi-item) using DoorDash's SDUI framework and Rescheduling UI redesign.
 
 **Observability & Developer Velocity** - Aligned engineering and data analytics teams to enable trustworthy ramp decisions, experiment reads, and incident diagnosis. Led on-call leadership, ops reviews, and incident PMs while improving reliability across the org.
 
@@ -578,3 +578,5 @@ National level competition for embedded systems programming.
 </td>
 </tr>
 </table>
+
+
