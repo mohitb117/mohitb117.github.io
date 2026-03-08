@@ -1,0 +1,1 @@
+export PATH="/opt/homebrew/opt/ruby/bin:$PATH" && cd ~/workspaces/mohitb117.github.io && bundle exec jekyll build --incremental

@@ -1,0 +1,29 @@
+title: Mohit Bhalla
+description: Software Engineer | Android Developer | Tech Lead
+
+url: "https://mohitb117.github.io"
+baseurl: ""
+
+permalink: /:title/
+
+navigation:
+  - name: Home
+    url: /
+  - name: Blog
+    url: /blog/
+
+markdown: kramdown
+
+plugins:
+  - jekyll-seo-tag
+
+sass:
+  sass_dir: css
+  style: compressed
+
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
+  - package.json
+  - package-lock.json
