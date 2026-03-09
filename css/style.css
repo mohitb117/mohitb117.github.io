@@ -98,10 +98,21 @@ body {
 .profile-photo {
   width: 100px;
   height: 100px;
+  max-width: 100px;
+  max-height: 100px;
   border-radius: 50%;
   border: 3px solid #fff;
   box-shadow: 0 4px 15px rgba(0,0,0,0.2);
   flex-shrink: 0;
+  object-fit: cover;
+}
+
+.hero-content img {
+  width: 100px;
+  height: 100px;
+  max-width: 100px;
+  max-height: 100px;
+  object-fit: cover;
 }
 
 .hero-text {
@@ -323,9 +334,19 @@ section {
 .company-icon {
   width: 48px;
   height: 48px;
+  max-width: 48px;
+  max-height: 48px;
   border-radius: 8px;
   object-fit: contain;
   flex-shrink: 0;
+}
+
+.timeline-header img {
+  width: 48px;
+  height: 48px;
+  max-width: 48px;
+  max-height: 48px;
+  object-fit: contain;
 }
 
 .timeline-content h3 {
