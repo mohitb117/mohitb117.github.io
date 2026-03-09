@@ -37,14 +37,6 @@ title: Home
         <span class="about-value">Nashville, TN</span>
       </div>
       <div class="about-item">
-        <span class="about-label">Phone</span>
-        <span class="about-value">315-897-7702</span>
-      </div>
-      <div class="about-item">
-        <span class="about-label">Email</span>
-        <span class="about-value">mohitb117@gmail.com</span>
-      </div>
-      <div class="about-item">
         <span class="about-label">Experience</span>
         <span class="about-value">10+ Years</span>
       </div>
@@ -148,7 +140,7 @@ title: Home
       <div class="timeline-date">Apr '18 - Nov '21<br><small>3.5 years</small></div>
       <div class="timeline-content">
         <div class="timeline-header">
-          <img src="{{ '/images/amazon-care.webp' | relative_url }}" alt="Amazon" class="company-icon">
+          <img src="{{ '/images/amazon-care.webp' | relative_url }}" alt="Amazon Care" class="company-icon">
           <div>
             <h3>Sr. Software Engineer</h3>
             <span class="timeline-company">Amazon - Amazon Care</span>
@@ -162,7 +154,7 @@ title: Home
       <div class="timeline-date">Sept '17 - Apr '18<br><small>8 months</small></div>
       <div class="timeline-content">
         <div class="timeline-header">
-          <img src="{{ '/images/amazon-care.webp' | relative_url }}" alt="Amazon" class="company-icon">
+          <img src="{{ '/images/Amazon_icon.svg.png' | relative_url }}" alt="Amazon" class="company-icon">
           <div>
             <h3>Software Engineer</h3>
             <span class="timeline-company">Amazon - Amazon Flex</span>
@@ -176,7 +168,7 @@ title: Home
       <div class="timeline-date">Dec '15 - Sept '17<br><small>2 years</small></div>
       <div class="timeline-content">
         <div class="timeline-header">
-          <img src="{{ '/images/amazon-care.webp' | relative_url }}" alt="Amazon" class="company-icon">
+          <img src="{{ '/images/Amazon_Silk_Logo.webp' | relative_url }}" alt="Amazon Silk" class="company-icon">
           <div>
             <h3>Software Engineer</h3>
             <span class="timeline-company">Amazon - AWS Silk Browser</span>

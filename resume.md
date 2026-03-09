@@ -227,14 +227,6 @@ permalink: /resume/
         <span class="contact-text">Nashville, TN</span>
       </div>
       <div class="contact-item">
-        <span>&#128222;</span>
-        <span class="contact-text">315-897-7702</span>
-      </div>
-      <div class="contact-item">
-        <span>&#9993;</span>
-        <a href="mailto:mohitb117@gmail.com">mohitb117@gmail.com</a>
-      </div>
-      <div class="contact-item">
         <span>&#128187;</span>
         <a href="https://github.com/mohitb117">GitHub</a>
       </div>
@@ -267,7 +259,7 @@ permalink: /resume/
 <div class="job-header">
   <div class="job-header-left">
     <div class="company-logo">
-      <img src="{{ '/images/amazon-care.webp' | relative_url }}" alt="Amazon">
+      <img src="{{ '/images/amazon-care.webp' | relative_url }}" alt="Amazon Care">
     </div>
     <span><span class="company-name">Amazon</span><span class="job-separator">|</span><span class="job-title">Software Engineer &rarr; Sr. Software Engineer</span></span>
   </div>

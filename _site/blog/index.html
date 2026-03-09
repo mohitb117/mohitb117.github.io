@@ -26,26 +26,46 @@
   </header>
 
   <main class="container">
-    <div class="blog">
-  <h1>Blog</h1>
-  <p class="blog-intro">Thoughts on software engineering, mobile development, and technology.</p>
+    <div class="blog-container">
+  <div class="blog-header">
+    <h1>Blog</h1>
+    <p class="blog-intro">Thoughts on software engineering, mobile development, and technology.</p>
+  </div>
 
   
-    <ul class="post-list">
+    <div class="masonry-grid">
       
-        <li class="post-item">
-          <a href="/welcome/">
-            <h2>Welcome to My New Blog</h2>
+        <article class="masonry-item">
+          <a href="/welcome/" class="post-card">
+            
+              <div class="post-card-image post-card-placeholder">
+                <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                  <path d="M12 20h9"></path>
+                  <path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"></path>
+                </svg>
+              </div>
+            
+            <div class="post-card-content">
+              
+                <div class="post-card-tags">
+                  
+                    <span class="tag">Intro</span>
+                  
+                    <span class="tag">Career</span>
+                  
+                </div>
+              
+              <h2>Welcome to My New Blog</h2>
+              <p class="post-excerpt">Introducing my new blog where I'll share thoughts on software engineering and mobile development.</p>
+              <div class="post-card-meta">
+                <time datetime="2026-03-07T00:00:00-06:00">March 07, 2026</time>
+                <span class="read-more">Read more</span>
+              </div>
+            </div>
           </a>
-          <div class="post-meta">
-            <time datetime="2026-03-07T00:00:00-06:00">March 07, 2026</time>
-             &bull; Mohit Bhalla
-          </div>
-          <p class="post-excerpt">Introducing my new blog where I'll share thoughts on software engineering and mobile development.</p>
-          <a href="/welcome/" class="read-more">Read more &rarr;</a>
-        </li>
+        </article>
       
-    </ul>
+    </div>
   
 </div>
 
