@@ -251,7 +251,7 @@ permalink: /resume/
 <div class="job-header">
   <div class="job-header-left">
     <div class="company-logo">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6a/DoorDash_Logo.svg/2880px-DoorDash_Logo.svg.png" alt="DoorDash">
+      <img src="{{ '/images/DoorDash_Logo.svg.png' | relative_url }}" alt="DoorDash">
     </div>
     <span><span class="company-name">DoorDash - Grocery</span><span class="job-separator">|</span><span class="job-title">Sr. Software Engineer | New Verticals Mobile Tech Lead</span></span>
   </div>
@@ -267,7 +267,7 @@ permalink: /resume/
 <div class="job-header">
   <div class="job-header-left">
     <div class="company-logo">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/06/Amazon_2024.svg/2880px-Amazon_2024.svg.png" alt="Amazon">
+      <img src="{{ '/images/amazon-care.webp' | relative_url }}" alt="Amazon">
     </div>
     <span><span class="company-name">Amazon</span><span class="job-separator">|</span><span class="job-title">Software Engineer &rarr; Sr. Software Engineer</span></span>
   </div>
@@ -283,7 +283,7 @@ permalink: /resume/
 <div class="job-header">
   <div class="job-header-left">
     <div class="company-logo">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/e/e9/INRIX_logo.png" alt="INRIX">
+      <img src="{{ '/images/INRIX_logo.png' | relative_url }}" alt="INRIX">
     </div>
     <span><span class="company-name">INRIX Inc.</span><span class="job-separator">|</span><span class="job-title">Software Development Engineer</span></span>
   </div>
@@ -295,7 +295,7 @@ Android Mobile Development for real-time traffic information delivery platform s
 <div class="job-header">
   <div class="job-header-left">
     <div class="company-logo">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/e/eb/PNNL_CENTER_FullColorSMALL.jpg" alt="PNNL">
+      <img src="{{ '/images/PNNL_CENTER_FullColorSMALL.jpg' | relative_url }}" alt="PNNL">
     </div>
     <span><span class="company-name">Pacific Northwest National Laboratory</span> (US Dept. of Energy) <span class="job-separator">|</span> <span class="job-title">Software Engineering Intern</span></span>
   </div>
@@ -310,7 +310,7 @@ Primary developer for Android bio surveillance application using Java EE Framewo
 
 <div class="education-entry">
   <div class="education-logo">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/4/49/Syracuse_Orange_logo.svg" alt="Syracuse University">
+    <img src="{{ '/images/Syracuse_Orange_logo.svg' | relative_url }}" alt="Syracuse University">
   </div>
   <div>
     <strong>Master of Science in Computer Engineering</strong> | Syracuse University | May 2014 | GPA: 3.55/4.0
@@ -319,7 +319,7 @@ Primary developer for Android bio surveillance application using Java EE Framewo
 
 <div class="education-entry">
   <div class="education-logo">
-    <img src="https://upload.wikimedia.org/wikipedia/en/thumb/b/b8/GGSIU_logo.svg/2560px-GGSIU_logo.svg.png" alt="GGSIPU">
+    <img src="{{ '/images/GGSIU_logo.svg.png' | relative_url }}" alt="GGSIPU">
   </div>
   <div>
     <strong>Bachelor of Technology in Computer Science</strong> | Guru Gobind Singh Indraprastha University, New Delhi, India | Aug 2012 | GPA: 3.97/4.0
