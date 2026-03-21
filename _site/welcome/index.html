@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Welcome to My New Blog</title>
-  <meta name="description" content="Introducing my new blog where I'll share thoughts on software engineering and mobile development.">
+  <meta name="description" content="Thoughts on software engineering, mobile development, LLM coding tools, and what the future looks like on the other side of the AI revolution.">
   <link rel="stylesheet" href="/css/style.css">
 </head>
 <body>
@@ -26,109 +26,211 @@
   </header>
 
   <main class="container">
-    <article class="post-page">
-  <header class="post-page-header">
-    <div class="post-page-header-content">
-      <a href="/blog/" class="back-to-blog">
-        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-          <path d="M19 12H5M12 19l-7-7 7-7"/>
-        </svg>
-        Back to Blog
-      </a>
-      <h1>Welcome to My New Blog</h1>
-      <div class="post-page-meta">
-        <time datetime="2026-03-07T00:00:00-06:00">March 07, 2026</time>
-        
-          <span class="separator">•</span>
-          <span>Mohit Bhalla</span>
-        
-      </div>
-      
-        <div class="post-page-tags">
+    
+
+
+<article class="post-page post-page-with-toc">
+  <div class="post-page-layout">
+    <div class="post-page-main">
+      <header class="post-page-header">
+        <div class="post-page-header-content">
+          <a href="/blog/" class="back-to-blog">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M19 12H5M12 19l-7-7 7-7"/>
+            </svg>
+            Back to Blog
+          </a>
+          <h1>Welcome to My New Blog</h1>
+          <div class="post-page-meta">
+            <time datetime="2026-03-07T00:00:00-06:00">March 07, 2026</time>
+            <span class="separator">•</span>
+            <span class="read-time">
+              <svg class="read-time-icon" xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="10"></circle>
+                <polyline points="12 6 12 12 16 14"></polyline>
+              </svg>
+              2 min read
+            </span>
+            
+              <span class="separator">•</span>
+              <span>Mohit Bhalla</span>
+            
+          </div>
           
-            <a href="/blog/tags/#intro" class="tag tag-link">Intro</a>
-          
-            <a href="/blog/tags/#career" class="tag tag-link">Career</a>
+            <div class="post-page-tags">
+              
+                <a href="/blog/tags/#intro" class="tag tag-link">Intro</a>
+              
+                <a href="/blog/tags/#career" class="tag tag-link">Career</a>
+              
+                <a href="/blog/tags/#productivity" class="tag tag-link">Productivity</a>
+              
+                <a href="/blog/tags/#ai" class="tag tag-link">AI</a>
+              
+                <a href="/blog/tags/#llm" class="tag tag-link">LLM</a>
+              
+                <a href="/blog/tags/#claudecode" class="tag tag-link">ClaudeCode</a>
+              
+            </div>
           
         </div>
-      
-    </div>
-    
-      <div class="post-page-hero post-page-hero-placeholder">
-        <div class="placeholder-content">
-          <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-            <path d="M12 20h9"></path>
-            <path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"></path>
-          </svg>
-        </div>
-      </div>
-    
-  </header>
+        
+          <div class="post-page-hero">
+            <img src="/images/llm-agent-pr-babysitter.jpeg" alt="Welcome to My New Blog">
+          </div>
+        
+      </header>
 
-  <div class="post-page-content">
-    <p>Welcome to my new blog! After several years of having my resume as the main content on my GitHub Pages site, I’ve decided to add a blog section where I can share my thoughts on software engineering, mobile development, and technology.</p>
+      <div class="post-page-content" id="post-content">
+        <p>Welcome to my new blog! After several years of having my resume as the main content on my GitHub Pages site, I’ve finally decided to give it a pulse — a place to share thoughts on software engineering, mobile development, LLM coding tools, and what the future of technology looks like on the other side of the AI revolution.</p>
 
-<h2 id="why-a-blog">Why a Blog?</h2>
+<p>Over 10 years across companies like Amazon, DoorDash, and INRIX, I’ve picked up a lot of lessons worth writing down. Some technical, some career-oriented, and some just genuinely surprising. This is one of those.</p>
 
-<p>As a software engineer with over 10 years of experience, I’ve learned a lot through my journey at companies like Amazon, DoorDash, and INRIX. I thought it would be valuable to share some of these learnings with the community.</p>
+<h2 id="the-night-i-let-claude-cook-while-i-actually-cooked">The Night I Let Claude Cook (While I Actually Cooked)</h2>
 
-<h2 id="what-to-expect">What to Expect</h2>
+<p>For years, the end of my workday had an invisible string attached to it. I’d close my laptop, but part of my brain stayed at the office — waiting to see if my merge made it into the nightly mobile release build. More often than not, it didn’t. Merge conflicts, flaky CI, build failures. The kind of thing that turns a relaxing evening into a tab-switching anxiety spiral.</p>
 
-<p>Here are some topics I plan to write about:</p>
+<p>Then I started leaning on LLM agents — specifically Claude with MCP — and everything changed. Instead of hovering over a PR like a nervous parent at a school play, I started giving the agent explicit instructions to babysit it for me: watch the CI, resolve conflicts as they come up, and keep things moving. Then I’d walk away and actually make dinner.</p>
 
+<p>The first time it worked seamlessly, I was genuinely surprised. Not because the technology is magic — but because the <em>freedom</em> it unlocked felt disproportionate to the effort. A few well-crafted instructions, and suddenly I had my evenings back.</p>
+
+<h2 id="the-catch-agents-without-guardrails-are-a-loaded-gun">The Catch: Agents Without Guardrails Are a Loaded Gun</h2>
+
+<p>Here’s what nobody puts in the blog post headline: <strong>an unsupervised agent is only as good as the instructions you gave it — and instructions are never perfect.</strong></p>
+
+<p>Left unchecked, a Claude Code agent can and will:</p>
 <ul>
-  <li><strong>Android Development</strong> - Kotlin, Jetpack Compose, and modern Android architecture</li>
-  <li><strong>Mobile Architecture</strong> - Building scalable apps that serve millions of users</li>
-  <li><strong>Career Growth</strong> - Moving from individual contributor to technical lead</li>
-  <li><strong>Technical Leadership</strong> - Mentoring engineers and building great teams</li>
+  <li>Make opinionated refactors you didn’t ask for</li>
+  <li>Resolve a merge conflict “correctly” in a way that subtly breaks business logic</li>
+  <li>Go down a rabbit hole of cascading fixes that drift far from the original intent</li>
+  <li>Commit changes that pass CI but fail the smell test</li>
 </ul>
 
-<h2 id="getting-started-with-jekyll">Getting Started with Jekyll</h2>
+<p>The risk isn’t that the agent is reckless — it’s that it’s <em>confidently helpful</em>, which can be just as dangerous in a complex codebase. Without tight constraints, clear scope, and a human reviewing the output, you’re not delegating work — you’re just deferring a surprise.</p>
 
-<p>This site is built using <a href="https://jekyllrb.com/">Jekyll</a>, which is a static site generator that works perfectly with GitHub Pages. It’s simple to use and allows me to write blog posts in Markdown.</p>
+<h2 id="why-its-still-worth-it">Why It’s Still Worth It</h2>
 
-<p>Here’s a quick example of how easy it is to create a new post:</p>
+<p>That said, the trajectory here is undeniable. The key is learning to work <em>with</em> the agent, not just <em>through</em> it:</p>
 
-<div class="language-markdown highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nn">---</span>
-<span class="na">layout</span><span class="pi">:</span> <span class="s">post</span>
-<span class="na">title</span><span class="pi">:</span> <span class="s2">"</span><span class="s">Your</span><span class="nv"> </span><span class="s">Post</span><span class="nv"> </span><span class="s">Title"</span>
-<span class="na">date</span><span class="pi">:</span> <span class="s">2026-01-01</span>
-<span class="nn">---</span>
+<ul>
+  <li><strong>Explicit context beats vague prompts.</strong> The more precise your instructions — branch names, file scope, acceptance criteria — the less room for the agent to improvise.</li>
+  <li><strong>Staged trust.</strong> Start with low-risk tasks (resolving trivial conflicts, updating dependencies) before handing over anything with real blast radius.</li>
+  <li><strong>Review like it’s a junior engineer’s PR.</strong> Because in a lot of ways, it is. Smart, fast, eager to please — and occasionally missing the forest for the trees.</li>
+</ul>
 
-Your content goes here...
-</code></pre></div></div>
+<p>Done well, this isn’t just a productivity hack. It’s a preview of how software engineering teams will operate in the next few years — fewer humans doing rote coordination work, more humans doing the thinking that actually requires judgment.</p>
 
-<h2 id="whats-next">What’s Next?</h2>
+<p>The LLM revolution isn’t coming. It’s already here, running in the background, waiting on your CI pipeline.</p>
 
-<p>I’ll be posting new content regularly, so stay tuned! In the meantime, feel free to check out my <a href="/resume/">resume</a> or connect with me on <a href="https://www.linkedin.com/in/mohitb117">LinkedIn</a>.</p>
+<hr />
 
-<p>Thanks for visiting!</p>
+<p>Check out my <a href="/resume/">resume</a> or say hello on <a href="https://www.linkedin.com/in/mohitb117">LinkedIn</a>. More posts coming soon — stay tuned.</p>
 
-  </div>
-
-  <footer class="post-page-footer">
-    <div class="share-section">
-      <span class="share-label">Share this post</span>
-      <div class="share-links">
-        <a href="https://twitter.com/intent/tweet?text=Welcome+to+My+New+Blog&url=https://mohitb117.github.io/welcome/" target="_blank" class="share-link twitter" title="Share on Twitter">
-          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
-        </a>
-        <a href="https://www.linkedin.com/sharing/share-offsite/?url=https://mohitb117.github.io/welcome/" target="_blank" class="share-link linkedin" title="Share on LinkedIn">
-          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
-        </a>
-        <a href="mailto:?subject=Welcome+to+My+New+Blog&body=Check out this post: https://mohitb117.github.io/welcome/" class="share-link email" title="Share via Email">
-          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
-        </a>
       </div>
+
+      
+      
+      
+
+      
+
+      <footer class="post-page-footer">
+        <div class="share-section">
+          <span class="share-label">Share this post</span>
+          <div class="share-links">
+            <a href="https://twitter.com/intent/tweet?text=Welcome+to+My+New+Blog&url=http://localhost:4000/welcome/" target="_blank" class="share-link twitter" title="Share on Twitter">
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+            </a>
+            <a href="https://www.linkedin.com/sharing/share-offsite/?url=http://localhost:4000/welcome/" target="_blank" class="share-link linkedin" title="Share on LinkedIn">
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+            </a>
+            <a href="mailto:?subject=Welcome+to+My+New+Blog&body=Check out this post: http://localhost:4000/welcome/" class="share-link email" title="Share via Email">
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+            </a>
+          </div>
+        </div>
+        <a href="/blog/" class="back-to-blog-bottom">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M19 12H5M12 19l-7-7 7-7"/>
+          </svg>
+          Back to Blog
+        </a>
+      </footer>
     </div>
-    <a href="/blog/" class="back-to-blog-bottom">
-      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-        <path d="M19 12H5M12 19l-7-7 7-7"/>
-      </svg>
-      Back to Blog
-    </a>
-  </footer>
+
+    <aside class="post-toc-sidebar">
+      <nav class="post-toc" id="toc">
+        <h4 class="post-toc-title">Table of Contents</h4>
+        <ul class="post-toc-list" id="toc-list"></ul>
+      </nav>
+    </aside>
+  </div>
 </article>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const content = document.getElementById('post-content');
+    const tocList = document.getElementById('toc-list');
+    const toc = document.getElementById('toc');
+    
+    if (!content || !tocList) return;
+
+    const headings = content.querySelectorAll('h2, h3');
+    
+    if (headings.length < 2) {
+      toc.style.display = 'none';
+      return;
+    }
+
+    headings.forEach(function(heading, index) {
+      if (!heading.id) {
+        heading.id = 'heading-' + index;
+      }
+      
+      const li = document.createElement('li');
+      const a = document.createElement('a');
+      a.href = '#' + heading.id;
+      a.textContent = heading.textContent;
+      
+      if (heading.tagName === 'H3') {
+        a.classList.add('toc-h3');
+      }
+      
+      li.appendChild(a);
+      tocList.appendChild(li);
+    });
+
+    const tocLinks = tocList.querySelectorAll('a');
+    tocLinks.forEach(function(link) {
+      link.addEventListener('click', function(e) {
+        e.preventDefault();
+        const targetId = this.getAttribute('href').substring(1);
+        const target = document.getElementById(targetId);
+        if (target) {
+          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      });
+    });
+
+    const observer = new IntersectionObserver(function(entries) {
+      entries.forEach(function(entry) {
+        if (entry.isIntersecting) {
+          tocLinks.forEach(function(link) {
+            link.classList.remove('active');
+          });
+          const activeLink = tocList.querySelector('a[href="#' + entry.target.id + '"]');
+          if (activeLink) {
+            activeLink.classList.add('active');
+          }
+        }
+      });
+    }, { rootMargin: '-100px 0px -66% 0px' });
+
+    headings.forEach(function(heading) {
+      observer.observe(heading);
+    });
+  });
+</script>
 
   </main>
 
