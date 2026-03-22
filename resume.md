@@ -19,15 +19,17 @@ permalink: /resume/
   }
 
   .profile-photo-resume {
+    display: flex;
+    gap: 10px;
     flex-shrink: 0;
   }
 
   .profile-photo-resume img {
-    width: 160px;
-    height: 160px;
+    width: 140px;
+    height: 140px;
     border-radius: 50%;
-    border: 5px solid #2563eb;
-    box-shadow: 0 8px 16px rgba(37, 99, 235, 0.3);
+    border: 4px solid #2563eb;
+    box-shadow: 0 6px 12px rgba(37, 99, 235, 0.25);
   }
 
   .header-info h1 {
@@ -218,6 +220,7 @@ permalink: /resume/
 <div class="header-container">
   <div class="profile-photo-resume">
     <img src="https://images.weserv.nl/?url=avatars.githubusercontent.com/u/3359983?v=4&h=300&w=300&fit=cover&mask=circle" alt="Mohit Bhalla">
+    <img src="{{ '/images/profile-linkedin.jpg' | relative_url }}" alt="Mohit Bhalla">
   </div>
   <div class="header-info">
     <h1>Mohit Bhalla</h1>
