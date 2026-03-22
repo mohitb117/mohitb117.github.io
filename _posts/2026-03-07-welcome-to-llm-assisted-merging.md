@@ -6,6 +6,7 @@ author: Mohit Bhalla
 description: "Thoughts on software engineering, mobile development, LLM coding tools, and what the future looks like on the other side of the AI revolution."
 tags: ["Intro", "Career", "Productivity", "AI", "LLM", "ClaudeCode"]
 image: /images/llm-agent-pr-babysitter.jpeg
+permalink: /blog/welcome-to-llm-assisted-merging/
 ---
 Welcome to my new blog! After several years of having my resume as the main content on my GitHub Pages site, I've finally decided to give it a pulse — a place to share thoughts on software engineering, mobile development, LLM coding tools, and what the future of technology looks like on the other side of the AI revolution.
 
