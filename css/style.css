@@ -344,6 +344,41 @@ body {
   margin-bottom: 0.75rem;
 }
 
+/* Journey Section */
+.journey-section {
+  padding: 0;
+  background: transparent;
+  box-shadow: none;
+}
+
+.journey-image {
+  width: 100%;
+  height: auto;
+  border-radius: 12px;
+  display: block;
+  cursor: zoom-in;
+  transition: transform 0.3s ease;
+}
+
+.journey-image.zoomed {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(1.5);
+  z-index: 1000;
+  cursor: zoom-out;
+  max-width: 90vw;
+  max-height: 90vh;
+  object-fit: contain;
+}
+
+.journey-image {
+  width: 100%;
+  height: auto;
+  border-radius: 12px;
+  display: block;
+}
+
 /* Sections */
 section {
   background: #fff;
@@ -395,18 +430,43 @@ section {
   color: #2c3e50;
 }
 
-/* Skills Section */
+/* Skills Section - Base styles */
 .skills-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-  gap: 2rem;
+  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+  gap: 1.5rem;
   justify-items: center;
+  max-width: 100%;
+}
+
+/* Tablet - 3 columns */
+@media (max-width: 768px) {
+  .skills-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* Small tablet - 2 columns */
+@media (max-width: 600px) {
+  .skills-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Mobile - 3 columns */
+@media (max-width: 480px) {
+  .skills-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
 }
 
 .skill-circle {
   position: relative;
   width: 120px;
   height: 120px;
+  max-width: 100%;
+  aspect-ratio: 1;
+  margin: auto;
 }
 
 .skill-circle svg {
@@ -431,66 +491,125 @@ section {
   transition: stroke-dashoffset 1s ease;
 }
 
-.skill-circle-android .skill-circle-fill {
-  stroke: #3DDC84;
-}
-
-.skill-circle-kotlin .skill-circle-fill {
-  stroke: #7F52FF;
-}
-
-.skill-circle-compose .skill-circle-fill {
-  stroke: #4285F4;
-}
-
-.skill-circle-backend .skill-circle-fill {
-  stroke: #FF6B35;
-}
-
-.skill-circle-design .skill-circle-fill {
-  stroke: #E91E63;
-}
-
-.skill-circle-leadership .skill-circle-fill {
-  stroke: #00BCD4;
-}
+.skill-circle-android .skill-circle-fill { stroke: #3DDC84; }
+.skill-circle-kotlin .skill-circle-fill { stroke: #7F52FF; }
+.skill-circle-compose .skill-circle-fill { stroke: #4285F4; }
+.skill-circle-backend .skill-circle-fill { stroke: #FF6B35; }
+.skill-circle-design .skill-circle-fill { stroke: #E91E63; }
+.skill-circle-leadership .skill-circle-fill { stroke: #00BCD4; }
 
 .skill-circle-text {
   position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  text-align: center;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: grid;
+  place-items: center;
+  place-content: center;
   gap: 2px;
 }
 
 .skill-icon {
-  width: 36px;
-  height: 36px;
+  display: inline-block;
+  color: inherit;
+  overflow: hidden;
+  width: 20px !important;
+  height: 20px !important;
 }
 
 .skill-icon svg {
-  width: 100%;
-  height: 100%;
+  display: block;
+  width: 20px !important;
+  height: 20px !important;
 }
+
+.skill-icon .material-symbols-outlined {
+  display: inline-block;
+  font-size: 18px !important;
+  width: auto !important;
+  height: auto !important;
+  line-height: 1;
+  overflow: visible !important;
+}
+
+.skill-icon {
+  display: inline-block;
+  color: inherit;
+  overflow: visible !important;
+  width: 24px !important;
+  height: 22px !important;
+}
+
+.skill-circle-android .skill-icon { color: #3DDC84; }
+.skill-circle-kotlin .skill-icon { color: #7F52FF; }
+.skill-circle-compose .skill-icon { color: #4285F4; }
+.skill-circle-backend .skill-icon { color: #FF6B35; }
+.skill-circle-design .skill-icon { color: #E91E63; }
+.skill-circle-leadership .skill-icon { color: #00BCD4; }
 
 .material-symbols-outlined {
   font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
 }
 
 .skill-percent {
-  font-size: 0.65rem;
+  font-size: 0.75rem;
   font-weight: 600;
   color: #2c3e50;
 }
 
 .skill-name {
-  font-size: 0.6rem;
+  font-size: 0.65rem;
   color: #666;
   text-align: center;
+}
+
+/* Tablet - 3 columns */
+@media (max-width: 768px) {
+  .skills-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+  }
+  
+  .skill-circle { width: 90px; height: 90px; }
+  .skill-circle svg { width: 90px; height: 90px; }
+  .skill-icon { width: 22px !important; height: 20px !important; }
+  .skill-icon svg { width: 20px !important; height: 20px !important; }
+  .skill-icon .material-symbols-outlined { font-size: 16px !important; }
+  .skill-percent { font-size: 0.65rem; }
+  .skill-name { font-size: 0.55rem; }
+}
+
+/* Small tablet - 2 columns */
+@media (max-width: 600px) {
+  .skills-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+  }
+  
+  .skill-circle { width: 80px; height: 80px; }
+  .skill-circle svg { width: 80px; height: 80px; }
+  .skill-icon { width: 20px !important; height: 18px !important; }
+  .skill-icon svg { width: 18px !important; height: 18px !important; }
+  .skill-icon .material-symbols-outlined { font-size: 14px !important; }
+  .skill-percent { font-size: 0.6rem; }
+  .skill-name { font-size: 0.5rem; }
+}
+
+/* Mobile - 3 columns */
+@media (max-width: 480px) {
+  .skills-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.75rem;
+  }
+  
+  .skill-circle { width: 60px; height: 60px; }
+  .skill-circle svg { width: 60px; height: 60px; }
+  .skill-icon { width: 18px !important; height: 16px !important; }
+  .skill-icon svg { width: 16px !important; height: 16px !important; }
+  .skill-icon .material-symbols-outlined { font-size: 12px !important; }
+  .skill-percent { font-size: 0.55rem; }
+  .skill-name { font-size: 0.45rem; }
 }
 
 .skill-fill {
@@ -793,29 +912,6 @@ footer {
     margin-bottom: 1rem;
   }
   
-  .skills-grid {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 1rem;
-  }
-  
-  .skill-circle {
-    width: 90px;
-    height: 90px;
-  }
-  
-  .skill-circle svg {
-    width: 90px;
-    height: 90px;
-  }
-  
-  .skill-percent {
-    font-size: 1.1rem;
-  }
-  
-  .skill-name {
-    font-size: 0.65rem;
-  }
-  
   .timeline-item {
     flex-direction: column;
     gap: 0.5rem;
@@ -889,10 +985,6 @@ footer {
     grid-template-columns: 1fr;
   }
   
-  .skills-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-  
   .btn {
     padding: 0.6rem 1rem;
     font-size: 0.9rem;
@@ -909,6 +1001,32 @@ footer {
 .blog-header {
   text-align: center;
   margin-bottom: 2.5rem;
+}
+
+.blog-caricature {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.blog-caricature img {
+  max-width: 250px;
+  width: 100%;
+  height: auto;
+  border-radius: 12px;
+  cursor: zoom-in;
+  transition: transform 0.3s ease;
+}
+
+.blog-caricature img.zoomed {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(1.5);
+  z-index: 1000;
+  cursor: zoom-out;
+  max-width: 90vw;
+  max-height: 90vh;
+  object-fit: contain;
 }
 
 .featured-post {
@@ -1510,6 +1628,26 @@ footer {
   color: rgba(255,255,255,0.5);
 }
 
+.post-page-hero-caricature img {
+  width: 100%;
+  height: auto;
+  border-radius: 16px;
+  cursor: zoom-in;
+  transition: transform 0.3s ease;
+}
+
+.post-page-hero-caricature img.zoomed {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(1.5);
+  z-index: 1000;
+  cursor: zoom-out;
+  max-width: 90vw;
+  max-height: 90vh;
+  object-fit: contain;
+}
+
 .post-page-content {
   background: #fff;
   padding: 2.5rem;
@@ -1591,6 +1729,22 @@ footer {
   margin: 1.5rem 0;
   color: #666;
   font-style: italic;
+}
+
+.comments-section {
+  margin-top: 2rem;
+  padding-top: 1.5rem;
+  border-top: 2px solid var(--primary);
+}
+
+.comments-title {
+  font-size: 1.25rem;
+  color: #2c3e50;
+  margin-bottom: 1rem;
+}
+
+#comments {
+  min-height: 100px;
 }
 
 .post-page-footer {

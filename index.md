@@ -57,6 +57,10 @@ title: Home
     </section>
   </div>
 
+  <section class="journey-section">
+    <img src="{{ '/images/professional-journey.jpg' | relative_url }}" alt="Professional Journey" class="journey-image" onclick="this.classList.toggle('zoomed')">
+  </section>
+
   <section class="about-section">
     <h2 class="section-title">About Me</h2>
     <p class="about-text">Senior Software Engineer and Mobile Tech Lead with 10+ years of experience building Android applications at scale. Currently leading mobile development at DoorDash, previously at Amazon and INRIX. Specialized in Kotlin, Jetpack Compose, and building scalable mobile architectures that serve millions of users. Passionate about mentoring and helping others advance their careers.</p>
@@ -81,9 +85,7 @@ title: Home
           <circle class="skill-circle-fill" cx="60" cy="60" r="54" style="stroke-dashoffset: 16.96;"/>
         </svg>
         <div class="skill-circle-text">
-          <div class="skill-icon">
-            <span class="material-symbols-outlined" style="color: #3DDC84; font-size: 32px;">android</span>
-          </div>
+          <span class="skill-icon material-symbols-outlined">android</span>
           <span class="skill-percent">95%</span>
           <span class="skill-name">Android</span>
         </div>
@@ -94,9 +96,9 @@ title: Home
           <circle class="skill-circle-fill" cx="60" cy="60" r="54" style="stroke-dashoffset: 33.93;"/>
         </svg>
         <div class="skill-circle-text">
-          <div class="skill-icon">
-            <svg viewBox="0 0 24 24" fill="#7F52FF"><path d="M12 2L2 19h20L12 2zm0 4l6.5 11h-13L12 6z"/></svg>
-          </div>
+          <span class="skill-icon skill-icon-kotlin">
+            <svg viewBox="0 0 24 24" style="transform: rotate(2.5deg)"><text x="6" y="17" font-family="Arial,sans-serif" font-weight="bold" font-size="14" fill="currentColor">K</text></svg>
+          </span>
           <span class="skill-percent">90%</span>
           <span class="skill-name">Kotlin</span>
         </div>
@@ -107,9 +109,9 @@ title: Home
           <circle class="skill-circle-fill" cx="60" cy="60" r="54" style="stroke-dashoffset: 50.89;"/>
         </svg>
         <div class="skill-circle-text">
-          <div class="skill-icon">
-            <svg viewBox="0 0 24 24" fill="#4285F4"><path d="M12 2l2.4 7.2H22l-6 4.8 2.4 7.2L12 16l-6.4 5.2L8 14 2 9.2h7.6z"/></svg>
-          </div>
+          <span class="skill-icon skill-icon-compose">
+            <svg viewBox="0 0 24 24"><path d="M12 2L4 8v8l8 6 8-6V8l-8-6zm0 2.5L17.5 9 12 13.5 6.5 9 12 4.5zM6 10.5l5 3.75v5.5l-5-3.75v-5.5zm7.5 9.25V14.25L18 11v5.5l-4.5 3.25z" fill="currentColor"/></svg>
+          </span>
           <span class="skill-percent">85%</span>
           <span class="skill-name">Compose</span>
         </div>
@@ -120,9 +122,7 @@ title: Home
           <circle class="skill-circle-fill" cx="60" cy="60" r="54" style="stroke-dashoffset: 67.86;"/>
         </svg>
         <div class="skill-circle-text">
-          <div class="skill-icon">
-            <span class="material-symbols-outlined" style="color: #FF6B35; font-size: 32px;">desktop_cloud</span>
-          </div>
+          <span class="skill-icon material-symbols-outlined">desktop_cloud</span>
           <span class="skill-percent">80%</span>
           <span class="skill-name">Backend</span>
         </div>
@@ -133,9 +133,9 @@ title: Home
           <circle class="skill-circle-fill" cx="60" cy="60" r="54" style="stroke-dashoffset: 84.82;"/>
         </svg>
         <div class="skill-circle-text">
-          <div class="skill-icon">
-            <svg viewBox="0 0 24 24" fill="#E91E63"><circle cx="12" cy="12" r="10"/><circle cx="8" cy="10" r="1.5" fill="#fff"/><circle cx="16" cy="10" r="1.5" fill="#fff"/><circle cx="12" cy="15" r="1.5" fill="#fff"/></svg>
-          </div>
+          <span class="skill-icon skill-icon-design">
+            <svg viewBox="0 0 24 24"><path d="M7 14c-1.66 0-3 1.34-3 3 0 1.31-1.16 2-2 2 .92 1.22 2.49 2 4 2 2.21 0 4-1.79 4-4 0-1.66-1.34-3-3-3zm13.71-9.37l-1.34-1.34a.996.996 0 00-1.41 0L9 12.25 11.75 15l8.96-8.96a.996.996 0 000-1.41z" fill="currentColor"/></svg>
+          </span>
           <span class="skill-percent">75%</span>
           <span class="skill-name">Design</span>
         </div>
@@ -146,9 +146,9 @@ title: Home
           <circle class="skill-circle-fill" cx="60" cy="60" r="54" style="stroke-dashoffset: 67.86;"/>
         </svg>
         <div class="skill-circle-text">
-          <div class="skill-icon">
-            <svg viewBox="0 0 24 24" fill="#00BCD4"><path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z"/></svg>
-          </div>
+          <span class="skill-icon skill-icon-leadership">
+            <svg viewBox="0 0 24 24"><path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z" fill="currentColor"/></svg>
+          </span>
           <span class="skill-percent">80%</span>
           <span class="skill-name">Leadership</span>
         </div>

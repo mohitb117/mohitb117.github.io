@@ -21,6 +21,10 @@ permalink: /blog/
     {% endfor %}
     {% assign all_tags = all_tags | sort %}
 
+    <div class="blog-caricature">
+      <img src="{{ '/images/caricature.jpg' | relative_url }}" alt="Caricature" onclick="this.classList.toggle('zoomed')">
+    </div>
+
     {% if all_tags.size > 0 %}
       <div class="tag-filter">
         <button class="tag-filter-btn active" data-filter="all">All Posts</button>
