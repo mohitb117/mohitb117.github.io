@@ -49,11 +49,11 @@ layout: default
         </div>
         {% if page.image %}
           <div class="post-page-hero">
-            <img src="{{ page.image | relative_url }}" alt="{{ page.title }}">
+            <img src="{{ page.image | relative_url }}" alt="{{ page.title }}" class="zoomable">
           </div>
         {% else %}
           <div class="post-page-hero post-page-hero-caricature">
-            <img src="{{ '/images/caricature.jpg' | relative_url }}" alt="Caricature" onclick="this.classList.toggle('zoomed')">
+            <img src="{{ '/images/caricature.jpg' | relative_url }}" alt="Caricature" class="zoomable">
           </div>
         {% endif %}
       </header>

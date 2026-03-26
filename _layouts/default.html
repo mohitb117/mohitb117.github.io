@@ -39,5 +39,48 @@
       <p>&copy; {{ site.time | date: '%Y' }} Mohit Bhalla. Built with Jekyll.</p>
     </div>
   </footer>
+
+  <script>
+    function toggleAccordion(header) {
+      const item = header.parentElement;
+      const wasOpen = item.classList.contains('open');
+      
+      document.querySelectorAll('.accordion-item').forEach(function(i) {
+        i.classList.remove('open');
+      });
+      
+      if (!wasOpen) {
+        item.classList.add('open');
+      }
+    }
+    
+    function toggleShowMore(btn) {
+      const content = btn.parentElement;
+      const collapsibles = content.querySelectorAll('.testimonial-item.collapsible');
+      const isShowing = collapsibles[0].classList.contains('show');
+      
+      collapsibles.forEach(function(item) {
+        item.classList.toggle('show');
+      });
+      
+      btn.textContent = isShowing ? 'Show more ▼' : 'Show less ▲';
+    }
+    
+    document.addEventListener('click', function(e) {
+      if (e.target.classList.contains('zoomable')) {
+        e.target.classList.toggle('zoomed');
+      } else if (e.target.classList.contains('zoomed')) {
+        e.target.classList.remove('zoomed');
+      }
+    });
+    
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape') {
+        document.querySelectorAll('.zoomed').forEach(function(el) {
+          el.classList.remove('zoomed');
+        });
+      }
+    });
+  </script>
 </body>
 </html>

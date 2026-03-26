@@ -22,7 +22,7 @@ permalink: /blog/
     {% assign all_tags = all_tags | sort %}
 
     <div class="blog-caricature">
-      <img src="{{ '/images/caricature.jpg' | relative_url }}" alt="Caricature" onclick="this.classList.toggle('zoomed')">
+      <img src="{{ '/images/caricature.jpg' | relative_url }}" alt="Caricature" class="zoomable">
     </div>
 
     {% if all_tags.size > 0 %}
@@ -42,7 +42,7 @@ permalink: /blog/
       <a href="{{ featured_post.url | relative_url }}" class="featured-post-link">
         <div class="featured-post-image">
           {% if featured_post.image %}
-            <img src="{{ featured_post.image | relative_url }}" alt="{{ featured_post.title }}">
+            <img src="{{ featured_post.image | relative_url }}" alt="{{ featured_post.title }}" class="zoomable">
           {% endif %}
           <span class="featured-badge">Latest Post</span>
           <div class="featured-post-overlay">
@@ -83,7 +83,7 @@ permalink: /blog/
             <a href="{{ post.url | relative_url }}" class="post-card">
               {% if post.image %}
                 <div class="post-card-image">
-                  <img src="{{ post.image | relative_url }}" alt="{{ post.title }}">
+                  <img src="{{ post.image | relative_url }}" alt="{{ post.title }}" class="zoomable">
                 </div>
               {% else %}
                 <div class="post-card-image post-card-placeholder">
