@@ -63,12 +63,12 @@ layout: default
       </div>
 
       {% assign related_posts = site.posts | where_exp: "post", "post.url != page.url" %}
-      {% assign related_posts_filtered = "" | split: "," %}
+      {% assign related_posts_filtered = '' | split: '' %}
       {% for post in related_posts %}
         {% for tag in page.tags %}
           {% if post.tags contains tag %}
             {% unless related_posts_filtered contains post %}
-              {% assign related_posts_filtered = related_posts_filtered | concat: post %}
+              {% assign related_posts_filtered = related_posts_filtered | push: post %}
             {% endunless %}
           {% endif %}
         {% endfor %}
