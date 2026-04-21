@@ -5,7 +5,7 @@ date: 2018-12-01
 author: Mohit Bhalla
 description: "A detailed deep dive into the major architectural challenges, performance optimizations, and advanced Android design patterns I tackled during my years on the Silk team at Amazon."
 tags: ["Amazon", "Android", "FireTV", "Career", "Engineering"]
-image: 
+image: images/infogrphic-silk-tenure.png
 permalink: /blog/engineering-amazon-silk-fire-tv/
 ---
 
