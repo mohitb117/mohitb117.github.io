@@ -1,11 +1,93 @@
-{% assign videos = site.data.portfolio_videos %}
+{% comment %}
+  Dynamic Featured Mobile Engineering Demos Carousel
+  Aggregates demos from:
+  1. site.data.portfolio_videos
+  2. Any blog post containing front matter "demos"
+{% endcomment %}
+
+{% assign videos = "" | split: "" %}
+{% assign seen_ids = "" | split: "" %}
+
+{% for v in site.data.portfolio_videos %}
+  {% assign v_id = v.id %}
+  {% unless seen_ids contains v_id %}
+    {% assign seen_ids = seen_ids | push: v_id %}
+    {% assign videos = videos | push: v %}
+  {% endunless %}
+{% endfor %}
+
+{% for p in site.posts %}
+  {% if p.demos %}
+    {% for d in p.demos %}
+      {% assign d_id = d.id %}
+      {% unless seen_ids contains d_id %}
+        {% assign seen_ids = seen_ids | push: d_id %}
+        {% assign videos = videos | push: d %}
+      {% endunless %}
+    {% endfor %}
+  {% endif %}
+{% endfor %}
+
 {% if videos and videos.size > 0 %}
 {% assign primary_video = videos.first %}
 <div class="device-showcase-container" id="videoShowcase">
+
+  <!-- 1. Top Carousel Bar (Category Filters & Stepper Navigation) -->
+  <div class="carousel-top-bar">
+    <div class="carousel-filters" role="tablist" aria-label="Demo Categories">
+      <button type="button" class="carousel-filter-btn active" onclick="filterDemosByCategory('all', this)">
+        <span>All Demos</span>
+        <span class="filter-count">{{ videos.size }}</span>
+      </button>
+      <button type="button" class="carousel-filter-btn" onclick="filterDemosByCategory('Amazon Care', this)">
+        <span>Amazon Care</span>
+        <span class="filter-count">4</span>
+      </button>
+      <button type="button" class="carousel-filter-btn" onclick="filterDemosByCategory('Fire TV', this)">
+        <span>Fire TV</span>
+        <span class="filter-count">2</span>
+      </button>
+      <button type="button" class="carousel-filter-btn" onclick="filterDemosByCategory('PNNL', this)">
+        <span>PNNL</span>
+        <span class="filter-count">1</span>
+      </button>
+    </div>
+
+    <div class="carousel-stepper-controls">
+      <button type="button" class="carousel-nav-btn" onclick="navigateCarousel(-1)" title="Previous Demo" aria-label="Previous Demo">
+        <span class="material-symbols-outlined">chevron_left</span>
+      </button>
+      <div class="carousel-counter">
+        <span id="currentSlideNum">1</span> / <span id="totalSlideNum">{{ videos.size }}</span>
+      </div>
+      <button type="button" class="carousel-nav-btn" onclick="navigateCarousel(1)" title="Next Demo" aria-label="Next Demo">
+        <span class="material-symbols-outlined">chevron_right</span>
+      </button>
+    </div>
+  </div>
+
+  <!-- 2. Top Indicator Tile: Link to the Actual Blog Post Where Demo is Hosted -->
+  <div class="carousel-blog-banner" id="carouselTopBlogBanner">
+    <div class="carousel-blog-banner-info">
+      <span class="carousel-blog-pill" id="carouselTopPill">
+        <span class="material-symbols-outlined" id="carouselTopPillIcon">menu_book</span>
+        <span id="carouselTopPillText">Featured in Engineering Blog Post</span>
+      </span>
+      <a href="{{ primary_video.post_url | relative_url }}" id="carouselTopPostLink" class="carousel-blog-post-title">
+        {{ primary_video.post_title }}
+      </a>
+    </div>
+    <a href="{{ primary_video.post_url | relative_url }}" id="carouselTopPostActionBtn" class="carousel-blog-read-btn">
+      <span>Read In-Depth Post</span>
+      <span class="material-symbols-outlined">arrow_forward</span>
+    </a>
+  </div>
+
+  <!-- 3. Main Interactive Showcase (Smartphone Mockup + Detail Panel) -->
   <div class="device-showcase-grid">
     <!-- Smartphone Bezel Mockup -->
-    <div class="phone-frame-wrapper">
-      <div class="phone-device">
+    <div class="phone-frame-wrapper" id="phoneFrameWrapper">
+      <div class="phone-device" id="phoneDevice">
         <!-- Top Sensor / Camera Bar -->
         <div class="phone-top-bar">
           <div class="phone-speaker"></div>
@@ -14,7 +96,7 @@
 
         <!-- Phone Screen Content -->
         <div class="phone-screen">
-          <div class="phone-video-wrap">
+          <div class="phone-video-wrap" id="phoneVideoWrap">
             <iframe
               id="activeVideoIframe"
               src="https://www.youtube-nocookie.com/embed/{{ primary_video.id }}?rel=0&modestbranding=1"
@@ -34,11 +116,12 @@
       <div class="phone-reflection"></div>
     </div>
 
-    <!-- Video Info & Interactive Switcher -->
+    <!-- Video Info Panel -->
     <div class="video-info-panel">
       <div class="video-meta-header">
         <span class="video-badge" id="videoBadge">{{ primary_video.badge }}</span>
         <span class="video-year" id="videoYear">{{ primary_video.year }}</span>
+        <span class="video-category-tag" id="videoCategory">{{ primary_video.category }}</span>
       </div>
 
       <h3 class="video-title" id="videoTitle">{{ primary_video.title }}</h3>
@@ -56,54 +139,261 @@
           <span class="material-symbols-outlined">smart_display</span>
           <span>Watch on YouTube</span>
         </a>
+        <a id="videoBlogPostLink" href="{{ primary_video.post_url | relative_url }}" class="btn-video-action btn-video-blog-link">
+          <span class="material-symbols-outlined">menu_book</span>
+          <span>Read Blog Post</span>
+        </a>
       </div>
-
-      <!-- Multiple Video Switcher (If multiple videos present) -->
-      {% if videos.size > 1 %}
-      <div class="video-playlist-switcher">
-        <span class="playlist-label">Select Demo Walkthrough:</span>
-        <div class="playlist-buttons">
-          {% for vid in videos %}
-          <button
-            type="button"
-            class="playlist-btn{% if forloop.first %} active{% endif %}"
-            onclick="switchPortfolioVideo('{{ vid.id }}', '{{ vid.title | escape }}', '{{ vid.subtitle | escape }}', '{{ vid.badge | escape }}', '{{ vid.year | escape }}', '{{ vid.description | escape }}', '{{ vid.url }}', {{ vid.tags | jsonify | escape }}, this)">
-            <span class="material-symbols-outlined">play_circle</span>
-            <span class="playlist-btn-text">{{ vid.title }}</span>
-          </button>
-          {% endfor %}
-        </div>
-      </div>
-      {% endif %}
     </div>
   </div>
+
+  <!-- 4. Bottom Indicators Tray (All Demos with Direct Blog Links) -->
+  <div class="carousel-indicators-section">
+    <div class="carousel-indicators-header">
+      <div class="indicators-title-group">
+        <span class="material-symbols-outlined">video_library</span>
+        <span class="indicators-header-title">Demo Playlist &amp; Blog Article Destinations</span>
+      </div>
+      <div class="indicators-tray-arrows">
+        <button type="button" class="tray-scroll-btn" onclick="scrollIndicatorTray(-280)" title="Scroll Left" aria-label="Scroll Left">
+          <span class="material-symbols-outlined">arrow_back</span>
+        </button>
+        <button type="button" class="tray-scroll-btn" onclick="scrollIndicatorTray(280)" title="Scroll Right" aria-label="Scroll Right">
+          <span class="material-symbols-outlined">arrow_forward</span>
+        </button>
+      </div>
+    </div>
+
+    <div class="carousel-indicators-tray" id="carouselIndicatorsTray">
+      {% for vid in videos %}
+      <div
+        class="carousel-indicator-tile{% if forloop.first %} active{% endif %}"
+        id="indicatorTile-{{ forloop.index0 }}"
+        data-index="{{ forloop.index0 }}"
+        data-category="{{ vid.category }}"
+        onclick="selectDemoByIndex({{ forloop.index0 }}, true)">
+        
+        <div class="indicator-thumb-wrapper">
+          <img
+            src="https://img.youtube.com/vi/{{ vid.id }}/mqdefault.jpg"
+            alt="{{ vid.title }}"
+            class="indicator-thumb-img"
+            loading="lazy">
+          <span class="indicator-index-pill">{{ forloop.index | prepend: '0' | slice: -2, 2 }}</span>
+          {% if vid.type == 'short' %}
+          <span class="indicator-type-pill short-badge">Short</span>
+          {% else %}
+          <span class="indicator-type-pill">16:9</span>
+          {% endif %}
+          <div class="indicator-playing-overlay">
+            <span class="material-symbols-outlined">play_circle</span>
+            <span class="playing-text">PLAYING</span>
+          </div>
+        </div>
+
+        <div class="indicator-tile-body">
+          <div class="indicator-badge-row">
+            <span class="indicator-badge">{{ vid.badge }}</span>
+            <span class="indicator-year">{{ vid.year }}</span>
+          </div>
+          <h4 class="indicator-title">{{ vid.title }}</h4>
+
+          <!-- Small Tile / Link to the Actual Blog Post Where it is Hosted -->
+          <div class="indicator-blog-link-wrapper">
+            {% if vid.post_url and vid.post_url != '' %}
+            <a
+              href="{{ vid.post_url | relative_url }}"
+              class="indicator-blog-link-tile"
+              title="Read blog post: {{ vid.post_title }}"
+              onclick="event.stopPropagation();">
+              <span class="material-symbols-outlined">article</span>
+              <span class="indicator-blog-link-label">Read Blog Post</span>
+              <span class="material-symbols-outlined external-chevron">north_east</span>
+            </a>
+            {% else %}
+            <span class="indicator-standalone-pill">
+              <span class="material-symbols-outlined">workspace_premium</span>
+              <span>DOE Award</span>
+            </span>
+            {% endif %}
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+
 </div>
 
+<!-- 5. Interactive Carousel Controller -->
 <script>
-  function switchPortfolioVideo(id, title, subtitle, badge, year, desc, url, tags, btn) {
-    const iframe = document.getElementById('activeVideoIframe');
-    if (iframe) {
-      iframe.src = 'https://www.youtube-nocookie.com/embed/' + id + '?rel=0&autoplay=1&modestbranding=1';
-      iframe.title = title;
-    }
-    document.getElementById('videoTitle').textContent = title;
-    document.getElementById('videoSubtitle').textContent = subtitle;
-    document.getElementById('videoBadge').textContent = badge;
-    document.getElementById('videoYear').textContent = year;
-    document.getElementById('videoDesc').textContent = desc;
-    document.getElementById('videoDirectLink').href = url;
+  (function() {
+    const demosData = [
+      {% for vid in videos %}
+      {
+        id: {{ vid.id | jsonify }},
+        title: {{ vid.title | jsonify }},
+        subtitle: {{ vid.subtitle | jsonify }},
+        badge: {{ vid.badge | jsonify }},
+        year: {{ vid.year | jsonify }},
+        category: {{ vid.category | jsonify }},
+        type: {{ vid.type | default: "landscape" | jsonify }},
+        description: {{ vid.description | jsonify }},
+        tags: {{ vid.tags | jsonify }},
+        url: {{ vid.url | default: "https://www.youtube.com/watch?v=" | append: vid.id | jsonify }},
+        post_url: {{ vid.post_url | relative_url | jsonify }},
+        post_title: {{ vid.post_title | jsonify }}
+      }{% unless forloop.last %},{% endunless %}
+      {% endfor %}
+    ];
 
-    // Update tags
-    const tagsContainer = document.getElementById('videoTags');
-    if (tagsContainer && Array.isArray(tags)) {
-      tagsContainer.innerHTML = tags.map(tag =>
-        '<span class="tech-tag"><span class="tech-tag-bullet">•</span>' + tag + '</span>'
-      ).join('');
+    let currentSlide = 0;
+    let currentCategory = 'all';
+
+    function getFilteredIndices() {
+      if (currentCategory === 'all') {
+        return demosData.map((_, i) => i);
+      }
+      return demosData
+        .map((d, i) => (d.category === currentCategory ? i : -1))
+        .filter(i => i !== -1);
     }
 
-    // Toggle active state
-    document.querySelectorAll('.playlist-btn').forEach(b => b.classList.remove('active'));
-    if (btn) btn.classList.add('active');
-  }
+    window.selectDemoByIndex = function(index, autoplay = false) {
+      if (index < 0 || index >= demosData.length) return;
+      currentSlide = index;
+      const demo = demosData[index];
+
+      // 1. Update Video Iframe
+      const iframe = document.getElementById('activeVideoIframe');
+      if (iframe) {
+        iframe.src = 'https://www.youtube-nocookie.com/embed/' + demo.id + '?rel=0&modestbranding=1' + (autoplay ? '&autoplay=1' : '');
+        iframe.title = demo.title;
+      }
+
+      // Handle vertical Short mode on phone screen
+      const phoneDevice = document.getElementById('phoneDevice');
+      const phoneVideoWrap = document.getElementById('phoneVideoWrap');
+      if (demo.type === 'short') {
+        if (phoneDevice) phoneDevice.classList.add('short-video-mode');
+        if (phoneVideoWrap) phoneVideoWrap.classList.add('short-aspect');
+      } else {
+        if (phoneDevice) phoneDevice.classList.remove('short-video-mode');
+        if (phoneVideoWrap) phoneVideoWrap.classList.remove('short-aspect');
+      }
+
+      // 2. Update Details Panel
+      const badge = document.getElementById('videoBadge');
+      const year = document.getElementById('videoYear');
+      const category = document.getElementById('videoCategory');
+      const title = document.getElementById('videoTitle');
+      const subtitle = document.getElementById('videoSubtitle');
+      const desc = document.getElementById('videoDesc');
+      const directLink = document.getElementById('videoDirectLink');
+      const blogBtn = document.getElementById('videoBlogPostLink');
+
+      if (badge) badge.textContent = demo.badge;
+      if (year) year.textContent = demo.year;
+      if (category) category.textContent = demo.category || '';
+      if (title) title.textContent = demo.title;
+      if (subtitle) subtitle.textContent = demo.subtitle;
+      if (desc) desc.textContent = demo.description;
+      if (directLink) directLink.href = demo.url;
+
+      // Update Tech Tags
+      const tagsContainer = document.getElementById('videoTags');
+      if (tagsContainer && Array.isArray(demo.tags)) {
+        tagsContainer.innerHTML = demo.tags.map(t =>
+          '<span class="tech-tag"><span class="tech-tag-bullet">•</span>' + t + '</span>'
+        ).join('');
+      }
+
+      // 3. Update Top Blog Post Banner & Panel Button
+      const topBanner = document.getElementById('carouselTopBlogBanner');
+      const topLink = document.getElementById('carouselTopPostLink');
+      const topAction = document.getElementById('carouselTopPostActionBtn');
+      const topPillText = document.getElementById('carouselTopPillText');
+      const topPillIcon = document.getElementById('carouselTopPillIcon');
+
+      const hasBlog = demo.post_url && demo.post_url.trim() !== '' && demo.post_url !== '/';
+
+      if (hasBlog) {
+        if (topBanner) topBanner.classList.remove('standalone-mode');
+        if (topPillText) topPillText.textContent = 'Featured in Engineering Blog Post';
+        if (topPillIcon) topPillIcon.textContent = 'menu_book';
+        if (topLink) {
+          topLink.textContent = demo.post_title || 'Read In-Depth Engineering Blog Post';
+          topLink.href = demo.post_url;
+        }
+        if (topAction) {
+          topAction.style.display = 'inline-flex';
+          topAction.href = demo.post_url;
+        }
+        if (blogBtn) {
+          blogBtn.style.display = 'inline-flex';
+          blogBtn.href = demo.post_url;
+        }
+      } else {
+        if (topBanner) topBanner.classList.add('standalone-mode');
+        if (topPillText) topPillText.textContent = 'Standalone Engineering Showcase';
+        if (topPillIcon) topPillIcon.textContent = 'workspace_premium';
+        if (topLink) {
+          topLink.textContent = '1st Place Champion • US Department of Energy Mobile App Challenge';
+          topLink.removeAttribute('href');
+        }
+        if (topAction) topAction.style.display = 'none';
+        if (blogBtn) blogBtn.style.display = 'none';
+      }
+
+      // 4. Update Indicators Tray & Counter
+      document.querySelectorAll('.carousel-indicator-tile').forEach((tile, i) => {
+        if (i === index) {
+          tile.classList.add('active');
+          tile.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+        } else {
+          tile.classList.remove('active');
+        }
+      });
+
+      const currentNum = document.getElementById('currentSlideNum');
+      if (currentNum) currentNum.textContent = (index + 1);
+    };
+
+    window.navigateCarousel = function(direction) {
+      const indices = getFilteredIndices();
+      if (!indices.length) return;
+      let pos = indices.indexOf(currentSlide);
+      if (pos === -1) pos = 0;
+      let nextPos = (pos + direction + indices.length) % indices.length;
+      window.selectDemoByIndex(indices[nextPos], true);
+    };
+
+    window.filterDemosByCategory = function(category, btn) {
+      currentCategory = category;
+      document.querySelectorAll('.carousel-filter-btn').forEach(b => b.classList.remove('active'));
+      if (btn) btn.classList.add('active');
+
+      document.querySelectorAll('.carousel-indicator-tile').forEach(tile => {
+        const itemCat = tile.getAttribute('data-category');
+        if (category === 'all' || itemCat === category) {
+          tile.style.display = 'flex';
+        } else {
+          tile.style.display = 'none';
+        }
+      });
+
+      const indices = getFilteredIndices();
+      if (indices.length > 0 && !indices.includes(currentSlide)) {
+        window.selectDemoByIndex(indices[0], false);
+      }
+    };
+
+    window.scrollIndicatorTray = function(offset) {
+      const tray = document.getElementById('carouselIndicatorsTray');
+      if (tray) {
+        tray.scrollBy({ left: offset, behavior: 'smooth' });
+      }
+    };
+  })();
 </script>
 {% endif %}

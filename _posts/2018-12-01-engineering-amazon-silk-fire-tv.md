@@ -7,6 +7,25 @@ description: "A detailed deep dive into the major architectural challenges, perf
 tags: ["Amazon", "Android", "FireTV", "Career", "Engineering"]
 image: images/infogrphic-silk-tenure.png
 permalink: /blog/engineering-amazon-silk-fire-tv/
+demos:
+  - id: "xq66Aid3Zvw"
+    title: "Amazon Silk on Fire TV: Browser UI"
+    subtitle: "10-Foot Television Web UX on Chromium"
+    badge: "Fire TV"
+    year: "2016"
+    category: "Fire TV"
+    type: "landscape"
+    description: "Custom Fire TV web browser interface, Leanback tab navigation, and optimized 10-foot television browsing experience engineered on top of Chromium."
+    tags: ["Fire TV", "Chromium", "Leanback Library", "10-Foot UI"]
+  - id: "D00RIkvuwIA"
+    title: "Fire TV Virtual Cursor: Remote Navigation Engine"
+    subtitle: "Asynchronous Cursor Rendering & Heuristic Smoothing"
+    badge: "Fire TV"
+    year: "2017"
+    category: "Fire TV"
+    type: "landscape"
+    description: "Novel game-like navigation control scheme using an asynchronous floating overlay, dynamic speed multipliers, and 30-60fps updates for standard TV D-pad remotes."
+    tags: ["Fire TV", "Virtual Cursor", "Heuristics", "Game Algorithms"]
 ---
 
 Between 2015 and 2018, I had the incredible opportunity to serve as the Lead Mobile Developer for the Amazon Silk browser on the Fire TV platform. Building a web browser for a television presents a completely unique set of user experience, memory, and architectural challenges compared to standard mobile apps. Furthermore, because Silk is deeply embedded in the vast Google Chromium codebase, we had to constantly balance Amazon's custom UI needs with complex upstream Chromium integrations.
