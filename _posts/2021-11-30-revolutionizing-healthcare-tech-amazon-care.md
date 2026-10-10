@@ -5,6 +5,43 @@ date: 2021-11-30 09:00:00 -0800
 categories: [Career, Engineering, Android]
 tags: [Amazon Care, Android, Kotlin, Healthcare, WebRTC, Chime SDK, Engineering Leadership]
 image: images/amazon-care-blog.png
+demos:
+  - id: "COyElffSaxs"
+    title: "Amazon Care: End-to-End Telehealth Callback"
+    subtitle: "Provider Queueing & Automated Dispatch Flow"
+    badge: "Amazon Care"
+    year: "2019"
+    category: "Amazon Care"
+    type: "landscape"
+    description: "End-to-end walkthrough of patient consultation queuing and automated provider rendezvous architecture."
+    tags: ["Android", "Kotlin", "WebRTC", "Telehealth"]
+  - id: "bGq9uFefcPY"
+    title: "WebRTC Real-Time Telemetry & Quality Engine"
+    subtitle: "US Patent US11038933B1 • Dynamic Quality Adaptation"
+    badge: "US Patent"
+    year: "2020"
+    category: "Amazon Care"
+    type: "short"
+    description: "Live telemetry overlay and dynamic bandwidth adaptation algorithms monitoring audio/video packet loss and jitter."
+    tags: ["WebRTC", "Telemetry", "US Patent"]
+  - id: "DqM70l8SU68"
+    title: "TextureViews vs SurfaceViews: Rounded Corners"
+    subtitle: "Hardware Layer Clipping Optimization"
+    badge: "Android UI"
+    year: "2020"
+    category: "Amazon Care"
+    type: "short"
+    description: "Solving Android hardware layer clipping limitations by migrating video view surfaces to TextureViews."
+    tags: ["TextureView", "SurfaceView", "Android Graphics"]
+  - id: "eYIFfLZvmyg"
+    title: "Smooth Video Animations & PiP Transitions"
+    subtitle: "Picture-in-Picture & Fluid In-App Resizing"
+    badge: "Amazon Care"
+    year: "2020"
+    category: "Amazon Care"
+    type: "landscape"
+    description: "Fluid view transitions and Picture-in-Picture resizing during live calls without frame drops or hardware surface re-allocation."
+    tags: ["Picture-in-Picture", "Chime SDK", "Android Animations"]
 ---
 
 In 2018, after briefly working on improving the memory footprint for the Amazon Flex (Rabbit) app, I transitioned to the Amazon Care (PH7-Tangelo) team. I was incredibly passionate about the healthcare space and wanted to help Amazon cross the finish line on an initiative that could solve real-world problems and genuinely improve people's quality of life.
