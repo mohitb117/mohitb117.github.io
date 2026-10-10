@@ -13,11 +13,49 @@ Between 2015 and 2018, I had the incredible opportunity to serve as the Lead Mob
 
 Here is a detailed deep dive into the major architectural challenges, performance optimizations, and advanced Android design patterns I tackled during my years on the Silk team.
 
+## Living Room Web UX: Silk on Fire TV in Action
+
+Before diving into the underlying subsystems, here is a live walkthrough of the Silk on Fire TV user experience, demonstrating the custom tab navigation, Leanback UI integration, and 10-foot television browsing interface running on top of Chromium:
+
+<div class="post-video-card">
+  <div class="post-video-wrapper">
+    <iframe src="https://www.youtube-nocookie.com/embed/xq66Aid3Zvw?rel=0" title="Amazon Silk on Fire TV Browser UI UX" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+  </div>
+  <div class="post-video-meta">
+    <div class="post-video-meta-top">
+      <span class="post-video-badge">Browser UI Demo</span>
+      <a href="https://youtu.be/xq66Aid3Zvw" target="_blank" rel="noopener noreferrer" class="post-video-link">
+        <span class="material-symbols-outlined">open_in_new</span>
+        <span>Watch on YouTube</span>
+      </a>
+    </div>
+    <h4 class="post-video-title">Amazon Silk on Fire TV: Browser UI &amp; Living Room Experience</h4>
+    <p class="post-video-description">Demonstrating the optimized living room browser interface, tab navigation, and seamless 10-foot TV experience engineered for Fire TV devices.</p>
+  </div>
+</div>
+
 ## The Virtual Cursor (v2.0): A Game-Like Approach to TV Navigation
 
 One of my proudest early achievements was designing the first iteration of the Silk Home Menu and a novel navigation control scheme from the ground up. Initially, controlling a web browser with a standard TV D-pad remote was janky; using constant speed was too slow, and relying on actual screen coordinates meant the cursor speed varied with the main thread's latency. 
 
 Competing against and beating implementations from L6 SDEs, I took a step back and applied a design pattern typically used for smooth graphical output in games. I created a floating overlay that only activated when the Activity was in a resumed state, using heuristics to estimate where the cursor was going. Instead of relying on the main UI thread, I drew the cursor asynchronously using the Android Animation framework. To solve the accuracy versus speed problem, I built in dynamic speed multipliers, similar to mouse cursor acceleration curves. This approach delivered a consistent 30-60fps drawing update with minimal latency, turning the Virtual Cursor into a major differentiating component of Silk on Fire TV.
+
+<div class="post-video-card">
+  <div class="post-video-wrapper">
+    <iframe src="https://www.youtube-nocookie.com/embed/D00RIkvuwIA?rel=0" title="Fire TV Virtual Cursor Demo" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+  </div>
+  <div class="post-video-meta">
+    <div class="post-video-meta-top">
+      <span class="post-video-badge">Virtual Cursor Demo</span>
+      <a href="https://www.youtube.com/watch?v=D00RIkvuwIA" target="_blank" rel="noopener noreferrer" class="post-video-link">
+        <span class="material-symbols-outlined">open_in_new</span>
+        <span>Watch on YouTube</span>
+      </a>
+    </div>
+    <h4 class="post-video-title">Fire TV Virtual Cursor: Remote Navigation Engine</h4>
+    <p class="post-video-description">Walkthrough of the asynchronous cursor rendering architecture, heuristic motion smoothing, and dynamic acceleration curves delivering fluid living room navigation.</p>
+  </div>
+</div>
 
 ## Bridging Frameworks, Removing Dependencies, and App-Wide Theming
 
