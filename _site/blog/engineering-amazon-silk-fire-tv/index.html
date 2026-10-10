@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#ff6b00">
+  <title>Engineering the Living Room Web: Deep Dive into My Time Building Amazon Silk for Fire TV (2015-2018)</title>
+  <meta name="description" content="A detailed deep dive into the major architectural challenges, performance optimizations, and advanced Android design patterns I tackled during my years on the Silk team at Amazon.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/style.css">
+  <script>
+    (function() {
+      const savedTheme = localStorage.getItem('theme');
+      const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+      const theme = savedTheme || (prefersDark ? 'dark' : 'light');
+      document.documentElement.setAttribute('data-theme', theme);
+    })();
+  </script>
+</head>
+<body>
+  
+  
+
+  <div class="app-shell">
+    <nav class="nav-rail" aria-label="Primary">
+      <a href="/" class="nav-rail-brand" aria-label="Home">MB</a>
+      <ul>
+        
+          
+          
+          
+          <li>
+            <a href="/" class="nav-item">
+              <span class="material-symbols-outlined">home</span>
+              <span class="nav-label">Home</span>
+            </a>
+          </li>
+        
+          
+          
+          
+          <li>
+            <a href="/resume/" class="nav-item">
+              <span class="material-symbols-outlined">description</span>
+              <span class="nav-label">Resume</span>
+            </a>
+          </li>
+        
+          
+          
+          
+          <li>
+            <a href="/blog/" class="nav-item active">
+              <span class="material-symbols-outlined">article</span>
+              <span class="nav-label">Blog</span>
+            </a>
+          </li>
+        
+      </ul>
+    </nav>
+
+    <div class="app-column">
+      <header class="top-app-bar">
+        <h1 class="top-app-bar-title">Blog</h1>
+        <div class="top-app-bar-actions">
+          <button id="theme-toggle-btn" class="theme-toggle-btn" onclick="toggleTheme()" aria-label="Toggle light or dark theme" title="Toggle theme">
+            <span class="material-symbols-outlined theme-icon-light">dark_mode</span>
+            <span class="material-symbols-outlined theme-icon-dark">light_mode</span>
+          </button>
+        </div>
+      </header>
+
+      <main class="app-content">
+        
+
+
+<article class="post-page post-page-with-toc">
+  <div class="post-page-layout">
+    <aside class="post-toc-sidebar">
+      <nav class="post-toc" id="toc">
+        <h4 class="post-toc-title">Table of Contents</h4>
+        <ul class="post-toc-list" id="toc-list"></ul>
+      </nav>
+    </aside>
+
+    <div class="post-page-main">
+      <header class="post-page-header">
+        <div class="post-page-header-content">
+          <a href="/blog/" class="back-to-blog">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M19 12H5M12 19l-7-7 7-7"/>
+            </svg>
+            Back to Blog
+          </a>
+          <h1>Engineering the Living Room Web: Deep Dive into My Time Building Amazon Silk for Fire TV (2015-2018)</h1>
+          <div class="post-page-meta">
+            <time datetime="2018-12-01T00:00:00-06:00">December 01, 2018</time>
+            <span class="separator">•</span>
+            <span class="read-time">
+              <svg class="read-time-icon" xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="10"></circle>
+                <polyline points="12 6 12 12 16 14"></polyline>
+              </svg>
+              5 min read
+            </span>
+            
+              <span class="separator">•</span>
+              <span>Mohit Bhalla</span>
+            
+          </div>
+          
+            <div class="post-page-tags">
+              
+                <a href="/blog/tags/#amazon" class="tag tag-link">Amazon</a>
+              
+                <a href="/blog/tags/#android" class="tag tag-link">Android</a>
+              
+                <a href="/blog/tags/#firetv" class="tag tag-link">FireTV</a>
+              
+                <a href="/blog/tags/#career" class="tag tag-link">Career</a>
+              
+                <a href="/blog/tags/#engineering" class="tag tag-link">Engineering</a>
+              
+            </div>
+          
+        </div>
+        
+          <div class="post-page-hero">
+            <img src="/images/infogrphic-silk-tenure.png" alt="Engineering the Living Room Web: Deep Dive into My Time Building Amazon Silk for Fire TV (2015-2018)" class="zoomable">
+          </div>
+        
+      </header>
+
+      <div class="post-page-content" id="post-content">
+        <p>Between 2015 and 2018, I had the incredible opportunity to serve as the Lead Mobile Developer for the Amazon Silk browser on the Fire TV platform. Building a web browser for a television presents a completely unique set of user experience, memory, and architectural challenges compared to standard mobile apps. Furthermore, because Silk is deeply embedded in the vast Google Chromium codebase, we had to constantly balance Amazon’s custom UI needs with complex upstream Chromium integrations.</p>
+
+<p>Here is a detailed deep dive into the major architectural challenges, performance optimizations, and advanced Android design patterns I tackled during my years on the Silk team.</p>
+
+<h2 id="the-virtual-cursor-v20-a-game-like-approach-to-tv-navigation">The Virtual Cursor (v2.0): A Game-Like Approach to TV Navigation</h2>
+
+<p>One of my proudest early achievements was designing the first iteration of the Silk Home Menu and a novel navigation control scheme from the ground up. Initially, controlling a web browser with a standard TV D-pad remote was janky; using constant speed was too slow, and relying on actual screen coordinates meant the cursor speed varied with the main thread’s latency.</p>
+
+<p>Competing against and beating implementations from L6 SDEs, I took a step back and applied a design pattern typically used for smooth graphical output in games. I created a floating overlay that only activated when the Activity was in a resumed state, using heuristics to estimate where the cursor was going. Instead of relying on the main UI thread, I drew the cursor asynchronously using the Android Animation framework. To solve the accuracy versus speed problem, I built in dynamic speed multipliers, similar to mouse cursor acceleration curves. This approach delivered a consistent 30-60fps drawing update with minimal latency, turning the Virtual Cursor into a major differentiating component of Silk on Fire TV.</p>
+
+<h2 id="bridging-frameworks-removing-dependencies-and-app-wide-theming">Bridging Frameworks, Removing Dependencies, and App-Wide Theming</h2>
+
+<p>Because Silk is based on Chromium, our UI resources were constantly changing during upstream merges, as Chromium defaulted to a light color theme while Silk utilized a dark theme. Developers were using a fragile per-resource override model that caused “up-leveling pain” where every upstream merge could delay releases.</p>
+
+<p>I completely refactored this architecture into an app-wide style hierarchy. By utilizing <code class="language-plaintext highlighter-rouge">ContextThemeWrapper</code>, I created a clean inheritance structure that bridged two conflicting UI frameworks—Google’s and Amazon’s—without operational pain. Crucially, this refactor allowed us to drop expensive legacy dependencies like the Fluid library. This resulted in a massive decrease in our “DEX count” (the number of bytecode-level objects in the APK), significantly optimizing our application size. This stable UI hierarchy successfully paved the way for implementing Silk’s highly requested “Dark Mode” feature.</p>
+
+<h2 id="slaying-silks-1-memory-issue-jvm-internals-and-garbage-collection">Slaying Silk’s #1 Memory Issue: JVM Internals and Garbage Collection</h2>
+
+<p>When I joined the team, problems with garbage collection were Silk’s #1 memory issue, frequently leading to unnecessary low-memory kills on constrained TV hardware.</p>
+
+<p>Diving deep into the Java Virtual Machine internals, I identified that a widely mis-used “Singleton” design pattern was holding strong references to objects and severely hampering the garbage collector. I completely redesigned this underlying code—which had been originally written by a senior SDE III—by removing the strong references and replacing the Singleton with a Dependency Injection pattern. By passing objects as parameters rather than holding them in memory globally, we eliminated the object leaks and made the entire codebase vastly more testable.</p>
+
+<h2 id="enabling-multi-dexing-for-fire-tv">Enabling Multi-Dexing for Fire TV</h2>
+
+<p>To build the Silk Home Menu, we wanted to utilize the FireOS Leanback Library to avoid re-implementing complex UI code from scratch, and we needed to support the new Ivy release Launcher. However, adding this dependency blew past Android’s technical build limits, causing our single-release binary to fail.</p>
+
+<p>I drove the major architectural decision to enable Multi-Dexing specifically for Fire TV. This was a major application architecture change that required convincing senior engineers to ship different binaries across different device targets. I further optimized these new binaries using Proguard—a step that even upstream Chromium wasn’t doing—and designed a mitigation plan to prevent any app start-up regressions caused by loading multiple DEX segments into memory.</p>
+
+<h2 id="intent-handling-for-chromepublic-on-fireos">Intent Handling for ChromePublic on FireOS</h2>
+
+<p>Chromium’s <code class="language-plaintext highlighter-rouge">ChromePublic</code> default intent handling expected the platform to be standard Android, utilizing API bindings from Google Play Services. Because FireOS does not have Google Play Services, Silk’s intent handling behavior would completely break when absorbing upstream Chromium code.</p>
+
+<p>I implemented an Intent Handling Interception architecture utilizing a proxy abstraction and a decorator design pattern. The decorator pattern allowed us to access package-level methods within the Chromium codebase directly, without modifying the Chromium source code itself, thereby minimizing future operational burden. The proxy pattern allowed Silk to pre-process incoming intents and determine if they were FireOS specific, seamlessly bridging Chromium’s logic with FireOS deep links.</p>
+
+<h2 id="operational-excellence-tooling-testing-and-dashboards">Operational Excellence: Tooling, Testing, and Dashboards</h2>
+
+<p>Beyond application architecture, I focused heavily on the operational health and developer experience of the Silk team:</p>
+
+<ul>
+  <li>
+    <p><strong>Static Analysis (FindBugs):</strong> After discovering via a COE that a crash in the v47 Silk Downloads UI could have been prevented, I integrated the FindBugs static analysis tool into our continuous build system, creating strict build-breakers for new violations to ensure we stopped shipping preventable UI crashes.</p>
+  </li>
+  <li>
+    <p><strong>Eradicating Flaky Tests:</strong> I identified that dozens of our tests were falsely reporting because they were asserting UI components on the wrong thread (the instrumentation thread instead of the UI thread). I refactored the <code class="language-plaintext highlighter-rouge">AmazonCriteriaHelper</code>, fixing inherent flakiness across more than 65 instrumentation test suites down to zero.</p>
+  </li>
+  <li>
+    <p><strong>Automated Metrics Dashboards:</strong> To catch regressions in binary size, I updated the Forge Builder to emit APK size and Dex count metrics, tying them to monitor portal alarms that would automatically cut SEV-3 tickets to the on-call engineer. I also replicated the CI build publishing to KOTA for the Fire TV APK, automating a manual deployment process and saving 30 minutes to an hour of developer time per release.</p>
+  </li>
+  <li>
+    <p><strong>Modernizing Developer Tooling:</strong> Many developers on the team were still using legacy text editors like Eclipse, Vim, or Emacs. I actively mentored the team to migrate to IntelliJ and Android Studio, training them on crucial profiling tools like DDMS, HierarchyViewer, and the Layout Inspector to improve overall productivity and code quality.</p>
+  </li>
+</ul>
+
+<h2 id="conclusion">Conclusion</h2>
+
+<p>My three years on the Silk team were a masterclass in Android performance, deep diving into complex open-source codebases, and insisting on the highest engineering standards. By focusing on the long-term architecture of the application, I was able to help transform Silk into a highly performant, stable, and engaging web experience for the living room.</p>
+
+<hr />
+
+<p>What questions do you have about building browser technology for constrained TV hardware? Let’s connect on <a href="https://www.linkedin.com/in/mohitb117">LinkedIn</a>.</p>
+
+      </div>
+
+      
+      
+      
+
+      
+        <div class="related-posts">
+          <h3 class="related-posts-title">Related Posts</h3>
+          <div class="related-posts-grid">
+            
+              <a href="/blog/ai-multitasking-empowering-exhausting/" class="related-post-card">
+                <h4>AI Multitasking: Empowering and Exhausting</h4>
+                <p>How AI tools are making us more productive but also creating new forms of burnout. Finding balance in the age of AI assistance.</p>
+              </a>
+            
+              <a href="/blog/welcome-to-llm-assisted-merging/" class="related-post-card">
+                <h4>Welcome to My New Blog</h4>
+                <p>Thoughts on software engineering, mobile development, LLM coding tools, and what the future looks like on the other side of the AI revolution.</p>
+              </a>
+            
+              <a href="/revolutionizing-healthcare-tech-amazon-care/" class="related-post-card">
+                <h4>Revolutionizing Healthcare Tech: Building Amazon Care from the Ground Up (2018–2021)</h4>
+                <p></p>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      <div class="comments-section">
+        <h3 class="comments-title">Comments</h3>
+        <div id="comments">
+          <script src="https://utteranc.es/client.js"
+                  repo="mohitb117/mohitb117.github.io"
+                  issue-term="pathname"
+                  label="comment"
+                  theme="github-light"
+                  crossorigin="anonymous"
+                  async>
+          </script>
+        </div>
+      </div>
+
+      <footer class="post-page-footer">
+        <div class="share-section">
+          <span class="share-label">Share this post</span>
+          <div class="share-links">
+            <a href="https://twitter.com/intent/tweet?text=Engineering+the+Living+Room+Web%3A+Deep+Dive+into+My+Time+Building+Amazon+Silk+for+Fire+TV+%282015-2018%29&url=https://mohitb117.github.io/blog/engineering-amazon-silk-fire-tv/" target="_blank" class="share-link twitter" title="Share on Twitter">
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+            </a>
+            <a href="https://www.linkedin.com/sharing/share-offsite/?url=https://mohitb117.github.io/blog/engineering-amazon-silk-fire-tv/" target="_blank" class="share-link linkedin" title="Share on LinkedIn">
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+            </a>
+            <a href="mailto:?subject=Engineering+the+Living+Room+Web%3A+Deep+Dive+into+My+Time+Building+Amazon+Silk+for+Fire+TV+%282015-2018%29&body=Check out this post: https://mohitb117.github.io/blog/engineering-amazon-silk-fire-tv/" class="share-link email" title="Share via Email">
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+            </a>
+          </div>
+        </div>
+        <a href="/blog/" class="back-to-blog-bottom">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M19 12H5M12 19l-7-7 7-7"/>
+          </svg>
+          Back to Blog
+        </a>
+      </footer>
+    </div>
+  </div>
+</article>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const content = document.getElementById('post-content');
+    const tocList = document.getElementById('toc-list');
+    const toc = document.getElementById('toc');
+    
+    if (!content || !tocList) return;
+
+    const headings = content.querySelectorAll('h2, h3');
+    
+    if (headings.length < 2) {
+      toc.style.display = 'none';
+      return;
+    }
+
+    headings.forEach(function(heading, index) {
+      if (!heading.id) {
+        heading.id = 'heading-' + index;
+      }
+      
+      const li = document.createElement('li');
+      const a = document.createElement('a');
+      a.href = '#' + heading.id;
+      a.textContent = heading.textContent;
+      
+      if (heading.tagName === 'H3') {
+        a.classList.add('toc-h3');
+      }
+      
+      li.appendChild(a);
+      tocList.appendChild(li);
+    });
+
+    const tocLinks = tocList.querySelectorAll('a');
+    tocLinks.forEach(function(link) {
+      link.addEventListener('click', function(e) {
+        e.preventDefault();
+        const targetId = this.getAttribute('href').substring(1);
+        const target = document.getElementById(targetId);
+        if (target) {
+          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      });
+    });
+
+    const observer = new IntersectionObserver(function(entries) {
+      entries.forEach(function(entry) {
+        if (entry.isIntersecting) {
+          tocLinks.forEach(function(link) {
+            link.classList.remove('active');
+          });
+          const activeLink = tocList.querySelector('a[href="#' + entry.target.id + '"]');
+          if (activeLink) {
+            activeLink.classList.add('active');
+          }
+        }
+      });
+    }, { rootMargin: '-100px 0px -66% 0px' });
+
+    headings.forEach(function(heading) {
+      observer.observe(heading);
+    });
+  });
+</script>
+
+      </main>
+
+      <p class="app-caption">&copy; 2026 Mohit Bhalla</p>
+
+      <nav class="bottom-nav" aria-label="Primary">
+        
+          
+          
+          
+          <a href="/" class="nav-item">
+            <span class="material-symbols-outlined">home</span>
+            <span class="nav-label">Home</span>
+          </a>
+        
+          
+          
+          
+          <a href="/resume/" class="nav-item">
+            <span class="material-symbols-outlined">description</span>
+            <span class="nav-label">Resume</span>
+          </a>
+        
+          
+          
+          
+          <a href="/blog/" class="nav-item active">
+            <span class="material-symbols-outlined">article</span>
+            <span class="nav-label">Blog</span>
+          </a>
+        
+      </nav>
+    </div>
+  </div>
+
+  <script>
+    function toggleAccordion(header) {
+      const item = header.parentElement;
+      const wasOpen = item.classList.contains('open');
+
+      document.querySelectorAll('.accordion-item').forEach(function(i) {
+        i.classList.remove('open');
+      });
+
+      if (!wasOpen) {
+        item.classList.add('open');
+      }
+    }
+
+    function toggleShowMore(btn) {
+      const content = btn.parentElement;
+      const collapsibles = content.querySelectorAll('.testimonial-item.collapsible');
+      const isShowing = collapsibles[0].classList.contains('show');
+
+      collapsibles.forEach(function(item) {
+        item.classList.toggle('show');
+      });
+
+      btn.textContent = isShowing ? 'Show more ▼' : 'Show less ▲';
+    }
+
+    document.addEventListener('click', function(e) {
+      if (e.target.classList.contains('zoomable')) {
+        e.target.classList.toggle('zoomed');
+      } else if (e.target.classList.contains('zoomed')) {
+        e.target.classList.remove('zoomed');
+      }
+    });
+
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape') {
+        document.querySelectorAll('.zoomed').forEach(function(el) {
+          el.classList.remove('zoomed');
+        });
+      }
+    });
+
+    function toggleTheme() {
+      const currentTheme = document.documentElement.getAttribute('data-theme') || 'light';
+      const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+      document.documentElement.setAttribute('data-theme', newTheme);
+      localStorage.setItem('theme', newTheme);
+      
+      const themeMeta = document.querySelector('meta[name="theme-color"]');
+      if (themeMeta) {
+        themeMeta.setAttribute('content', newTheme === 'dark' ? '#0e1117' : '#ff6b00');
+      }
+    }
+  </script>
+</body>
+</html>

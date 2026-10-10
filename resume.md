@@ -1,387 +1,706 @@
 ---
 layout: default
-title: Resume
+title: Resume & Portfolio
 permalink: /resume/
 ---
 
-<style>
-  .header-container {
-    display: flex;
-    align-items: center;
-    gap: 25px;
-    margin-bottom: 15px;
-    padding-bottom: 15px;
-    border-bottom: 3px solid transparent;
-    background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 50%, #fef3c7 100%);
-    padding: 20px;
-    border-radius: 12px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-  }
-
-  .profile-photo-resume {
-    display: flex;
-    gap: 10px;
-    flex-shrink: 0;
-  }
-
-  .profile-photo-resume img {
-    width: 140px;
-    height: 140px;
-    border-radius: 50%;
-    border: 4px solid #2563eb;
-    box-shadow: 0 6px 12px rgba(37, 99, 235, 0.25);
-  }
-
-  .header-info h1 {
-    color: #1a1a1a;
-    font-size: 2.8em;
-    margin: 0 0 10px 0;
-    font-weight: 700;
-    background: linear-gradient(135deg, #2563eb 0%, #7c3aed 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-  }
-
-  .contact-info {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 8px;
-  }
-
-  .contact-item {
-    display: flex;
-    align-items: center;
-    gap: 6px;
-    padding: 6px 10px;
-    background: white;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
-  }
-
-  .contact-info a {
-    color: #2563eb;
-    text-decoration: none;
-    font-weight: 500;
-  }
-
-  h2 {
-    color: #2563eb !important;
-    font-size: 1.4em;
-    margin-top: 0.8em;
-    margin-bottom: 0.4em;
-    padding-bottom: 4px;
-    border-bottom: 2px solid #2563eb;
-    font-weight: 600;
-  }
-
-  h3 {
-    color: #1a1a1a !important;
-    font-size: 1.05em;
-    margin-top: 0.6em;
-    margin-bottom: 0.2em;
-    font-weight: 600;
-  }
-
-  .job-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: 8px;
-    margin-bottom: 4px;
-    margin-top: 0.6em;
-  }
-
-  .job-header-left {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-  }
-
-  .company-logo {
-    width: 32px;
-    height: 32px;
-  }
-
-  .company-logo img {
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
-  }
-
-  .job-title {
-    color: #059669;
-    font-weight: 700;
-  }
-
-  .company-name {
-    color: #1f2937;
-    font-weight: 700;
-    font-size: 1.1em;
-  }
-
-  .date-range {
-    color: #6b7280;
-    font-style: italic;
-    font-size: 0.95em;
-  }
-
-  .job-separator {
-    color: #d1d5db;
-    margin: 0 8px;
-  }
-
-  .skills-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 10px;
-    margin: 0.6em 0;
-  }
-
-  .skill-category {
-    background: #f9fafb;
-    padding: 10px;
-    border-radius: 6px;
-    border-left: 4px solid #2563eb;
-  }
-
-  .skill-category-title {
-    color: #1f2937;
-    font-weight: 700;
-    display: block;
-    margin-bottom: 4px;
-  }
-
-  .education-entry {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    margin-bottom: 0.4em;
-  }
-
-  .education-logo {
-    width: 28px;
-    height: 28px;
-  }
-
-  .education-logo img {
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
-  }
-
-  ul {
-    margin-top: 0.2em;
-    margin-bottom: 0.4em;
-    padding-left: 18px;
-  }
-
-  li {
-    margin-bottom: 0.2em;
-    line-height: 1.4;
-    color: #374151;
-  }
-
-  table {
-    border-collapse: separate;
-    border-spacing: 0 8px;
-    width: 100%;
-  }
-
-  th { display: none; }
-
-  td {
-    padding: 15px;
-    background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
-    border-radius: 10px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-    border-left: 5px solid #2563eb;
-  }
-
-  td strong { color: #1a1a1a !important; }
-  td a { color: #2563eb !important; }
-
-  tr:first-child td { border-left-color: #f59e0b; background: linear-gradient(135deg, #fffbeb 0%, #fef3c7 100%); }
-  tr:nth-child(2) td { border-left-color: #0ea5e9; background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%); }
-  tr:nth-child(3) td { border-left-color: #8b5cf6; background: linear-gradient(135deg, #faf5ff 0%, #f3e8ff 100%); }
-  tr:nth-child(4) td { border-left-color: #10b981; background: linear-gradient(135deg, #f0fdf4 0%, #dcfce7 100%); }
-  tr:nth-child(5) td { border-left-color: #ec4899; background: linear-gradient(135deg, #fdf2f8 0%, #fce7f3 100%); }
-
-  @media (max-width: 768px) {
-    .header-container { flex-direction: column; text-align: center; }
-    h1 { font-size: 2.2em; }
-    .contact-info { grid-template-columns: 1fr; }
-    .skills-grid { grid-template-columns: 1fr; }
-    .job-header { flex-direction: column; align-items: flex-start; }
-  }
-</style>
-
-<div class="header-container">
-  <div class="profile-photo-resume">
-    <img src="https://images.weserv.nl/?url=avatars.githubusercontent.com/u/3359983?v=4&h=300&w=300&fit=cover&mask=circle" alt="Mohit Bhalla">
-    <img src="{{ '/images/profile-linkedin.jpg' | relative_url }}" alt="Mohit Bhalla">
-  </div>
-  <div class="header-info">
-    <h1>Mohit Bhalla</h1>
-    <div class="contact-info">
-      <div class="contact-item">
-        <span>&#128205;</span>
-        <span class="contact-text">Nashville, TN</span>
+<!-- 1. Executive Profile & Command Deck -->
+<div class="resume-hero-card">
+  <div class="resume-hero-top">
+    <div class="profile-avatar-wrapper">
+      <img src="https://images.weserv.nl/?url=avatars.githubusercontent.com/u/3359983?v=4&h=300&w=300&fit=cover&mask=circle" alt="Mohit Bhalla" class="profile-avatar-img">
+      <div class="status-badge-pulse" title="Open to Staff/Lead Android Roles & Advisory"></div>
+    </div>
+    
+    <div class="resume-hero-info">
+      <div class="resume-name-row">
+        <h1>Mohit Bhalla</h1>
       </div>
-      <div class="contact-item">
-        <span>&#128187;</span>
-        <a href="https://github.com/mohitb117">GitHub</a>
+      <div class="resume-title-subtitle">Senior Software Engineer &bull; Mobile Technical Lead</div>
+      <div class="resume-terminal-tag">
+        <span class="term-prompt">&gt;</span> adb shell am start -n com.mohit.resume/.TechLead
       </div>
-      <div class="contact-item">
-        <span>&#128279;</span>
-        <a href="https://www.linkedin.com/in/mohitb117">LinkedIn</a>
+
+      <div class="resume-contact-strip">
+        <span class="contact-pill">
+          <span class="material-symbols-outlined">location_on</span>
+          <span>Nashville, TN</span>
+        </span>
+        <a href="https://github.com/mohitb117" target="_blank" rel="noopener noreferrer" class="contact-pill">
+          <span class="material-symbols-outlined">code</span>
+          <span>GitHub</span>
+        </a>
+        <a href="https://www.linkedin.com/in/mohitb117" target="_blank" rel="noopener noreferrer" class="contact-pill">
+          <span class="material-symbols-outlined">link</span>
+          <span>LinkedIn</span>
+        </a>
+        <a href="https://topmate.io/mohitb117" target="_blank" rel="noopener noreferrer" class="contact-pill">
+          <span class="material-symbols-outlined">psychology</span>
+          <span>Topmate Mentorship</span>
+        </a>
+        <a href="mailto:mohitb117@gmail.com" class="contact-pill">
+          <span class="material-symbols-outlined">mail</span>
+          <span>Email</span>
+        </a>
+        <a href="#pdf-viewer" onclick="focusPdfViewer(); return true;" class="contact-pill contact-pill-pdf" title="View Inline PDF Resume">
+          <span class="material-symbols-outlined">picture_as_pdf</span>
+          <span>Resume PDF</span>
+        </a>
       </div>
     </div>
   </div>
-</div>
 
-## Professional Experience
+  <div class="resume-summary-box">
+    <strong>Executive Summary:</strong> Senior Software Engineer and Mobile Technical Lead with <strong>10+ years of experience</strong> architecting native Android applications and distributed mobile-backend systems at massive scale (<strong>DoorDash</strong>, <strong>Amazon</strong>). Specialist in <strong>Jetpack Compose</strong>, <strong>Server-Driven UI (SDUI)</strong>, real-time <strong>WebRTC</strong> media (<strong>US Patent US11038933B1</strong>), and cross-platform iOS/Android parity. Track record of accelerating developer velocity, instituting screenshot testing pipelines, driving org-wide Kotlin craftsmanship, and mentoring engineers across distributed teams.
+  </div>
 
-<div class="job-header">
-  <div class="job-header-left">
-    <div class="company-logo">
-      <img src="{{ '/images/DoorDash_Logo.svg.png' | relative_url }}" alt="DoorDash">
+  <div class="resume-toolbar">
+    <div class="resume-action-buttons">
+      <a href="#pdf-viewer" onclick="focusPdfViewer(); return true;" class="btn-pdf-resume" title="View Inline PDF Resume">
+        <span class="material-symbols-outlined">picture_as_pdf</span>
+        <span>View PDF Resume</span>
+      </a>
+      <button type="button" class="btn-print-resume" onclick="window.print()" title="Print or save as PDF">
+        <span class="material-symbols-outlined">print</span>
+        <span>Print Page</span>
+      </button>
     </div>
-    <span><span class="company-name">DoorDash - Grocery</span><span class="job-separator">|</span><span class="job-title">Sr. Software Engineer | New Verticals Mobile Tech Lead</span></span>
-  </div>
-  <span class="date-range">Nov '21 - Present (3+ years)</span>
-</div>
-
-**Mobile Consumer Experience** - Serving as Mobile Technical Lead building Android and backend features while leading iOS engineers to architect scalable solutions enabling flexible experimentation driven by backend configurations with minimal mobile changes. Key deliverables serving millions of daily orders: (1) Built Order Confirmation UI flow from scratch to match iOS parity - surface for ETA, order details (pickup/delivery address, items), and ad placements for savings; (2) Architected backend-driven Dynamic Delivery Options framework with backend infrastructure + Android UI logic, led iOS adoption; (3) Migrated 30+ post-checkout features to unified Consumer Android app with split shipment support enabling multi-store order fulfillment; (4) Implemented Cart Redirection (Single/Multi-item) using DoorDash's SDUI framework and Rescheduling UI redesign.
-
-**Observability & Developer Velocity** - Aligned engineering and data analytics teams to enable trustworthy ramp decisions, experiment reads, and incident diagnosis. Led on-call leadership, ops reviews, and incident PMs while improving reliability across the org.
-
-**Engineering Excellence & Mentorship** - Demonstrated org-wide impact through enablement content (Idiomatic Kotlin Code craftsmanship initiative, Jetpack Compose screenshot testing, pre-checkout telemetry consolidation), cross-team RFC reviews, and driving code craftsmanship via organization-wide newsletters and mentoring engineers across Mobile and Backend teams.
-
-<div class="job-header">
-  <div class="job-header-left">
-    <div class="company-logo">
-      <img src="{{ '/images/amazon-care.webp' | relative_url }}" alt="Amazon Care">
+    
+    <div class="resume-jump-links">
+      <a href="#pdf-viewer" onclick="focusPdfViewer(); return true;" class="jump-link-pill">PDF Document</a>
+      <a href="#experience" class="jump-link-pill">Experience</a>
+      <a href="#demos" class="jump-link-pill">Video Demos</a>
+      <a href="#skills" class="jump-link-pill">Skills</a>
+      <a href="#honors" class="jump-link-pill">Patents</a>
+      <a href="#education" class="jump-link-pill">Education</a>
     </div>
-    <span><span class="company-name">Amazon</span><span class="job-separator">|</span><span class="job-title">Software Engineer &rarr; Sr. Software Engineer</span></span>
   </div>
-  <span class="date-range">Dec '15 - Nov '21 (6 years)</span>
 </div>
 
-**Amazon Care (Sr. SDE, Apr '18 - Nov '21)** - Built Audio/Video conferencing capability using WebRTC with real-time quality monitoring ([USPTO Patent US11038933B1](https://patents.google.com/patent/US11038933B1/)). Led Kotlin migration and Coroutines adoption across Android team. Modularized codebase for faster compilation. Built AWS backend infrastructure for high-volume customer metrics.
+<!-- 2. High-Impact Metrics Ribbon -->
+<div class="metrics-ribbon">
+  <div class="metric-tile">
+    <span class="metric-value">10+ Yrs</span>
+    <span class="metric-label">Mobile Architecture</span>
+  </div>
+  <div class="metric-tile">
+    <span class="metric-value">Millions</span>
+    <span class="metric-label">Daily Order Scale</span>
+  </div>
+  <div class="metric-tile">
+    <span class="metric-value">1 Patent</span>
+    <span class="metric-label">US11038933B1 (WebRTC)</span>
+  </div>
+  <div class="metric-tile">
+    <span class="metric-value">1st Place</span>
+    <span class="metric-label">DOE App Challenge</span>
+  </div>
+</div>
 
-**AWS Silk Browser (SDE, Dec '15 - Sept '17)** - Led development of leanback experience for Silk on FireTV including HomeMenu launcher and Optimal Navigational Cursor implementation for web page browsing. Implemented complex Intent Handling for FireTablets/FireTV with improved test coverage. Optimized memory usage and performance issues.
+<!-- 3. Official Resume PDF (Inline Browser Viewer) -->
+<h2 class="resume-section-title" id="pdf-viewer">
+  <span class="material-symbols-outlined">picture_as_pdf</span>
+  <span>Official Resume PDF &bull; 2-Page Executive Document</span>
+</h2>
 
-**Amazon Flex (SDE, Sept '17 - Apr '18)** - Optimized large-scale performance issues and built in-app profiling mechanism for customer-facing features.
-
-<div class="job-header">
-  <div class="job-header-left">
-    <div class="company-logo">
-      <img src="{{ '/images/INRIX_logo.png' | relative_url }}" alt="INRIX">
+<div class="inline-pdf-viewer-card" id="pdfViewerCard">
+  <div class="pdf-viewer-header">
+    <div class="pdf-viewer-title">
+      <span class="material-symbols-outlined">picture_as_pdf</span>
+      <span>Mohit Bhalla &mdash; Simple Resume 2025 (PDF)</span>
     </div>
-    <span><span class="company-name">INRIX Inc.</span><span class="job-separator">|</span><span class="job-title">Software Development Engineer</span></span>
-  </div>
-  <span class="date-range">Oct '14 - Dec '15</span>
-</div>
-
-Android Mobile Development for real-time traffic information delivery platform serving business and consumer markets.
-
-<div class="job-header">
-  <div class="job-header-left">
-    <div class="company-logo">
-      <img src="{{ '/images/PNNL_CENTER_FullColorSMALL.jpg' | relative_url }}" alt="PNNL">
+    <div class="pdf-viewer-controls">
+      <a href="{{ '/assets/mohit_bhalla_resume_2025_simple.pdf' | relative_url }}" target="_blank" rel="noopener noreferrer" class="btn-pdf-control" title="Open full PDF in a new browser tab">
+        <span class="material-symbols-outlined">open_in_new</span>
+        <span>Open Tab</span>
+      </a>
+      <a href="{{ '/assets/mohit_bhalla_resume_2025_simple.pdf' | relative_url }}" download="mohit_bhalla_resume_2025.pdf" class="btn-pdf-control" title="Download PDF document directly">
+        <span class="material-symbols-outlined">download</span>
+        <span>Download</span>
+      </a>
+      <a href="https://github.com/mohitb117/mohitb117/blob/main/mohit_bhalla_resume_2025_simple.pdf" target="_blank" rel="noopener noreferrer" class="btn-pdf-control" title="View Source PDF on GitHub">
+        <span class="material-symbols-outlined">code</span>
+        <span>GitHub</span>
+      </a>
+      <button type="button" class="btn-pdf-control" id="btnTogglePdf" onclick="togglePdfViewer()" title="Collapse / Expand PDF preview">
+        <span class="material-symbols-outlined" id="togglePdfIcon">expand_less</span>
+        <span id="togglePdfText">Collapse</span>
+      </button>
     </div>
-    <span><span class="company-name">Pacific Northwest National Laboratory</span> (US Dept. of Energy) <span class="job-separator">|</span> <span class="job-title">Software Engineering Intern</span></span>
   </div>
-  <span class="date-range">Summer 2013 & 2014</span>
-</div>
 
-Primary developer for Android bio surveillance application using Java EE Framework. Built real-time server-client architecture with push notifications and News Feed. **Won 1st Place** in Mobile App Development Competition among team of 4 interns.
-
----
-
-## Education
-
-<div class="education-entry">
-  <div class="education-logo">
-    <img src="{{ '/images/Syracuse_Orange_logo.svg' | relative_url }}" alt="Syracuse University">
-  </div>
-  <div>
-    <strong>Master of Science in Computer Engineering</strong> | Syracuse University | May 2014 | GPA: 3.55/4.0
+  <div class="pdf-frame-wrapper" id="pdfFrameWrapper">
+    <object data="{{ '/assets/mohit_bhalla_resume_2025_simple.pdf' | relative_url }}" type="application/pdf" class="pdf-embed-object" width="100%" height="100%">
+      <iframe src="{{ '/assets/mohit_bhalla_resume_2025_simple.pdf' | relative_url }}" class="pdf-embed-iframe" width="100%" height="100%" title="Mohit Bhalla Resume PDF">
+        <div class="pdf-fallback-message">
+          <p>Your browser doesn't have an inline PDF plugin.</p>
+          <a href="{{ '/assets/mohit_bhalla_resume_2025_simple.pdf' | relative_url }}" class="btn-pdf-resume" target="_blank" rel="noopener noreferrer">
+            <span class="material-symbols-outlined">download</span>
+            <span>Download Resume PDF</span>
+          </a>
+        </div>
+      </iframe>
+    </object>
   </div>
 </div>
 
-<div class="education-entry">
-  <div class="education-logo">
-    <img src="{{ '/images/GGSIU_logo.svg.png' | relative_url }}" alt="GGSIPU">
+<script>
+  function togglePdfViewer() {
+    var wrapper = document.getElementById('pdfFrameWrapper');
+    var icon = document.getElementById('togglePdfIcon');
+    var text = document.getElementById('togglePdfText');
+    if (!wrapper) return;
+    
+    if (wrapper.classList.contains('collapsed')) {
+      wrapper.classList.remove('collapsed');
+      if (icon) icon.textContent = 'expand_less';
+      if (text) text.textContent = 'Collapse';
+    } else {
+      wrapper.classList.add('collapsed');
+      if (icon) icon.textContent = 'expand_more';
+      if (text) text.textContent = 'Expand PDF';
+    }
+  }
+
+  function focusPdfViewer() {
+    var wrapper = document.getElementById('pdfFrameWrapper');
+    var icon = document.getElementById('togglePdfIcon');
+    var text = document.getElementById('togglePdfText');
+    if (wrapper && wrapper.classList.contains('collapsed')) {
+      wrapper.classList.remove('collapsed');
+      if (icon) icon.textContent = 'expand_less';
+      if (text) text.textContent = 'Collapse';
+    }
+    var section = document.getElementById('pdf-viewer');
+    if (section) {
+      section.scrollIntoView({ behavior: 'smooth' });
+    }
+  }
+</script>
+
+<!-- 4. Featured Mobile Engineering Demos & Smartphone Mockup -->
+<h2 class="resume-section-title" id="demos">
+  <span class="material-symbols-outlined">smart_display</span>
+  <span>Featured Mobile Engineering Demos</span>
+</h2>
+
+{% include device-mockup.html %}
+
+<!-- 5. Professional Experience (Executive Tech CV Format) -->
+<h2 class="resume-section-title" id="experience">
+  <span class="material-symbols-outlined">work</span>
+  <span>Professional Experience</span>
+</h2>
+
+<div class="experience-cards-list">
+
+  <!-- DoorDash -->
+  <div class="experience-card">
+    <div class="experience-card-header">
+      <div class="experience-logo-meta">
+        <div class="company-avatar-box">
+          <img src="{{ '/images/DoorDash_Logo.svg.png' | relative_url }}" alt="DoorDash">
+        </div>
+        <div class="experience-title-group">
+          <h3>Sr. Software Engineer &bull; Mobile Technical Lead</h3>
+          <div>
+            <span class="experience-company-name">DoorDash</span>
+            <span class="experience-company-team">&mdash; New Verticals &amp; Grocery</span>
+          </div>
+        </div>
+      </div>
+      <div class="experience-date-badge">Nov '21 &ndash; Present (3+ yrs)</div>
+    </div>
+
+    <div class="experience-divider"></div>
+
+    <ul class="experience-bullets">
+      <li>
+        <strong>Mobile Consumer Experience &amp; Order Confirmation:</strong> Served as Mobile Technical Lead driving both Android and iOS feature parity; engineered the <strong>Order Confirmation UI flow from scratch</strong> to serve millions of daily grocery orders, delivering an extensible surface for dynamic ETA estimation, multi-store order details (split pickup/delivery fulfillment), and targeted promotional placements.
+      </li>
+      <li>
+        <strong>Dynamic Delivery Options Architecture:</strong> Designed and deployed the backend-driven <strong>Dynamic Delivery Options framework</strong>, orchestrating backend infrastructure configurations with reactive Android UI logic and leading iOS cross-functional adoption to enable zero-app-release delivery window experimentation.
+      </li>
+      <li>
+        <strong>Unified Platform Migration:</strong> Migrated <strong>30+ post-checkout features</strong> to the unified DoorDash Consumer Android application, adding split-shipment support to facilitate complex multi-store order fulfillment across retail partners.
+      </li>
+      <li>
+        <strong>Server-Driven UI (SDUI) Modernization:</strong> Implemented <strong>Cart Redirection</strong> (single and multi-item) leveraging DoorDash's proprietary SDUI framework and led the mobile rescheduling UI redesign.
+      </li>
+      <li>
+        <strong>Observability &amp; Reliability:</strong> Consolidated pre-checkout telemetry with analytics and data science teams to enable trustworthy experiment reads and rapid incident diagnostics; led on-call leadership rotations, operational reviews, and post-mortems while preserving exceptional crash-free session rates.
+      </li>
+      <li>
+        <strong>Engineering Excellence &amp; Mentorship:</strong> Championed org-wide Kotlin craftsmanship initiatives through technical newsletters, established <strong>Jetpack Compose screenshot testing</strong> pipelines, conducted cross-team architectural RFC reviews, and actively mentored engineers across mobile and backend domains.
+      </li>
+    </ul>
+
+    <div class="experience-stack-footer">
+      <span class="stack-label">Stack:</span>
+      <span class="stack-chip">Jetpack Compose</span>
+      <span class="stack-chip">Kotlin Coroutines</span>
+      <span class="stack-chip">SDUI</span>
+      <span class="stack-chip">GraphQL</span>
+      <span class="stack-chip">A/B Testing &amp; Telemetry</span>
+      <span class="stack-chip">Screenshot Testing</span>
+      <span class="stack-chip">Multi-Module Architecture</span>
+    </div>
   </div>
-  <div>
-    <strong>Bachelor of Technology in Computer Science</strong> | Guru Gobind Singh Indraprastha University, New Delhi, India | Aug 2012 | GPA: 3.97/4.0
+
+  <!-- Amazon Care -->
+  <div class="experience-card">
+    <div class="experience-card-header">
+      <div class="experience-logo-meta">
+        <div class="company-avatar-box">
+          <img src="{{ '/images/amazon-care.webp' | relative_url }}" alt="Amazon Care">
+        </div>
+        <div class="experience-title-group">
+          <h3>Sr. Software Engineer</h3>
+          <div>
+            <span class="experience-company-name">Amazon</span>
+            <span class="experience-company-team">&mdash; Amazon Care</span>
+          </div>
+        </div>
+      </div>
+      <div class="experience-date-badge">Apr '18 &ndash; Nov '21 (3.5 yrs)</div>
+    </div>
+
+    <div class="experience-divider"></div>
+
+    <ul class="experience-bullets">
+      <li>
+        <strong>Patent-Awarded Telehealth Core (<a href="https://patents.google.com/patent/US11038933B1/" target="_blank" rel="noopener noreferrer">US Patent US11038933B1</a>):</strong> Built native audio/video conferencing capability utilizing <strong>WebRTC</strong> with real-time connection quality monitoring and adaptive bitrate algorithms, forming the core infrastructure for Amazon Care's nationwide telehealth service.
+      </li>
+      <li>
+        <strong>Language Modernization &amp; Architecture:</strong> Spearheaded full Kotlin adoption and Coroutines migration across the Android engineering team; modularized the monolithic codebase into decoupled feature modules, cutting compilation and CI cycle times significantly.
+      </li>
+      <li>
+        <strong>Cloud Infrastructure:</strong> Built resilient AWS cloud backend microservices to ingest, process, and analyze high-volume customer diagnostic and telemetry metrics in real time.
+      </li>
+    </ul>
+
+    <div class="experience-stack-footer">
+      <span class="stack-label">Stack:</span>
+      <span class="stack-chip">WebRTC</span>
+      <span class="stack-chip">Kotlin</span>
+      <span class="stack-chip">Kotlin Coroutines</span>
+      <span class="stack-chip">AWS Backend</span>
+      <span class="stack-chip">US Patent US11038933B1</span>
+      <span class="stack-chip">Modularization</span>
+      <span class="stack-chip">C/C++ NDK</span>
+    </div>
+  </div>
+
+  <!-- AWS Silk Browser -->
+  <div class="experience-card">
+    <div class="experience-card-header">
+      <div class="experience-logo-meta">
+        <div class="company-avatar-box">
+          <img src="{{ '/images/Amazon_Silk_Logo.webp' | relative_url }}" alt="AWS Silk">
+        </div>
+        <div class="experience-title-group">
+          <h3>Software Engineer</h3>
+          <div>
+            <span class="experience-company-name">Amazon</span>
+            <span class="experience-company-team">&mdash; AWS Silk Browser</span>
+          </div>
+        </div>
+      </div>
+      <div class="experience-date-badge">Dec '15 &ndash; Sept '17 (2 yrs)</div>
+    </div>
+
+    <div class="experience-divider"></div>
+
+    <ul class="experience-bullets">
+      <li>
+        <strong>10-Foot TV Experience:</strong> Led development of the leanback browser experience for Silk on FireTV, engineering the HomeMenu launcher and the optimal navigational cursor algorithm for smooth web page interaction using standard TV remote controllers.
+      </li>
+      <li>
+        <strong>Platform Intents &amp; Memory Optimization:</strong> Architected complex Android Intent handling mechanisms across Fire Tablets and FireTV with high test coverage; identified and resolved severe memory leaks and frame-rendering bottlenecks.
+      </li>
+    </ul>
+
+    <div class="experience-stack-footer">
+      <span class="stack-label">Stack:</span>
+      <span class="stack-chip">Android SDK</span>
+      <span class="stack-chip">FireOS / FireTV</span>
+      <span class="stack-chip">Chromium</span>
+      <span class="stack-chip">Memory Profiling</span>
+      <span class="stack-chip">Intent Architecture</span>
+    </div>
+  </div>
+
+  <!-- Amazon Flex -->
+  <div class="experience-card">
+    <div class="experience-card-header">
+      <div class="experience-logo-meta">
+        <div class="company-avatar-box">
+          <img src="{{ '/images/Amazon_icon.svg.png' | relative_url }}" alt="Amazon Flex">
+        </div>
+        <div class="experience-title-group">
+          <h3>Software Engineer</h3>
+          <div>
+            <span class="experience-company-name">Amazon</span>
+            <span class="experience-company-team">&mdash; Amazon Flex</span>
+          </div>
+        </div>
+      </div>
+      <div class="experience-date-badge">Sept '17 &ndash; Apr '18 (8 mos)</div>
+    </div>
+
+    <div class="experience-divider"></div>
+
+    <ul class="experience-bullets">
+      <li>
+        <strong>High-Scale Driver App Optimization:</strong> Diagnosed and eliminated systemic performance regressions and out-of-memory crashes on delivery driver devices; built an in-app profiling mechanism for customer-facing delivery flows.
+      </li>
+    </ul>
+
+    <div class="experience-stack-footer">
+      <span class="stack-label">Stack:</span>
+      <span class="stack-chip">Android SDK</span>
+      <span class="stack-chip">Performance Profiling</span>
+      <span class="stack-chip">Memory Management</span>
+      <span class="stack-chip">Logistics Systems</span>
+    </div>
+  </div>
+
+  <!-- INRIX -->
+  <div class="experience-card">
+    <div class="experience-card-header">
+      <div class="experience-logo-meta">
+        <div class="company-avatar-box">
+          <img src="{{ '/images/INRIX_logo.png' | relative_url }}" alt="INRIX">
+        </div>
+        <div class="experience-title-group">
+          <h3>Software Development Engineer</h3>
+          <div>
+            <span class="experience-company-name">INRIX Inc.</span>
+            <span class="experience-company-team">&mdash; Mobile Platform</span>
+          </div>
+        </div>
+      </div>
+      <div class="experience-date-badge">Oct '14 &ndash; Dec '15 (1.5 yrs)</div>
+    </div>
+
+    <div class="experience-divider"></div>
+
+    <ul class="experience-bullets">
+      <li>
+        <strong>Real-Time Traffic Engine:</strong> Developed native Android mobile client capabilities for a high-throughput traffic and navigation delivery platform, powering connected car systems and consumer navigation apps.
+      </li>
+    </ul>
+
+    <div class="experience-stack-footer">
+      <span class="stack-label">Stack:</span>
+      <span class="stack-chip">Android SDK</span>
+      <span class="stack-chip">Location Services</span>
+      <span class="stack-chip">Real-Time Data Engine</span>
+      <span class="stack-chip">REST APIs</span>
+    </div>
+  </div>
+
+  <!-- PNNL -->
+  <div class="experience-card">
+    <div class="experience-card-header">
+      <div class="experience-logo-meta">
+        <div class="company-avatar-box">
+          <img src="{{ '/images/PNNL_CENTER_FullColorSMALL.jpg' | relative_url }}" alt="PNNL">
+        </div>
+        <div class="experience-title-group">
+          <h3>Software Engineering Intern</h3>
+          <div>
+            <span class="experience-company-name">Pacific Northwest National Laboratory</span>
+            <span class="experience-company-team">&mdash; US Department of Energy</span>
+          </div>
+        </div>
+      </div>
+      <div class="experience-date-badge">Summers 2013 &amp; 2014</div>
+    </div>
+
+    <div class="experience-divider"></div>
+
+    <ul class="experience-bullets">
+      <li>
+        <strong>Award-Winning Bio-Surveillance System:</strong> Primary Android developer for a mobile bio-surveillance application using Java EE; engineered real-time client-server synchronization, push notification alerts, and dynamic news feed aggregation.
+      </li>
+      <li>
+        <strong>Competition Winner:</strong> <strong>Won 1st Place</strong> in the Mobile App Development Competition among interdisciplinary intern teams across the national laboratory.
+      </li>
+    </ul>
+
+    <div class="experience-stack-footer">
+      <span class="stack-label">Stack:</span>
+      <span class="stack-chip">Android SDK</span>
+      <span class="stack-chip">Java EE</span>
+      <span class="stack-chip">WebSockets</span>
+      <span class="stack-chip">Push Notifications</span>
+      <span class="stack-chip">1st Place Winner</span>
+    </div>
+  </div>
+
+</div>
+
+<!-- 6. Technical Skills Taxonomy Grid -->
+<h2 class="resume-section-title" id="skills">
+  <span class="material-symbols-outlined">terminal</span>
+  <span>Technical Skills &amp; Core Competencies</span>
+</h2>
+
+<div class="skills-taxonomy-grid">
+  <!-- 1. Mobile & Android Ecosystem -->
+  <div class="skills-taxonomy-card">
+    <h4>
+      <svg class="category-title-svg" viewBox="0 0 24 24" width="22" height="22" fill="#3DDC84">
+        <path d="M17.523 15.3414c-.5511 0-.9993-.4486-.9993-.9997s.4482-.9993.9993-.9993c.551 0 .9993.4482.9993.9993s-.4483.9997-.9993.9997m-11.046 0c-.5511 0-.9993-.4486-.9993-.9997s.4482-.9993.9993-.9993c.5511 0 .9993.4482.9993.9993s-.4482.9997-.9993.9997m11.4045-6.02l1.997-3.4592a.416.416 0 00-.1523-.5676.416.416 0 00-.5676.1524l-2.0223 3.503C15.5802 8.4116 13.8427 8.0833 12 8.0833s-3.5802.3283-5.1363.8667L4.8414 5.447a.416.416 0 00-.5676-.1524.416.416 0 00-.1523.5676l1.997 3.4592C2.6888 11.0963.292 14.922 0 19.3333h24c-.292-4.4113-2.6888-8.237-6.1185-10.0119"/>
+      </svg>
+      <span>Mobile &amp; Android Ecosystem</span>
+    </h4>
+    <div class="skills-chip-cloud">
+      <span class="skill-pill">
+        <svg class="pill-svg" viewBox="0 0 24 24" fill="#3DDC84"><path d="M17.523 15.3414c-.5511 0-.9993-.4486-.9993-.9997s.4482-.9993.9993-.9993c.551 0 .9993.4482.9993.9993s-.4483.9997-.9993.9997m-11.046 0c-.5511 0-.9993-.4486-.9993-.9997s.4482-.9993.9993-.9993c.5511 0 .9993.4482.9993.9993s-.4482.9997-.9993.9997m11.4045-6.02l1.997-3.4592a.416.416 0 00-.1523-.5676.416.416 0 00-.5676.1524l-2.0223 3.503C15.5802 8.4116 13.8427 8.0833 12 8.0833s-3.5802.3283-5.1363.8667L4.8414 5.447a.416.416 0 00-.5676-.1524.416.416 0 00-.1523.5676l1.997 3.4592C2.6888 11.0963.292 14.922 0 19.3333h24c-.292-4.4113-2.6888-8.237-6.1185-10.0119"/></svg>
+        <span>Android SDK</span>
+      </span>
+      <span class="skill-pill">
+        <svg class="pill-svg" viewBox="0 0 24 24"><path fill="#7F52FF" d="M1.3 24l11.4-11.4L24 24H1.3zM24 0H1.3l11.4 11.4L24 0zM1.3 0v24L24 0H1.3z"/></svg>
+        <span>Kotlin</span>
+      </span>
+      <span class="skill-pill">
+        <svg class="pill-svg" viewBox="0 0 24 24"><path fill="#4285F4" d="M12 2L4 8v8l8 6 8-6V8l-8-6zm0 2.5L17.5 9 12 13.5 6.5 9 12 4.5zM6 10.5l5 3.75v5.5l-5-3.75v-5.5zm7.5 9.25V14.25L18 11v5.5l-4.5 3.25z"/></svg>
+        <span>Jetpack Compose</span>
+      </span>
+      <span class="skill-pill">
+        <span class="pill-icon material-symbols-outlined icon-coroutines">waves</span>
+        <span>Kotlin Coroutines &amp; Flow</span>
+      </span>
+      <span class="skill-pill">
+        <span class="pill-icon material-symbols-outlined icon-java">coffee</span>
+        <span>Java</span>
+      </span>
+      <span class="skill-pill">
+        <span class="pill-icon material-symbols-outlined icon-mvi">sync_alt</span>
+        <span>MVI / MVVM</span>
+      </span>
+      <span class="skill-pill">
+        <span class="pill-icon material-symbols-outlined icon-hilt">extension</span>
+        <span>Dagger / Hilt</span>
+      </span>
+      <span class="skill-pill">
+        <span class="pill-icon material-symbols-outlined icon-room">database</span>
+        <span>Jetpack Navigation &amp; Room</span>
+      </span>
+      <span class="skill-pill">
+        <span class="pill-icon material-symbols-outlined icon-cpp">memory</span>
+        <span>C/C++ NDK</span>
+      </span>
+      <span class="skill-pill">
+        <span class="pill-icon material-symbols-outlined icon-gradle">terminal</span>
+        <span>Multi-Module Gradle</span>
+      </span>
+    </div>
+  </div>
+
+  <!-- 2. Architecture & Distributed Systems -->
+  <div class="skills-taxonomy-card">
+    <h4>
+      <span class="material-symbols-outlined category-icon-purple">hub</span>
+      <span>Architecture &amp; Distributed Systems</span>
+    </h4>
+    <div class="skills-chip-cloud">
+      <span class="skill-pill">
+        <span class="pill-icon material-symbols-outlined icon-sdui">dashboard_customize</span>
+        <span>Server-Driven UI (SDUI)</span>
+      </span>
+      <span class="skill-pill">
+        <span class="pill-icon material-symbols-outlined icon-webrtc">video_camera_front</span>
+        <span>WebRTC Audio &amp; Video</span>
+      </span>
+      <span class="skill-pill">
+        <span class="pill-icon material-symbols-outlined icon-streaming">network_check</span>
+        <span>Adaptive Streaming</span>
+      </span>
+      <span class="skill-pill">
+        <span class="pill-icon material-symbols-outlined icon-rest">api</span>
+        <span>REST APIs</span>
+      </span>
+      <span class="skill-pill">
+        <svg class="pill-svg" viewBox="0 0 24 24" fill="#E10098"><path d="M12 2l8.66 5v10L12 22l-8.66-5V7L12 2zm0 2.31L4.84 8.44v7.12L12 19.69l7.16-4.13V8.44L12 4.31zM12 7a2 2 0 110 4 2 2 0 010-4zm-4.5 7.5a2 2 0 110 4 2 2 0 010-4zm9 0a2 2 0 110 4 2 2 0 010-4z"/></svg>
+        <span>GraphQL</span>
+      </span>
+      <span class="skill-pill">
+        <span class="pill-icon material-symbols-outlined icon-cache">storage</span>
+        <span>Client-Side Caching</span>
+      </span>
+      <span class="skill-pill">
+        <span class="pill-icon material-symbols-outlined icon-clean">layers</span>
+        <span>Clean Architecture</span>
+      </span>
+      <span class="skill-pill">
+        <span class="pill-icon material-symbols-outlined icon-offline">cloud_off</span>
+        <span>Offline-First Design</span>
+      </span>
+      <span class="skill-pill">
+        <span class="pill-icon material-symbols-outlined icon-parity">devices</span>
+        <span>Cross-Platform iOS Parity</span>
+      </span>
+    </div>
+  </div>
+
+  <!-- 3. Cloud, Infrastructure & Quality -->
+  <div class="skills-taxonomy-card">
+    <h4>
+      <span class="material-symbols-outlined category-icon-cyan">deployed_code</span>
+      <span>Cloud, Infrastructure &amp; Quality</span>
+    </h4>
+    <div class="skills-chip-cloud">
+      <span class="skill-pill">
+        <svg class="pill-svg" viewBox="0 0 24 24" fill="#FF9900"><path d="M18.8 15.6c-2.4 1.8-5.8 2.8-8.8 2.8-4.2 0-8-1.5-10.9-4.1-.2-.2-.2-.5 0-.7.1-.1.3-.1.5 0 2.7 2.4 6.3 3.8 10.3 3.8 2.8 0 6-1 8.3-2.6.3-.2.6 0 .7.3.1.2 0 .4-.1.5zm1.5-.7c-.3-.4-1.8-.2-2.8-.1-.3 0-.4-.2-.2-.4 1.3-1.3 3.5-.9 3.8-.5.3.4-.1 2.6-1.3 3.7-.2.2-.4.1-.3-.1.4-.9.8-2.3.8-2.6z"/></svg>
+        <span>AWS Cloud Infrastructure</span>
+      </span>
+      <span class="skill-pill">
+        <span class="pill-icon material-symbols-outlined icon-cicd">all_inclusive</span>
+        <span>CI/CD Pipelines</span>
+      </span>
+      <span class="skill-pill">
+        <span class="pill-icon material-symbols-outlined icon-screenshot">photo_camera</span>
+        <span>Screenshot Testing (Compose)</span>
+      </span>
+      <span class="skill-pill">
+        <span class="pill-icon material-symbols-outlined icon-test">verified</span>
+        <span>JUnit &amp; MockK</span>
+      </span>
+      <span class="skill-pill">
+        <span class="pill-icon material-symbols-outlined icon-memory">speed</span>
+        <span>Memory Profiling</span>
+      </span>
+      <span class="skill-pill">
+        <span class="pill-icon material-symbols-outlined icon-crash">bug_report</span>
+        <span>Crashlytics &amp; Sentry</span>
+      </span>
+      <span class="skill-pill">
+        <svg class="pill-svg" viewBox="0 0 24 24" fill="#F05032"><path d="M2.6 10.6L10.6 2.6c.8-.8 2.1-.8 2.8 0l8 8c.8.8.8 2.1 0 2.8l-8 8c-.8.8-2.1.8-2.8 0l-8-8c-.8-.8-.8-2.1 0-2.8zm8.9 4.1v-2.3c-.8-.2-1.4-.9-1.4-1.8 0-.3.1-.7.2-1L7.9 7.2c-.3.1-.7.2-1 .2-1.2 0-2.1-1-2.1-2.1s1-2.1 2.1-2.1 2.1 1 2.1 2.1c0 .3-.1.7-.2 1l2.4 2.4c.3-.1.7-.2 1-.2 1.2 0 2.1 1 2.1 2.1 0 .9-.6 1.6-1.4 1.8v2.3c.6.3 1 1 1 1.7 0 1.2-1 2.1-2.1 2.1s-2.1-1-2.1-2.1c0-.7.4-1.4 1-1.7z"/></svg>
+        <span>Git &amp; GitHub Actions</span>
+      </span>
+    </div>
+  </div>
+
+  <!-- 4. Leadership, Velocity & Practices -->
+  <div class="skills-taxonomy-card">
+    <h4>
+      <span class="material-symbols-outlined category-icon-orange">rocket_launch</span>
+      <span>Leadership, Velocity &amp; Practices</span>
+    </h4>
+    <div class="skills-chip-cloud">
+      <span class="skill-pill">
+        <span class="pill-icon material-symbols-outlined icon-lead">military_tech</span>
+        <span>Technical Leadership</span>
+      </span>
+      <span class="skill-pill">
+        <span class="pill-icon material-symbols-outlined icon-telemetry">monitoring</span>
+        <span>Org-Wide Telemetry</span>
+      </span>
+      <span class="skill-pill">
+        <span class="pill-icon material-symbols-outlined icon-ab">science</span>
+        <span>A/B Testing &amp; Safe Ramp</span>
+      </span>
+      <span class="skill-pill">
+        <span class="pill-icon material-symbols-outlined icon-rfc">rate_review</span>
+        <span>Cross-Team RFC Reviews</span>
+      </span>
+      <span class="skill-pill">
+        <span class="pill-icon material-symbols-outlined icon-incident">support_agent</span>
+        <span>On-Call &amp; Incident PM</span>
+      </span>
+      <span class="skill-pill">
+        <span class="pill-icon material-symbols-outlined icon-craft">newspaper</span>
+        <span>Code Craftsmanship Newsletters</span>
+      </span>
+      <span class="skill-pill">
+        <span class="pill-icon material-symbols-outlined icon-mentor">school</span>
+        <span>Engineering Mentorship</span>
+      </span>
+    </div>
   </div>
 </div>
 
----
+<!-- 7. Patents & Honors Grid -->
+<h2 class="resume-section-title" id="honors">
+  <span class="material-symbols-outlined">military_tech</span>
+  <span>Patents &amp; Recognition</span>
+</h2>
 
-## Technical Skills
-
-<div class="skills-grid">
-  <div class="skill-category">
-    <span class="skill-category-title">&#128241; Mobile Full-Stack Development</span>
-    Android SDK &bull; Kotlin &bull; Java &bull; Jetpack Compose &bull; Kotlin Coroutines &bull; WebRTC &bull; Server-Driven UI &bull; REST APIs &bull; GraphQL &bull; Backend Integration &bull; Mobile App Architecture
+<div class="honors-grid">
+  <div class="honor-card">
+    <div class="honor-card-top">
+      <span class="honor-badge">US PATENT &bull; GRANTED</span>
+      <h3 class="honor-title">US Patent US11038933B1</h3>
+      <p class="honor-subtext"><strong>WebRTC Quality Monitoring Engine:</strong> Real-time audio/video quality monitoring and telemetry algorithms developed for the Amazon Care nationwide telehealth platform.</p>
+    </div>
+    <a href="https://patents.google.com/patent/US11038933B1/" target="_blank" rel="noopener noreferrer" class="honor-card-link">
+      <span>View Patent on Google Patents</span>
+      <span class="material-symbols-outlined">open_in_new</span>
+    </a>
   </div>
 
-  <div class="skill-category">
-    <span class="skill-category-title">&#128295; Platform & Infrastructure</span>
-    AWS Backend Infrastructure &bull; CI/CD Pipelines &bull; Performance Optimization &bull; Memory Management &bull; Modularization &bull; Testing (Unit, Integration, Screenshot)
+  <div class="honor-card">
+    <div class="honor-card-top">
+      <span class="honor-badge">1ST PLACE &bull; NATIONAL LAB</span>
+      <h3 class="honor-title">Mobile App Development Competition</h3>
+      <p class="honor-subtext"><strong>Pacific Northwest National Laboratory (US Dept. of Energy):</strong> 1st Place champion for the Food Feed Bio-Surveillance mobile system among 4-member intern teams.</p>
+    </div>
+    <a href="https://www.youtube.com/watch?v=HVIy1bWt29Y" target="_blank" rel="noopener noreferrer" class="honor-card-link">
+      <span>Watch Demo Video</span>
+      <span class="material-symbols-outlined">play_circle</span>
+    </a>
   </div>
 
-  <div class="skill-category">
-    <span class="skill-category-title">&#128202; Observability & Leadership</span>
-    Telemetry & Metrics &bull; A/B Testing &bull; Experimentation Platforms &bull; On-Call & Incident Management &bull; Code Reviews &bull; Technical Mentorship
+  <div class="honor-card">
+    <div class="honor-card-top">
+      <span class="honor-badge">ACADEMIC EXCELLENCE</span>
+      <h3 class="honor-title">Graduate Merit Scholarship</h3>
+      <p class="honor-subtext"><strong>Syracuse University:</strong> Awarded 50% tuition coverage for academic distinction throughout the Master of Science program in Computer Engineering.</p>
+    </div>
+  </div>
+
+  <div class="honor-card">
+    <div class="honor-card-top">
+      <span class="honor-badge">2ND PLACE &bull; IEEE INDIA</span>
+      <h3 class="honor-title">INNOVISION Linux Challenge</h3>
+      <p class="honor-subtext"><strong>Netaji Subhas Institute of Technology:</strong> 2nd place in national annual systems challenge demonstrating deep Linux kernel and OS expertise.</p>
+    </div>
   </div>
 </div>
 
----
+<!-- 8. Education Entries -->
+<h2 class="resume-section-title" id="education">
+  <span class="material-symbols-outlined">school</span>
+  <span>Education</span>
+</h2>
 
-## Highlights & Recognition
+<div class="education-cards-list">
+  <div class="education-card">
+    <div class="education-left">
+      <div class="education-logo-box">
+        <img src="{{ '/images/Syracuse_Orange_logo.svg' | relative_url }}" alt="Syracuse University">
+      </div>
+      <div>
+        <h4>Master of Science in Computer Engineering</h4>
+        <div class="education-meta">Syracuse University &bull; Syracuse, NY</div>
+      </div>
+    </div>
+    <div class="education-badge">May 2014 &bull; GPA: 3.55 / 4.0</div>
+  </div>
 
-<table>
-<tr>
-<td>
-<strong>&#127942; 1st Place - Mobile App Development Competition (2014)</strong><br>
-<strong>Food Feed Bio Surveillance App</strong> - PNNL / US Dept. of Energy<br>
-Primary Software Developer in team of 4. Built full-stack Android app using Java EE with real-time data delivery via push notifications and News Feed for bio surveillance monitoring.<br>
-<a href="https://www.youtube.com/watch?v=HVIy1bWt29Y">Video</a> | <a href="http://www.pnnl.gov/news/release.aspx?id=1015">Press Release</a> | <a href="https://www.newswise.com/articles/killer-apps-that-could-keep-you-healthy">Newswise</a>
-</td>
-</tr>
-<tr>
-<td>
-<strong>&#128300; US Patent 11038933B1 (2018-21)</strong><br>
-<strong>WebRTC Quality Monitoring</strong> - Amazon Care Platform<br>
-Real-time quality monitoring for WebRTC audio/video conferencing - Awarded for innovative work on Amazon Care's video conferencing platform.<br>
-<a href="https://patents.google.com/patent/US11038933B1/">View Patent &rarr;</a>
-</td>
-</tr>
-<tr>
-<td>
-<strong>&#127891; Merit Scholarship (2012-14)</strong><br>
-<strong>Syracuse University Graduate Program</strong> - Computer Engineering<br>
-50% Tuition Coverage for academic excellence in Master's program.
-</td>
-</tr>
-<tr>
-<td>
-<strong>&#129352; 2nd Place - INNOVISION Linux Challenge (2011)</strong><br>
-<strong>Netaji Subas Institute of Technology</strong> - Sponsored by IEEE India<br>
-Annual tech fest competition demonstrating Linux system expertise.
-</td>
-</tr>
-<tr>
-<td>
-<strong>&#129352; 2nd Place - Embedded Systems Design (2009)</strong><br>
-<strong>Programming Competition</strong><br>
-National level competition for embedded systems programming.
-</td>
-</tr>
-</table>
+  <div class="education-card">
+    <div class="education-left">
+      <div class="education-logo-box">
+        <img src="{{ '/images/GGSIU_logo.svg.png' | relative_url }}" alt="GGSIPU">
+      </div>
+      <div>
+        <h4>Bachelor of Technology in Computer Science &amp; Engineering</h4>
+        <div class="education-meta">Guru Gobind Singh Indraprastha University &bull; New Delhi, India</div>
+      </div>
+    </div>
+    <div class="education-badge">Aug 2012 &bull; GPA: 3.97 / 4.0</div>
+  </div>
+</div>

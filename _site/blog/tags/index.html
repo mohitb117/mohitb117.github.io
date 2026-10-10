@@ -3,42 +3,79 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#ff6b00">
   <title>Blog Tags</title>
   <meta name="description" content="Software Engineer | Android Developer | Tech Lead">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/css/style.css">
+  <script>
+    (function() {
+      const savedTheme = localStorage.getItem('theme');
+      const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+      const theme = savedTheme || (prefersDark ? 'dark' : 'light');
+      document.documentElement.setAttribute('data-theme', theme);
+    })();
+  </script>
 </head>
 <body>
-  <header>
-    <nav class="navbar">
-      <div class="container nav-container">
-        <a href="/" class="site-title">Mohit Bhalla</a>
-        <ul class="nav-links">
-          
-            
-            
-            <li><a href="/" >Home</a></li>
-          
-            
-            
-            <li><a href="/resume/" >Resume</a></li>
-          
-            
-            
-            <li><a href="/blog/" class="active">Blog</a></li>
-          
-        </ul>
-      </div>
-    </nav>
-  </header>
+  
+  
 
-  <main class="container">
-    <div class="tags-page">
+  <div class="app-shell">
+    <nav class="nav-rail" aria-label="Primary">
+      <a href="/" class="nav-rail-brand" aria-label="Home">MB</a>
+      <ul>
+        
+          
+          
+          
+          <li>
+            <a href="/" class="nav-item">
+              <span class="material-symbols-outlined">home</span>
+              <span class="nav-label">Home</span>
+            </a>
+          </li>
+        
+          
+          
+          
+          <li>
+            <a href="/resume/" class="nav-item">
+              <span class="material-symbols-outlined">description</span>
+              <span class="nav-label">Resume</span>
+            </a>
+          </li>
+        
+          
+          
+          
+          <li>
+            <a href="/blog/" class="nav-item active">
+              <span class="material-symbols-outlined">article</span>
+              <span class="nav-label">Blog</span>
+            </a>
+          </li>
+        
+      </ul>
+    </nav>
+
+    <div class="app-column">
+      <header class="top-app-bar">
+        <h1 class="top-app-bar-title">Blog Tags</h1>
+        <div class="top-app-bar-actions">
+          <button id="theme-toggle-btn" class="theme-toggle-btn" onclick="toggleTheme()" aria-label="Toggle light or dark theme" title="Toggle theme">
+            <span class="material-symbols-outlined theme-icon-light">dark_mode</span>
+            <span class="material-symbols-outlined theme-icon-dark">light_mode</span>
+          </button>
+        </div>
+      </header>
+
+      <main class="app-content">
+        <div class="tags-page">
   <div class="tags-container">
     <header class="tags-header">
-      <h1>Browse by Tags</h1>
       <p class="tags-intro">Explore all posts grouped by topic</p>
     </header>
 
@@ -49,6 +86,34 @@
         
         <a href="#ai" class="tag-cloud-item" data-tag="ai">
           AI
+          <span class="tag-count">2</span>
+        </a>
+      
+        
+        
+        <a href="#amazon" class="tag-cloud-item" data-tag="amazon">
+          Amazon
+          <span class="tag-count">1</span>
+        </a>
+      
+        
+        
+        <a href="#amazon-care" class="tag-cloud-item" data-tag="amazon-care">
+          Amazon Care
+          <span class="tag-count">1</span>
+        </a>
+      
+        
+        
+        <a href="#android" class="tag-cloud-item" data-tag="android">
+          Android
+          <span class="tag-count">2</span>
+        </a>
+      
+        
+        
+        <a href="#balance" class="tag-cloud-item" data-tag="balance">
+          Balance
           <span class="tag-count">1</span>
         </a>
       
@@ -56,6 +121,13 @@
         
         <a href="#career" class="tag-cloud-item" data-tag="career">
           Career
+          <span class="tag-count">3</span>
+        </a>
+      
+        
+        
+        <a href="#chime-sdk" class="tag-cloud-item" data-tag="chime-sdk">
+          Chime SDK
           <span class="tag-count">1</span>
         </a>
       
@@ -68,8 +140,43 @@
       
         
         
+        <a href="#engineering" class="tag-cloud-item" data-tag="engineering">
+          Engineering
+          <span class="tag-count">1</span>
+        </a>
+      
+        
+        
+        <a href="#engineering-leadership" class="tag-cloud-item" data-tag="engineering-leadership">
+          Engineering Leadership
+          <span class="tag-count">1</span>
+        </a>
+      
+        
+        
+        <a href="#firetv" class="tag-cloud-item" data-tag="firetv">
+          FireTV
+          <span class="tag-count">1</span>
+        </a>
+      
+        
+        
+        <a href="#healthcare" class="tag-cloud-item" data-tag="healthcare">
+          Healthcare
+          <span class="tag-count">1</span>
+        </a>
+      
+        
+        
         <a href="#intro" class="tag-cloud-item" data-tag="intro">
           Intro
+          <span class="tag-count">1</span>
+        </a>
+      
+        
+        
+        <a href="#kotlin" class="tag-cloud-item" data-tag="kotlin">
+          Kotlin
           <span class="tag-count">1</span>
         </a>
       
@@ -84,6 +191,13 @@
         
         <a href="#productivity" class="tag-cloud-item" data-tag="productivity">
           Productivity
+          <span class="tag-count">2</span>
+        </a>
+      
+        
+        
+        <a href="#webrtc" class="tag-cloud-item" data-tag="webrtc">
+          WebRTC
           <span class="tag-count">1</span>
         </a>
       
@@ -96,9 +210,17 @@
         <section id="ai" class="tag-section">
           <h2 class="tag-section-title">
             AI
-            <span class="tag-section-count">1 post</span>
+            <span class="tag-section-count">2 posts</span>
           </h2>
           <div class="tag-posts-list">
+            
+              
+                <a href="/blog/ai-multitasking-empowering-exhausting/" class="tag-post-item">
+                  <time datetime="2026-04-19T00:00:00-05:00">April 19, 2026</time>
+                  <h3>AI Multitasking: Empowering and Exhausting</h3>
+                  <p>How AI tools are making us more productive but also creating new forms of burnout. Finding balance in the age of AI assistance.</p>
+                </a>
+              
             
               
                 <a href="/blog/welcome-to-llm-assisted-merging/" class="tag-post-item">
@@ -106,6 +228,120 @@
                   <h3>Welcome to My New Blog</h3>
                   <p>Thoughts on software engineering, mobile development, LLM coding tools, and what the future looks like on the other side of the AI revolution.</p>
                 </a>
+              
+            
+              
+            
+              
+            
+          </div>
+        </section>
+      
+        
+        
+        <section id="amazon" class="tag-section">
+          <h2 class="tag-section-title">
+            Amazon
+            <span class="tag-section-count">1 post</span>
+          </h2>
+          <div class="tag-posts-list">
+            
+              
+            
+              
+            
+              
+            
+              
+                <a href="/blog/engineering-amazon-silk-fire-tv/" class="tag-post-item">
+                  <time datetime="2018-12-01T00:00:00-06:00">December 01, 2018</time>
+                  <h3>Engineering the Living Room Web: Deep Dive into My Time Building Amazon Silk for Fire TV (2015-2018)</h3>
+                  <p>A detailed deep dive into the major architectural challenges, performance optimizations, and advanced Android design patterns I tackled during my years on the Silk team at Amazon.</p>
+                </a>
+              
+            
+          </div>
+        </section>
+      
+        
+        
+        <section id="amazon-care" class="tag-section">
+          <h2 class="tag-section-title">
+            Amazon Care
+            <span class="tag-section-count">1 post</span>
+          </h2>
+          <div class="tag-posts-list">
+            
+              
+            
+              
+            
+              
+                <a href="/revolutionizing-healthcare-tech-amazon-care/" class="tag-post-item">
+                  <time datetime="2021-11-30T11:00:00-06:00">November 30, 2021</time>
+                  <h3>Revolutionizing Healthcare Tech: Building Amazon Care from the Ground Up (2018–2021)</h3>
+                  <p></p>
+                </a>
+              
+            
+              
+            
+          </div>
+        </section>
+      
+        
+        
+        <section id="android" class="tag-section">
+          <h2 class="tag-section-title">
+            Android
+            <span class="tag-section-count">2 posts</span>
+          </h2>
+          <div class="tag-posts-list">
+            
+              
+            
+              
+            
+              
+                <a href="/revolutionizing-healthcare-tech-amazon-care/" class="tag-post-item">
+                  <time datetime="2021-11-30T11:00:00-06:00">November 30, 2021</time>
+                  <h3>Revolutionizing Healthcare Tech: Building Amazon Care from the Ground Up (2018–2021)</h3>
+                  <p></p>
+                </a>
+              
+            
+              
+                <a href="/blog/engineering-amazon-silk-fire-tv/" class="tag-post-item">
+                  <time datetime="2018-12-01T00:00:00-06:00">December 01, 2018</time>
+                  <h3>Engineering the Living Room Web: Deep Dive into My Time Building Amazon Silk for Fire TV (2015-2018)</h3>
+                  <p>A detailed deep dive into the major architectural challenges, performance optimizations, and advanced Android design patterns I tackled during my years on the Silk team at Amazon.</p>
+                </a>
+              
+            
+          </div>
+        </section>
+      
+        
+        
+        <section id="balance" class="tag-section">
+          <h2 class="tag-section-title">
+            Balance
+            <span class="tag-section-count">1 post</span>
+          </h2>
+          <div class="tag-posts-list">
+            
+              
+                <a href="/blog/ai-multitasking-empowering-exhausting/" class="tag-post-item">
+                  <time datetime="2026-04-19T00:00:00-05:00">April 19, 2026</time>
+                  <h3>AI Multitasking: Empowering and Exhausting</h3>
+                  <p>How AI tools are making us more productive but also creating new forms of burnout. Finding balance in the age of AI assistance.</p>
+                </a>
+              
+            
+              
+            
+              
+            
               
             
           </div>
@@ -116,9 +352,17 @@
         <section id="career" class="tag-section">
           <h2 class="tag-section-title">
             Career
-            <span class="tag-section-count">1 post</span>
+            <span class="tag-section-count">3 posts</span>
           </h2>
           <div class="tag-posts-list">
+            
+              
+                <a href="/blog/ai-multitasking-empowering-exhausting/" class="tag-post-item">
+                  <time datetime="2026-04-19T00:00:00-05:00">April 19, 2026</time>
+                  <h3>AI Multitasking: Empowering and Exhausting</h3>
+                  <p>How AI tools are making us more productive but also creating new forms of burnout. Finding balance in the age of AI assistance.</p>
+                </a>
+              
             
               
                 <a href="/blog/welcome-to-llm-assisted-merging/" class="tag-post-item">
@@ -126,6 +370,42 @@
                   <h3>Welcome to My New Blog</h3>
                   <p>Thoughts on software engineering, mobile development, LLM coding tools, and what the future looks like on the other side of the AI revolution.</p>
                 </a>
+              
+            
+              
+            
+              
+                <a href="/blog/engineering-amazon-silk-fire-tv/" class="tag-post-item">
+                  <time datetime="2018-12-01T00:00:00-06:00">December 01, 2018</time>
+                  <h3>Engineering the Living Room Web: Deep Dive into My Time Building Amazon Silk for Fire TV (2015-2018)</h3>
+                  <p>A detailed deep dive into the major architectural challenges, performance optimizations, and advanced Android design patterns I tackled during my years on the Silk team at Amazon.</p>
+                </a>
+              
+            
+          </div>
+        </section>
+      
+        
+        
+        <section id="chime-sdk" class="tag-section">
+          <h2 class="tag-section-title">
+            Chime SDK
+            <span class="tag-section-count">1 post</span>
+          </h2>
+          <div class="tag-posts-list">
+            
+              
+            
+              
+            
+              
+                <a href="/revolutionizing-healthcare-tech-amazon-care/" class="tag-post-item">
+                  <time datetime="2021-11-30T11:00:00-06:00">November 30, 2021</time>
+                  <h3>Revolutionizing Healthcare Tech: Building Amazon Care from the Ground Up (2018–2021)</h3>
+                  <p></p>
+                </a>
+              
+            
               
             
           </div>
@@ -141,11 +421,121 @@
           <div class="tag-posts-list">
             
               
+            
+              
                 <a href="/blog/welcome-to-llm-assisted-merging/" class="tag-post-item">
                   <time datetime="2026-03-07T00:00:00-06:00">March 07, 2026</time>
                   <h3>Welcome to My New Blog</h3>
                   <p>Thoughts on software engineering, mobile development, LLM coding tools, and what the future looks like on the other side of the AI revolution.</p>
                 </a>
+              
+            
+              
+            
+              
+            
+          </div>
+        </section>
+      
+        
+        
+        <section id="engineering" class="tag-section">
+          <h2 class="tag-section-title">
+            Engineering
+            <span class="tag-section-count">1 post</span>
+          </h2>
+          <div class="tag-posts-list">
+            
+              
+            
+              
+            
+              
+            
+              
+                <a href="/blog/engineering-amazon-silk-fire-tv/" class="tag-post-item">
+                  <time datetime="2018-12-01T00:00:00-06:00">December 01, 2018</time>
+                  <h3>Engineering the Living Room Web: Deep Dive into My Time Building Amazon Silk for Fire TV (2015-2018)</h3>
+                  <p>A detailed deep dive into the major architectural challenges, performance optimizations, and advanced Android design patterns I tackled during my years on the Silk team at Amazon.</p>
+                </a>
+              
+            
+          </div>
+        </section>
+      
+        
+        
+        <section id="engineering-leadership" class="tag-section">
+          <h2 class="tag-section-title">
+            Engineering Leadership
+            <span class="tag-section-count">1 post</span>
+          </h2>
+          <div class="tag-posts-list">
+            
+              
+            
+              
+            
+              
+                <a href="/revolutionizing-healthcare-tech-amazon-care/" class="tag-post-item">
+                  <time datetime="2021-11-30T11:00:00-06:00">November 30, 2021</time>
+                  <h3>Revolutionizing Healthcare Tech: Building Amazon Care from the Ground Up (2018–2021)</h3>
+                  <p></p>
+                </a>
+              
+            
+              
+            
+          </div>
+        </section>
+      
+        
+        
+        <section id="firetv" class="tag-section">
+          <h2 class="tag-section-title">
+            FireTV
+            <span class="tag-section-count">1 post</span>
+          </h2>
+          <div class="tag-posts-list">
+            
+              
+            
+              
+            
+              
+            
+              
+                <a href="/blog/engineering-amazon-silk-fire-tv/" class="tag-post-item">
+                  <time datetime="2018-12-01T00:00:00-06:00">December 01, 2018</time>
+                  <h3>Engineering the Living Room Web: Deep Dive into My Time Building Amazon Silk for Fire TV (2015-2018)</h3>
+                  <p>A detailed deep dive into the major architectural challenges, performance optimizations, and advanced Android design patterns I tackled during my years on the Silk team at Amazon.</p>
+                </a>
+              
+            
+          </div>
+        </section>
+      
+        
+        
+        <section id="healthcare" class="tag-section">
+          <h2 class="tag-section-title">
+            Healthcare
+            <span class="tag-section-count">1 post</span>
+          </h2>
+          <div class="tag-posts-list">
+            
+              
+            
+              
+            
+              
+                <a href="/revolutionizing-healthcare-tech-amazon-care/" class="tag-post-item">
+                  <time datetime="2021-11-30T11:00:00-06:00">November 30, 2021</time>
+                  <h3>Revolutionizing Healthcare Tech: Building Amazon Care from the Ground Up (2018–2021)</h3>
+                  <p></p>
+                </a>
+              
+            
               
             
           </div>
@@ -161,11 +551,43 @@
           <div class="tag-posts-list">
             
               
+            
+              
                 <a href="/blog/welcome-to-llm-assisted-merging/" class="tag-post-item">
                   <time datetime="2026-03-07T00:00:00-06:00">March 07, 2026</time>
                   <h3>Welcome to My New Blog</h3>
                   <p>Thoughts on software engineering, mobile development, LLM coding tools, and what the future looks like on the other side of the AI revolution.</p>
                 </a>
+              
+            
+              
+            
+              
+            
+          </div>
+        </section>
+      
+        
+        
+        <section id="kotlin" class="tag-section">
+          <h2 class="tag-section-title">
+            Kotlin
+            <span class="tag-section-count">1 post</span>
+          </h2>
+          <div class="tag-posts-list">
+            
+              
+            
+              
+            
+              
+                <a href="/revolutionizing-healthcare-tech-amazon-care/" class="tag-post-item">
+                  <time datetime="2021-11-30T11:00:00-06:00">November 30, 2021</time>
+                  <h3>Revolutionizing Healthcare Tech: Building Amazon Care from the Ground Up (2018–2021)</h3>
+                  <p></p>
+                </a>
+              
+            
               
             
           </div>
@@ -181,11 +603,17 @@
           <div class="tag-posts-list">
             
               
+            
+              
                 <a href="/blog/welcome-to-llm-assisted-merging/" class="tag-post-item">
                   <time datetime="2026-03-07T00:00:00-06:00">March 07, 2026</time>
                   <h3>Welcome to My New Blog</h3>
                   <p>Thoughts on software engineering, mobile development, LLM coding tools, and what the future looks like on the other side of the AI revolution.</p>
                 </a>
+              
+            
+              
+            
               
             
           </div>
@@ -196,9 +624,17 @@
         <section id="productivity" class="tag-section">
           <h2 class="tag-section-title">
             Productivity
-            <span class="tag-section-count">1 post</span>
+            <span class="tag-section-count">2 posts</span>
           </h2>
           <div class="tag-posts-list">
+            
+              
+                <a href="/blog/ai-multitasking-empowering-exhausting/" class="tag-post-item">
+                  <time datetime="2026-04-19T00:00:00-05:00">April 19, 2026</time>
+                  <h3>AI Multitasking: Empowering and Exhausting</h3>
+                  <p>How AI tools are making us more productive but also creating new forms of burnout. Finding balance in the age of AI assistance.</p>
+                </a>
+              
             
               
                 <a href="/blog/welcome-to-llm-assisted-merging/" class="tag-post-item">
@@ -208,6 +644,36 @@
                 </a>
               
             
+              
+            
+              
+            
+          </div>
+        </section>
+      
+        
+        
+        <section id="webrtc" class="tag-section">
+          <h2 class="tag-section-title">
+            WebRTC
+            <span class="tag-section-count">1 post</span>
+          </h2>
+          <div class="tag-posts-list">
+            
+              
+            
+              
+            
+              
+                <a href="/revolutionizing-healthcare-tech-amazon-care/" class="tag-post-item">
+                  <time datetime="2021-11-30T11:00:00-06:00">November 30, 2021</time>
+                  <h3>Revolutionizing Healthcare Tech: Building Amazon Care from the Ground Up (2018–2021)</h3>
+                  <p></p>
+                </a>
+              
+            
+              
+            
           </div>
         </section>
       
@@ -215,167 +681,94 @@
   </div>
 </div>
 
-<style>
-  .tags-page {
-    min-height: calc(100vh - 200px);
-  }
 
-  .tags-container {
-    max-width: 1000px;
-    margin: 0 auto;
-    padding: 2rem 5%;
-  }
+      </main>
 
-  .tags-header {
-    text-align: center;
-    margin-bottom: 3rem;
-  }
+      <p class="app-caption">&copy; 2026 Mohit Bhalla</p>
 
-  .tags-header h1 {
-    font-size: 2.5rem;
-    color: #2c3e50;
-    margin-bottom: 0.5rem;
-  }
-
-  .tags-intro {
-    font-size: 1.1rem;
-    color: #666;
-  }
-
-  .tag-cloud {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.75rem;
-    justify-content: center;
-    margin-bottom: 3rem;
-    padding: 2rem;
-    background: #fff;
-    border-radius: 16px;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
-  }
-
-  .tag-cloud-item {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.5rem;
-    padding: 0.5rem 1rem;
-    background: var(--primary-bg);
-    color: var(--primary);
-    border-radius: 20px;
-    text-decoration: none;
-    font-weight: 500;
-    transition: all 0.2s;
-  }
-
-  .tag-cloud-item:hover {
-    background: var(--primary);
-    color: #fff;
-    transform: translateY(-2px);
-  }
-
-  .tag-cloud-item .tag-count {
-    font-size: 0.75rem;
-    background: rgba(0,0,0,0.1);
-    padding: 0.15rem 0.4rem;
-    border-radius: 10px;
-  }
-
-  .tag-cloud-item:hover .tag-count {
-    background: rgba(255,255,255,0.2);
-  }
-
-  .tag-section {
-    margin-bottom: 3rem;
-    scroll-margin-top: 100px;
-  }
-
-  .tag-section-title {
-    font-size: 1.5rem;
-    color: #2c3e50;
-    margin-bottom: 1rem;
-    padding-bottom: 0.5rem;
-    border-bottom: 2px solid var(--primary);
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-  }
-
-  .tag-section-count {
-    font-size: 0.9rem;
-    color: #888;
-    font-weight: normal;
-  }
-
-  .tag-posts-list {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-  }
-
-  .tag-post-item {
-    display: block;
-    padding: 1.25rem;
-    background: #fff;
-    border-radius: 12px;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-    text-decoration: none;
-    transition: all 0.2s;
-  }
-
-  .tag-post-item:hover {
-    transform: translateX(8px);
-    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-  }
-
-  .tag-post-item time {
-    font-size: 0.85rem;
-    color: #888;
-  }
-
-  .tag-post-item h3 {
-    font-size: 1.1rem;
-    color: #2c3e50;
-    margin: 0.25rem 0 0.5rem;
-  }
-
-  .tag-post-item:hover h3 {
-    color: var(--primary);
-  }
-
-  .tag-post-item p {
-    font-size: 0.9rem;
-    color: #666;
-    margin: 0;
-    line-height: 1.5;
-  }
-
-  @media (max-width: 768px) {
-    .tags-header h1 {
-      font-size: 2rem;
-    }
-
-    .tag-cloud {
-      padding: 1.5rem;
-      gap: 0.5rem;
-    }
-
-    .tag-cloud-item {
-      padding: 0.4rem 0.8rem;
-      font-size: 0.9rem;
-    }
-
-    .tag-section-title {
-      font-size: 1.25rem;
-    }
-  }
-</style>
-
-  </main>
-
-  <footer>
-    <div class="container">
-      <p>&copy; 2026 Mohit Bhalla. Built with Jekyll.</p>
+      <nav class="bottom-nav" aria-label="Primary">
+        
+          
+          
+          
+          <a href="/" class="nav-item">
+            <span class="material-symbols-outlined">home</span>
+            <span class="nav-label">Home</span>
+          </a>
+        
+          
+          
+          
+          <a href="/resume/" class="nav-item">
+            <span class="material-symbols-outlined">description</span>
+            <span class="nav-label">Resume</span>
+          </a>
+        
+          
+          
+          
+          <a href="/blog/" class="nav-item active">
+            <span class="material-symbols-outlined">article</span>
+            <span class="nav-label">Blog</span>
+          </a>
+        
+      </nav>
     </div>
-  </footer>
+  </div>
+
+  <script>
+    function toggleAccordion(header) {
+      const item = header.parentElement;
+      const wasOpen = item.classList.contains('open');
+
+      document.querySelectorAll('.accordion-item').forEach(function(i) {
+        i.classList.remove('open');
+      });
+
+      if (!wasOpen) {
+        item.classList.add('open');
+      }
+    }
+
+    function toggleShowMore(btn) {
+      const content = btn.parentElement;
+      const collapsibles = content.querySelectorAll('.testimonial-item.collapsible');
+      const isShowing = collapsibles[0].classList.contains('show');
+
+      collapsibles.forEach(function(item) {
+        item.classList.toggle('show');
+      });
+
+      btn.textContent = isShowing ? 'Show more ▼' : 'Show less ▲';
+    }
+
+    document.addEventListener('click', function(e) {
+      if (e.target.classList.contains('zoomable')) {
+        e.target.classList.toggle('zoomed');
+      } else if (e.target.classList.contains('zoomed')) {
+        e.target.classList.remove('zoomed');
+      }
+    });
+
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape') {
+        document.querySelectorAll('.zoomed').forEach(function(el) {
+          el.classList.remove('zoomed');
+        });
+      }
+    });
+
+    function toggleTheme() {
+      const currentTheme = document.documentElement.getAttribute('data-theme') || 'light';
+      const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+      document.documentElement.setAttribute('data-theme', newTheme);
+      localStorage.setItem('theme', newTheme);
+      
+      const themeMeta = document.querySelector('meta[name="theme-color"]');
+      if (themeMeta) {
+        themeMeta.setAttribute('content', newTheme === 'dark' ? '#0e1117' : '#ff6b00');
+      }
+    }
+  </script>
 </body>
 </html>

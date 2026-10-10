@@ -424,6 +424,10 @@
         <span class="contact-icon">🔗</span>
         <a href="https://www.linkedin.com/in/mohitb117">LinkedIn</a>
       </div>
+      <div class="contact-item">
+        <span class="contact-icon">📄</span>
+        <a href="https://github.com/mohitb117/mohitb117/blob/main/mohit_bhalla_resume_2025_simple.pdf" target="_blank">PDF Resume</a>
+      </div>
     </div>
   </div>
 </div>

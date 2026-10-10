@@ -3,8 +3,7 @@ layout: default
 title: Home
 ---
 
-<div class="container">
-  <div class="top-cards-row">
+<div class="top-cards-row">
     <section class="hero-card">
       <div class="hero">
         <div class="hero-content">
@@ -121,17 +120,22 @@ title: Home
   <section class="skills-section">
     <h2 class="section-title">Technical Skills</h2>
     <div class="skills-grid">
+      <!-- Android -->
       <div class="skill-circle skill-circle-android">
         <svg viewBox="0 0 120 120">
           <circle class="skill-circle-bg" cx="60" cy="60" r="54"/>
           <circle class="skill-circle-fill" cx="60" cy="60" r="54" style="stroke-dashoffset: 16.96;"/>
         </svg>
         <div class="skill-circle-text">
-          <span class="skill-icon material-symbols-outlined">android</span>
+          <span class="skill-icon skill-icon-android">
+            <svg viewBox="0 0 24 24" fill="#3DDC84"><path d="M17.523 15.3414c-.5511 0-.9993-.4486-.9993-.9997s.4482-.9993.9993-.9993c.551 0 .9993.4482.9993.9993s-.4483.9997-.9993.9997m-11.046 0c-.5511 0-.9993-.4486-.9993-.9997s.4482-.9993.9993-.9993c.5511 0 .9993.4482.9993.9993s-.4482.9997-.9993.9997m11.4045-6.02l1.997-3.4592a.416.416 0 00-.1523-.5676.416.416 0 00-.5676.1524l-2.0223 3.503C15.5802 8.4116 13.8427 8.0833 12 8.0833s-3.5802.3283-5.1363.8667L4.8414 5.447a.416.416 0 00-.5676-.1524.416.416 0 00-.1523.5676l1.997 3.4592C2.6888 11.0963.292 14.922 0 19.3333h24c-.292-4.4113-2.6888-8.237-6.1185-10.0119"/></svg>
+          </span>
           <span class="skill-percent">95%</span>
           <span class="skill-name">Android</span>
         </div>
       </div>
+
+      <!-- Kotlin -->
       <div class="skill-circle skill-circle-kotlin">
         <svg viewBox="0 0 120 120">
           <circle class="skill-circle-bg" cx="60" cy="60" r="54"/>
@@ -139,12 +143,14 @@ title: Home
         </svg>
         <div class="skill-circle-text">
           <span class="skill-icon skill-icon-kotlin">
-            <svg viewBox="0 0 24 24" style="transform: rotate(2.5deg)"><text x="6" y="17" font-family="Arial,sans-serif" font-weight="bold" font-size="14" fill="currentColor">K</text></svg>
+            <svg viewBox="0 0 24 24"><path fill="#7F52FF" d="M1.3 24l11.4-11.4L24 24H1.3zM24 0H1.3l11.4 11.4L24 0zM1.3 0v24L24 0H1.3z"/></svg>
           </span>
           <span class="skill-percent">90%</span>
           <span class="skill-name">Kotlin</span>
         </div>
       </div>
+
+      <!-- Compose -->
       <div class="skill-circle skill-circle-compose">
         <svg viewBox="0 0 120 120">
           <circle class="skill-circle-bg" cx="60" cy="60" r="54"/>
@@ -152,23 +158,29 @@ title: Home
         </svg>
         <div class="skill-circle-text">
           <span class="skill-icon skill-icon-compose">
-            <svg viewBox="0 0 24 24"><path d="M12 2L4 8v8l8 6 8-6V8l-8-6zm0 2.5L17.5 9 12 13.5 6.5 9 12 4.5zM6 10.5l5 3.75v5.5l-5-3.75v-5.5zm7.5 9.25V14.25L18 11v5.5l-4.5 3.25z" fill="currentColor"/></svg>
+            <svg viewBox="0 0 24 24"><path fill="#4285F4" d="M12 2L4 8v8l8 6 8-6V8l-8-6zm0 2.5L17.5 9 12 13.5 6.5 9 12 4.5zM6 10.5l5 3.75v5.5l-5-3.75v-5.5zm7.5 9.25V14.25L18 11v5.5l-4.5 3.25z"/></svg>
           </span>
           <span class="skill-percent">85%</span>
           <span class="skill-name">Compose</span>
         </div>
       </div>
+
+      <!-- Backend / Cloud -->
       <div class="skill-circle skill-circle-backend">
         <svg viewBox="0 0 120 120">
           <circle class="skill-circle-bg" cx="60" cy="60" r="54"/>
           <circle class="skill-circle-fill" cx="60" cy="60" r="54" style="stroke-dashoffset: 67.86;"/>
         </svg>
         <div class="skill-circle-text">
-          <span class="skill-icon material-symbols-outlined">desktop_cloud</span>
+          <span class="skill-icon skill-icon-backend">
+            <svg viewBox="0 0 24 24" fill="#FF9900"><path d="M18.8 15.6c-2.4 1.8-5.8 2.8-8.8 2.8-4.2 0-8-1.5-10.9-4.1-.2-.2-.2-.5 0-.7.1-.1.3-.1.5 0 2.7 2.4 6.3 3.8 10.3 3.8 2.8 0 6-1 8.3-2.6.3-.2.6 0 .7.3.1.2 0 .4-.1.5zm1.5-.7c-.3-.4-1.8-.2-2.8-.1-.3 0-.4-.2-.2-.4 1.3-1.3 3.5-.9 3.8-.5.3.4-.1 2.6-1.3 3.7-.2.2-.4.1-.3-.1.4-.9.8-2.3.8-2.6z"/></svg>
+          </span>
           <span class="skill-percent">80%</span>
-          <span class="skill-name">Backend</span>
+          <span class="skill-name">Cloud/AWS</span>
         </div>
       </div>
+
+      <!-- SDUI / Architecture -->
       <div class="skill-circle skill-circle-design">
         <svg viewBox="0 0 120 120">
           <circle class="skill-circle-bg" cx="60" cy="60" r="54"/>
@@ -176,12 +188,14 @@ title: Home
         </svg>
         <div class="skill-circle-text">
           <span class="skill-icon skill-icon-design">
-            <svg viewBox="0 0 24 24"><path d="M7 14c-1.66 0-3 1.34-3 3 0 1.31-1.16 2-2 2 .92 1.22 2.49 2 4 2 2.21 0 4-1.79 4-4 0-1.66-1.34-3-3-3zm13.71-9.37l-1.34-1.34a.996.996 0 00-1.41 0L9 12.25 11.75 15l8.96-8.96a.996.996 0 000-1.41z" fill="currentColor"/></svg>
+            <svg viewBox="0 0 24 24" fill="#E91E63"><path d="M3 3v8h8V3H3zm2 2h4v4H5V5zm8-2v8h8V3h-8zm2 2h4v4h-4V5zM3 13v8h8v-8H3zm2 2h4v4H5v-4zm13-2h-2v3h-3v2h3v3h2v-3h3v-2h-3v-3z"/></svg>
           </span>
-          <span class="skill-percent">75%</span>
-          <span class="skill-name">Design</span>
+          <span class="skill-percent">85%</span>
+          <span class="skill-name">SDUI / Arch</span>
         </div>
       </div>
+
+      <!-- Leadership -->
       <div class="skill-circle skill-circle-leadership">
         <svg viewBox="0 0 120 120">
           <circle class="skill-circle-bg" cx="60" cy="60" r="54"/>
@@ -189,7 +203,7 @@ title: Home
         </svg>
         <div class="skill-circle-text">
           <span class="skill-icon skill-icon-leadership">
-            <svg viewBox="0 0 24 24"><path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z" fill="currentColor"/></svg>
+            <svg viewBox="0 0 24 24" fill="#00BCD4"><path d="M9.19 6.35c-2.04 2.29-3.44 5.58-3.57 5.89-.19.46.03.99.49 1.18.46.19.99-.03 1.18-.49.03-.07 1.32-3.11 3.2-5.26l-1.3-1.32zm10.74-4.28c-.28-.28-.7-.36-1.05-.2L13.12 4.3c-.38.17-.63.54-.66.95-.03.42.17.81.52 1.03l2.88 1.83-6.6 6.6c-.39.39-.39 1.02 0 1.41.39.39 1.02.39 1.41 0l6.6-6.6 1.83 2.88c.22.35.61.55 1.03.52.42-.03.78-.28.95-.66l2.43-5.76c.16-.36.08-.77-.2-1.05l-3.38-3.38zM2.81 18.36c-.39.39-.39 1.02 0 1.41l1.41 1.41c.39.39 1.02.39 1.41 0l3.54-3.54-2.83-2.83-3.53 3.55z"/></svg>
           </span>
           <span class="skill-percent">80%</span>
           <span class="skill-name">Leadership</span>
@@ -320,24 +334,28 @@ title: Home
     <h2 class="section-title">Highlights & Recognition</h2>
     <div class="cards-grid">
       <div class="card">
-        <div class="card-icon">&#127942;</div>
+        <div class="card-icon" style="color: #ffb300;">
+          <span class="material-symbols-outlined" style="font-size: 2.4rem;">military_tech</span>
+        </div>
         <h3>1st Place - Mobile App Development Competition</h3>
         <p>PNNL / US Dept. of Energy (2014)</p>
         <p class="card-desc">Food Feed Bio Surveillance App - Primary developer in team of 4.</p>
       </div>
       <div class="card">
-        <div class="card-icon">&#128300;</div>
+        <div class="card-icon" style="color: #3ddc84;">
+          <span class="material-symbols-outlined" style="font-size: 2.4rem;">verified</span>
+        </div>
         <h3>US Patent 11038933B1</h3>
         <p>Amazon Care Platform (2018-21)</p>
         <p class="card-desc">WebRTC Quality Monitoring for A/V conferencing.</p>
       </div>
       <div class="card">
-        <div class="card-icon">&#127891;</div>
+        <div class="card-icon" style="color: #4285f4;">
+          <span class="material-symbols-outlined" style="font-size: 2.4rem;">school</span>
+        </div>
         <h3>Merit Scholarship</h3>
         <p>Syracuse University (2012-14)</p>
         <p class="card-desc">50% Tuition Coverage for academic excellence.</p>
       </div>
     </div>
   </section>
-
-</div>

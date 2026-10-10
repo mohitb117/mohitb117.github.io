@@ -1,0 +1,114 @@
+{% assign videos = site.data.portfolio_videos %}
+{% if videos and videos.size > 0 %}
+{% assign primary_video = videos.first %}
+<div class="device-showcase-container" id="videoShowcase">
+  <div class="device-showcase-grid">
+    <!-- Smartphone Bezel Mockup -->
+    <div class="phone-frame-wrapper">
+      <div class="phone-device">
+        <!-- Top Sensor / Camera Bar -->
+        <div class="phone-top-bar">
+          <div class="phone-speaker"></div>
+          <div class="phone-camera"></div>
+        </div>
+
+        <!-- Phone Screen Content -->
+        <div class="phone-screen">
+          <div class="phone-video-wrap">
+            <iframe
+              id="activeVideoIframe"
+              src="https://www.youtube-nocookie.com/embed/{{ primary_video.id }}?rel=0&modestbranding=1"
+              title="{{ primary_video.title }}"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              allowfullscreen
+              loading="lazy">
+            </iframe>
+          </div>
+        </div>
+
+        <!-- Bottom Gesture Navigation Pill -->
+        <div class="phone-bottom-bar">
+          <div class="phone-home-indicator"></div>
+        </div>
+      </div>
+      <div class="phone-reflection"></div>
+    </div>
+
+    <!-- Video Info & Interactive Switcher -->
+    <div class="video-info-panel">
+      <div class="video-meta-header">
+        <span class="video-badge" id="videoBadge">{{ primary_video.badge }}</span>
+        <span class="video-year" id="videoYear">{{ primary_video.year }}</span>
+      </div>
+
+      <h3 class="video-title" id="videoTitle">{{ primary_video.title }}</h3>
+      <p class="video-subtitle" id="videoSubtitle">{{ primary_video.subtitle }}</p>
+      <p class="video-description" id="videoDesc">{{ primary_video.description }}</p>
+
+      <div class="video-tags-container" id="videoTags">
+        {% for tag in primary_video.tags %}
+          <span class="tech-tag"><span class="tech-tag-bullet">•</span>{{ tag }}</span>
+        {% endfor %}
+      </div>
+
+      <div class="video-actions-strip">
+        <a id="videoDirectLink" href="{{ primary_video.url }}" target="_blank" rel="noopener noreferrer" class="btn-video-action">
+          <span class="material-symbols-outlined">smart_display</span>
+          <span>Watch on YouTube</span>
+        </a>
+      </div>
+
+      <!-- Multiple Video Switcher (If multiple videos present) -->
+      {% if videos.size > 1 %}
+      <div class="video-playlist-switcher">
+        <span class="playlist-label">Select Demo Walkthrough:</span>
+        <div class="playlist-buttons">
+          {% for vid in videos %}
+          <button
+            type="button"
+            class="playlist-btn{% if forloop.first %} active{% endif %}"
+            onclick="switchPortfolioVideo('{{ vid.id }}', '{{ vid.title | escape }}', '{{ vid.subtitle | escape }}', '{{ vid.badge | escape }}', '{{ vid.year | escape }}', '{{ vid.description | escape }}', '{{ vid.url }}', {{ vid.tags | jsonify | escape }}, this)">
+            <span class="material-symbols-outlined">play_circle</span>
+            <span class="playlist-btn-text">{{ vid.title }}</span>
+          </button>
+          {% endfor %}
+        </div>
+      </div>
+      {% endif %}
+
+      <div class="video-private-tip">
+        <span class="material-symbols-outlined tip-icon">lock_open</span>
+        <span>Have an unlisted/private demo link? Easily add video IDs to <code>_data/portfolio_videos.yml</code> to preview them here.</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  function switchPortfolioVideo(id, title, subtitle, badge, year, desc, url, tags, btn) {
+    const iframe = document.getElementById('activeVideoIframe');
+    if (iframe) {
+      iframe.src = 'https://www.youtube-nocookie.com/embed/' + id + '?rel=0&autoplay=1&modestbranding=1';
+      iframe.title = title;
+    }
+    document.getElementById('videoTitle').textContent = title;
+    document.getElementById('videoSubtitle').textContent = subtitle;
+    document.getElementById('videoBadge').textContent = badge;
+    document.getElementById('videoYear').textContent = year;
+    document.getElementById('videoDesc').textContent = desc;
+    document.getElementById('videoDirectLink').href = url;
+
+    // Update tags
+    const tagsContainer = document.getElementById('videoTags');
+    if (tagsContainer && Array.isArray(tags)) {
+      tagsContainer.innerHTML = tags.map(tag =>
+        '<span class="tech-tag"><span class="tech-tag-bullet">•</span>' + tag + '</span>'
+      ).join('');
+    }
+
+    // Toggle active state
+    document.querySelectorAll('.playlist-btn').forEach(b => b.classList.remove('active'));
+    if (btn) btn.classList.add('active');
+  }
+</script>
+{% endif %}
