@@ -1,0 +1,44 @@
+- id: "HVIy1bWt29Y"
+  title: "Food Feed Bio Surveillance App"
+  subtitle: "1st Place Winner • US Dept. of Energy / PNNL"
+  badge: "PNNL / DOE"
+  year: "2014"
+  description: "Demonstration of the real-time mobile bio-surveillance system built for PNNL. Primary Android developer responsible for client-server data synchronization, push notifications, and live monitoring feeds."
+  tags:
+    - "Android SDK"
+    - "Java EE"
+    - "Push Notifications"
+    - "Bio-Surveillance"
+  url: "https://www.youtube.com/watch?v=HVIy1bWt29Y"
+
+# =============================================================================
+# INSTRUCTIONS FOR ADDING YOUR PRIVATE / UNLISTED YOUTUBE CHANNEL VIDEOS:
+# 1. Upload your video to YouTube as "Unlisted" (or Public).
+# 2. Copy the video ID from the URL (e.g., https://youtu.be/XYZ123 -> id: "XYZ123").
+# 3. Uncomment or add a block below with your title, description, and tags.
+# 4. It will automatically appear in the interactive mobile device mockup switcher!
+# =============================================================================
+
+# - id: "YOUR_PRIVATE_VIDEO_ID_1"
+#   title: "DoorDash Grocery SDUI Checkout Flow"
+#   subtitle: "Mobile Tech Lead • Architectural Demo"
+#   badge: "DoorDash"
+#   year: "2024"
+#   description: "End-to-end walkthrough of the unified Android Order Confirmation surface, dynamic ETA calculation, and Server-Driven UI cart redirection framework."
+#   tags:
+#     - "Jetpack Compose"
+#     - "SDUI"
+#     - "Kotlin Coroutines"
+#   url: "https://www.youtube.com/watch?v=YOUR_PRIVATE_VIDEO_ID_1"
+
+# - id: "YOUR_PRIVATE_VIDEO_ID_2"
+#   title: "Amazon Care WebRTC Real-Time Media Engine"
+#   subtitle: "US Patent US11038933B1 • Telemedicine Walkthrough"
+#   badge: "Amazon Care"
+#   year: "2021"
+#   description: "Deep dive demonstration into the WebRTC audio/video calling architecture and real-time network quality monitoring telemetry."
+#   tags:
+#     - "WebRTC"
+#     - "Kotlin"
+#     - "US Patent"
+#   url: "https://www.youtube.com/watch?v=YOUR_PRIVATE_VIDEO_ID_2"

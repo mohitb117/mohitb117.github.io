@@ -3,40 +3,77 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#ff6b00">
   <title>Home</title>
   <meta name="description" content="Software Engineer | Android Developer | Tech Lead">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/css/style.css">
+  <script>
+    (function() {
+      const savedTheme = localStorage.getItem('theme');
+      const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+      const theme = savedTheme || (prefersDark ? 'dark' : 'light');
+      document.documentElement.setAttribute('data-theme', theme);
+    })();
+  </script>
 </head>
 <body>
-  <header>
-    <nav class="navbar">
-      <div class="container nav-container">
-        <a href="/" class="site-title">Mohit Bhalla</a>
-        <ul class="nav-links">
-          
-            
-            
-            <li><a href="/" class="active">Home</a></li>
-          
-            
-            
-            <li><a href="/resume/" >Resume</a></li>
-          
-            
-            
-            <li><a href="/blog/" >Blog</a></li>
-          
-        </ul>
-      </div>
-    </nav>
-  </header>
+  
+  
 
-  <main class="container">
-    <div class="container">
-  <div class="top-cards-row">
+  <div class="app-shell">
+    <nav class="nav-rail" aria-label="Primary">
+      <a href="/" class="nav-rail-brand" aria-label="Home">MB</a>
+      <ul>
+        
+          
+          
+          
+          <li>
+            <a href="/" class="nav-item active">
+              <span class="material-symbols-outlined">home</span>
+              <span class="nav-label">Home</span>
+            </a>
+          </li>
+        
+          
+          
+          
+          <li>
+            <a href="/resume/" class="nav-item">
+              <span class="material-symbols-outlined">description</span>
+              <span class="nav-label">Resume</span>
+            </a>
+          </li>
+        
+          
+          
+          
+          <li>
+            <a href="/blog/" class="nav-item">
+              <span class="material-symbols-outlined">article</span>
+              <span class="nav-label">Blog</span>
+            </a>
+          </li>
+        
+      </ul>
+    </nav>
+
+    <div class="app-column">
+      <header class="top-app-bar">
+        <h1 class="top-app-bar-title">Home</h1>
+        <div class="top-app-bar-actions">
+          <button id="theme-toggle-btn" class="theme-toggle-btn" onclick="toggleTheme()" aria-label="Toggle light or dark theme" title="Toggle theme">
+            <span class="material-symbols-outlined theme-icon-light">dark_mode</span>
+            <span class="material-symbols-outlined theme-icon-dark">light_mode</span>
+          </button>
+        </div>
+      </header>
+
+      <main class="app-content">
+        <div class="top-cards-row">
     <section class="hero-card">
       <div class="hero">
         <div class="hero-content">
@@ -47,6 +84,7 @@
           <div class="hero-text">
             <h1>Mohit Bhalla</h1>
             <p class="tagline">Sr. Software Engineer | New Verticals Mobile Tech Lead</p>
+            <p class="hero-blurb">An Android Engineer driven by a love for solving complex problems and creating seamless user experiences. From integrating scalable backend systems for the US Department of Energy to collaborating on customer-focused products at Amazon and DoorDash, I thrive on pushing technical boundaries and staying ahead of industry trends.</p>
             <div class="social-links">
               <a href="https://github.com/mohitb117" target="_blank" title="GitHub">
                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" /></svg>
@@ -67,29 +105,74 @@
     </section>
 
     <section class="testimonials-card">
-      <h2 class="section-title">Mentorship</h2>
-      <div class="testimonials-list">
-        <div class="testimonial-item">
-          <div class="testimonial-stars">★★★★★</div>
-          <p class="testimonial-quote">"Very useful conversation, learnt a lot!"</p>
-          <span class="testimonial-author">- Anonymous</span>
+      <h2 class="section-title">Recommendations</h2>
+      
+      <div class="testimonials-accordion">
+        <div class="accordion-item open">
+          <button class="accordion-header" onclick="toggleAccordion(this)">
+            <span>LinkedIn Recommendations</span>
+            <svg class="accordion-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
+          </button>
+          <div class="accordion-content">
+            <div class="testimonials-list">
+              <div class="testimonial-item">
+                <p class="testimonial-quote">"An enthusiastic problem-solver who seamlessly collaborates with design teams to build products customers love and consistently surpass expectations."</p>
+                <span class="testimonial-author">- Scott Yu-Jan, Content Creator</span>
+              </div>
+              <div class="testimonial-item collapsible">
+                <p class="testimonial-quote">"A passionate native Android developer driven by Customer Obsession who consistently delivers high quality work and elevates the entire team."</p>
+                <span class="testimonial-author">- Tatiana Milovanova, Android @ Block</span>
+              </div>
+              <div class="testimonial-item collapsible">
+                <p class="testimonial-quote">"An Android engineer with unparalleled enthusiasm, strong technical skills, and a dedication to staying ahead of the latest industry trends."</p>
+                <span class="testimonial-author">- Owais Ali, Software Engineer at Google</span>
+              </div>
+              <div class="testimonial-item collapsible">
+                <p class="testimonial-quote">"An exceptionally strong technical engineer who successfully delivered a robust and scalable Android application for an award-winning project."</p>
+                <span class="testimonial-author">- Janani Subbiah, Staff Software Engineer</span>
+              </div>
+            </div>
+            <button class="show-more-btn" onclick="toggleShowMore(this)">Show more ▼</button>
+            <a href="https://www.linkedin.com/in/mohitb117/details/recommendations/" target="_blank" class="btn-testimonials">View All on LinkedIn →</a>
+          </div>
         </div>
-        <div class="testimonial-item">
-          <div class="testimonial-stars">★★★★★</div>
-          <p class="testimonial-quote">"Great mentor! Taught me interview strategies with clarity and confidence."</p>
-          <span class="testimonial-author">- Abhishek</span>
-        </div>
-        <div class="testimonial-item">
-          <div class="testimonial-stars">★★★★★</div>
-          <p class="testimonial-quote">"Very helpful and friendly. Makes it easy to share and understand my needs."</p>
-          <span class="testimonial-author">- Tuan-Anh Ngo</span>
+        
+        <div class="accordion-item open">
+          <button class="accordion-header" onclick="toggleAccordion(this)">
+            <span>Topmate Mentorship Reviews</span>
+            <svg class="accordion-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
+          </button>
+          <div class="accordion-content">
+            <div class="testimonials-list">
+              <div class="testimonial-item">
+                <div class="testimonial-stars">★★★★★</div>
+                <p class="testimonial-quote">"Great mentor! Taught me interview strategies with clarity and confidence."</p>
+                <span class="testimonial-author">- Abhishek</span>
+              </div>
+              <div class="testimonial-item collapsible">
+                <div class="testimonial-stars">★★★★★</div>
+                <p class="testimonial-quote">"Very useful conversation, learnt a lot!"</p>
+                <span class="testimonial-author">- Anonymous</span>
+              </div>
+              <div class="testimonial-item collapsible">
+                <div class="testimonial-stars">★★★★★</div>
+                <p class="testimonial-quote">"Very helpful and friendly. Makes it easy to share and understand my needs."</p>
+                <span class="testimonial-author">- Tuan-Anh Ngo</span>
+              </div>
+            </div>
+            <button class="show-more-btn" onclick="toggleShowMore(this)">Show more ▼</button>
+            <a href="https://topmate.io/mohitb117" target="_blank" class="btn-testimonials">Book Mentorship on Topmate →</a>
+          </div>
         </div>
       </div>
-      <a href="https://topmate.io/mohitb117" target="_blank" class="btn-mentor">Book Mentorship</a>
     </section>
   </div>
 
-  <section class="about-section">
+<section class="journey-section">
+    <img src="/images/professional-journey.jpg" alt="Professional Journey" class="journey-image zoomable" />
+  </section>
+
+<section class="about-section">
     <h2 class="section-title">About Me</h2>
     <p class="about-text">Senior Software Engineer and Mobile Tech Lead with 10+ years of experience building Android applications at scale. Currently leading mobile development at DoorDash, previously at Amazon and INRIX. Specialized in Kotlin, Jetpack Compose, and building scalable mobile architectures that serve millions of users. Passionate about mentoring and helping others advance their careers.</p>
     <div class="about-grid">
@@ -104,83 +187,94 @@
     </div>
   </section>
 
-  <section class="skills-section">
+<section class="skills-section">
     <h2 class="section-title">Technical Skills</h2>
     <div class="skills-grid">
+      <!-- Android -->
       <div class="skill-circle skill-circle-android">
         <svg viewBox="0 0 120 120">
           <circle class="skill-circle-bg" cx="60" cy="60" r="54" />
           <circle class="skill-circle-fill" cx="60" cy="60" r="54" style="stroke-dashoffset: 16.96;" />
         </svg>
         <div class="skill-circle-text">
-          <div class="skill-icon">
-            <span class="material-symbols-outlined" style="color: #3DDC84; font-size: 32px;">android</span>
-          </div>
+          <span class="skill-icon skill-icon-android">
+            <svg viewBox="0 0 24 24" fill="#3DDC84"><path d="M17.523 15.3414c-.5511 0-.9993-.4486-.9993-.9997s.4482-.9993.9993-.9993c.551 0 .9993.4482.9993.9993s-.4483.9997-.9993.9997m-11.046 0c-.5511 0-.9993-.4486-.9993-.9997s.4482-.9993.9993-.9993c.5511 0 .9993.4482.9993.9993s-.4482.9997-.9993.9997m11.4045-6.02l1.997-3.4592a.416.416 0 00-.1523-.5676.416.416 0 00-.5676.1524l-2.0223 3.503C15.5802 8.4116 13.8427 8.0833 12 8.0833s-3.5802.3283-5.1363.8667L4.8414 5.447a.416.416 0 00-.5676-.1524.416.416 0 00-.1523.5676l1.997 3.4592C2.6888 11.0963.292 14.922 0 19.3333h24c-.292-4.4113-2.6888-8.237-6.1185-10.0119" /></svg>
+          </span>
           <span class="skill-percent">95%</span>
           <span class="skill-name">Android</span>
         </div>
       </div>
+
+      <!-- Kotlin -->
       <div class="skill-circle skill-circle-kotlin">
         <svg viewBox="0 0 120 120">
           <circle class="skill-circle-bg" cx="60" cy="60" r="54" />
           <circle class="skill-circle-fill" cx="60" cy="60" r="54" style="stroke-dashoffset: 33.93;" />
         </svg>
         <div class="skill-circle-text">
-          <div class="skill-icon">
-            <svg viewBox="0 0 24 24" fill="#7F52FF"><path d="M12 2L2 19h20L12 2zm0 4l6.5 11h-13L12 6z" /></svg>
-          </div>
+          <span class="skill-icon skill-icon-kotlin">
+            <svg viewBox="0 0 24 24"><path fill="#7F52FF" d="M1.3 24l11.4-11.4L24 24H1.3zM24 0H1.3l11.4 11.4L24 0zM1.3 0v24L24 0H1.3z" /></svg>
+          </span>
           <span class="skill-percent">90%</span>
           <span class="skill-name">Kotlin</span>
         </div>
       </div>
+
+      <!-- Compose -->
       <div class="skill-circle skill-circle-compose">
         <svg viewBox="0 0 120 120">
           <circle class="skill-circle-bg" cx="60" cy="60" r="54" />
           <circle class="skill-circle-fill" cx="60" cy="60" r="54" style="stroke-dashoffset: 50.89;" />
         </svg>
         <div class="skill-circle-text">
-          <div class="skill-icon">
-            <svg viewBox="0 0 24 24" fill="#4285F4"><path d="M12 2l2.4 7.2H22l-6 4.8 2.4 7.2L12 16l-6.4 5.2L8 14 2 9.2h7.6z" /></svg>
-          </div>
+          <span class="skill-icon skill-icon-compose">
+            <svg viewBox="0 0 24 24"><path fill="#4285F4" d="M12 2L4 8v8l8 6 8-6V8l-8-6zm0 2.5L17.5 9 12 13.5 6.5 9 12 4.5zM6 10.5l5 3.75v5.5l-5-3.75v-5.5zm7.5 9.25V14.25L18 11v5.5l-4.5 3.25z" /></svg>
+          </span>
           <span class="skill-percent">85%</span>
           <span class="skill-name">Compose</span>
         </div>
       </div>
+
+      <!-- Backend / Cloud -->
       <div class="skill-circle skill-circle-backend">
         <svg viewBox="0 0 120 120">
           <circle class="skill-circle-bg" cx="60" cy="60" r="54" />
           <circle class="skill-circle-fill" cx="60" cy="60" r="54" style="stroke-dashoffset: 67.86;" />
         </svg>
         <div class="skill-circle-text">
-          <div class="skill-icon">
-            <span class="material-symbols-outlined" style="color: #FF6B35; font-size: 32px;">desktop_cloud</span>
-          </div>
+          <span class="skill-icon skill-icon-backend">
+            <svg viewBox="0 0 24 24" fill="#FF9900"><path d="M18.8 15.6c-2.4 1.8-5.8 2.8-8.8 2.8-4.2 0-8-1.5-10.9-4.1-.2-.2-.2-.5 0-.7.1-.1.3-.1.5 0 2.7 2.4 6.3 3.8 10.3 3.8 2.8 0 6-1 8.3-2.6.3-.2.6 0 .7.3.1.2 0 .4-.1.5zm1.5-.7c-.3-.4-1.8-.2-2.8-.1-.3 0-.4-.2-.2-.4 1.3-1.3 3.5-.9 3.8-.5.3.4-.1 2.6-1.3 3.7-.2.2-.4.1-.3-.1.4-.9.8-2.3.8-2.6z" /></svg>
+          </span>
           <span class="skill-percent">80%</span>
-          <span class="skill-name">Backend</span>
+          <span class="skill-name">Cloud/AWS</span>
         </div>
       </div>
+
+      <!-- SDUI / Architecture -->
       <div class="skill-circle skill-circle-design">
         <svg viewBox="0 0 120 120">
           <circle class="skill-circle-bg" cx="60" cy="60" r="54" />
           <circle class="skill-circle-fill" cx="60" cy="60" r="54" style="stroke-dashoffset: 84.82;" />
         </svg>
         <div class="skill-circle-text">
-          <div class="skill-icon">
-            <svg viewBox="0 0 24 24" fill="#E91E63"><circle cx="12" cy="12" r="10" /><circle cx="8" cy="10" r="1.5" fill="#fff" /><circle cx="16" cy="10" r="1.5" fill="#fff" /><circle cx="12" cy="15" r="1.5" fill="#fff" /></svg>
-          </div>
-          <span class="skill-percent">75%</span>
-          <span class="skill-name">Design</span>
+          <span class="skill-icon skill-icon-design">
+            <svg viewBox="0 0 24 24" fill="#E91E63"><path d="M3 3v8h8V3H3zm2 2h4v4H5V5zm8-2v8h8V3h-8zm2 2h4v4h-4V5zM3 13v8h8v-8H3zm2 2h4v4H5v-4zm13-2h-2v3h-3v2h3v3h2v-3h3v-2h-3v-3z" /></svg>
+          </span>
+          <span class="skill-percent">85%</span>
+          <span class="skill-name">SDUI / Arch</span>
         </div>
       </div>
+
+      <!-- Leadership -->
       <div class="skill-circle skill-circle-leadership">
         <svg viewBox="0 0 120 120">
           <circle class="skill-circle-bg" cx="60" cy="60" r="54" />
           <circle class="skill-circle-fill" cx="60" cy="60" r="54" style="stroke-dashoffset: 67.86;" />
         </svg>
         <div class="skill-circle-text">
-          <div class="skill-icon">
-            <svg viewBox="0 0 24 24" fill="#00BCD4"><path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z" /></svg>
-          </div>
+          <span class="skill-icon skill-icon-leadership">
+            <svg viewBox="0 0 24 24" fill="#00BCD4"><path d="M9.19 6.35c-2.04 2.29-3.44 5.58-3.57 5.89-.19.46.03.99.49 1.18.46.19.99-.03 1.18-.49.03-.07 1.32-3.11 3.2-5.26l-1.3-1.32zm10.74-4.28c-.28-.28-.7-.36-1.05-.2L13.12 4.3c-.38.17-.63.54-.66.95-.03.42.17.81.52 1.03l2.88 1.83-6.6 6.6c-.39.39-.39 1.02 0 1.41.39.39 1.02.39 1.41 0l6.6-6.6 1.83 2.88c.22.35.61.55 1.03.52.42-.03.78-.28.95-.66l2.43-5.76c.16-.36.08-.77-.2-1.05l-3.38-3.38zM2.81 18.36c-.39.39-.39 1.02 0 1.41l1.41 1.41c.39.39 1.02.39 1.41 0l3.54-3.54-2.83-2.83-3.53 3.55z" /></svg>
+          </span>
           <span class="skill-percent">80%</span>
           <span class="skill-name">Leadership</span>
         </div>
@@ -188,7 +282,7 @@
     </div>
   </section>
 
-  <section class="experience-section">
+<section class="experience-section">
     <h2 class="section-title">Work Experience</h2>
     
     <div class="timeline-item">
@@ -284,7 +378,7 @@
     </div>
   </section>
 
-  <section class="education-section">
+<section class="education-section">
     <h2 class="section-title">Education</h2>
     
     <div class="timeline-item">
@@ -306,23 +400,29 @@
     </div>
   </section>
 
-  <section class="highlights-section">
+<section class="highlights-section">
     <h2 class="section-title">Highlights &amp; Recognition</h2>
     <div class="cards-grid">
       <div class="card">
-        <div class="card-icon">&#127942;</div>
+        <div class="card-icon" style="color: #ffb300;">
+          <span class="material-symbols-outlined" style="font-size: 2.4rem;">military_tech</span>
+        </div>
         <h3>1st Place - Mobile App Development Competition</h3>
         <p>PNNL / US Dept. of Energy (2014)</p>
         <p class="card-desc">Food Feed Bio Surveillance App - Primary developer in team of 4.</p>
       </div>
       <div class="card">
-        <div class="card-icon">&#128300;</div>
+        <div class="card-icon" style="color: #3ddc84;">
+          <span class="material-symbols-outlined" style="font-size: 2.4rem;">verified</span>
+        </div>
         <h3>US Patent 11038933B1</h3>
         <p>Amazon Care Platform (2018-21)</p>
         <p class="card-desc">WebRTC Quality Monitoring for A/V conferencing.</p>
       </div>
       <div class="card">
-        <div class="card-icon">&#127891;</div>
+        <div class="card-icon" style="color: #4285f4;">
+          <span class="material-symbols-outlined" style="font-size: 2.4rem;">school</span>
+        </div>
         <h3>Merit Scholarship</h3>
         <p>Syracuse University (2012-14)</p>
         <p class="card-desc">50% Tuition Coverage for academic excellence.</p>
@@ -330,14 +430,93 @@
     </div>
   </section>
 
-</div>
+      </main>
 
-  </main>
+      <p class="app-caption">&copy; 2026 Mohit Bhalla</p>
 
-  <footer>
-    <div class="container">
-      <p>&copy; 2026 Mohit Bhalla. Built with Jekyll.</p>
+      <nav class="bottom-nav" aria-label="Primary">
+        
+          
+          
+          
+          <a href="/" class="nav-item active">
+            <span class="material-symbols-outlined">home</span>
+            <span class="nav-label">Home</span>
+          </a>
+        
+          
+          
+          
+          <a href="/resume/" class="nav-item">
+            <span class="material-symbols-outlined">description</span>
+            <span class="nav-label">Resume</span>
+          </a>
+        
+          
+          
+          
+          <a href="/blog/" class="nav-item">
+            <span class="material-symbols-outlined">article</span>
+            <span class="nav-label">Blog</span>
+          </a>
+        
+      </nav>
     </div>
-  </footer>
+  </div>
+
+  <script>
+    function toggleAccordion(header) {
+      const item = header.parentElement;
+      const wasOpen = item.classList.contains('open');
+
+      document.querySelectorAll('.accordion-item').forEach(function(i) {
+        i.classList.remove('open');
+      });
+
+      if (!wasOpen) {
+        item.classList.add('open');
+      }
+    }
+
+    function toggleShowMore(btn) {
+      const content = btn.parentElement;
+      const collapsibles = content.querySelectorAll('.testimonial-item.collapsible');
+      const isShowing = collapsibles[0].classList.contains('show');
+
+      collapsibles.forEach(function(item) {
+        item.classList.toggle('show');
+      });
+
+      btn.textContent = isShowing ? 'Show more ▼' : 'Show less ▲';
+    }
+
+    document.addEventListener('click', function(e) {
+      if (e.target.classList.contains('zoomable')) {
+        e.target.classList.toggle('zoomed');
+      } else if (e.target.classList.contains('zoomed')) {
+        e.target.classList.remove('zoomed');
+      }
+    });
+
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape') {
+        document.querySelectorAll('.zoomed').forEach(function(el) {
+          el.classList.remove('zoomed');
+        });
+      }
+    });
+
+    function toggleTheme() {
+      const currentTheme = document.documentElement.getAttribute('data-theme') || 'light';
+      const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+      document.documentElement.setAttribute('data-theme', newTheme);
+      localStorage.setItem('theme', newTheme);
+      
+      const themeMeta = document.querySelector('meta[name="theme-color"]');
+      if (themeMeta) {
+        themeMeta.setAttribute('content', newTheme === 'dark' ? '#0e1117' : '#ff6b00');
+      }
+    }
+  </script>
 </body>
 </html>

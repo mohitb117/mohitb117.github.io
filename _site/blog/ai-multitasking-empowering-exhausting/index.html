@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#ff6b00">
+  <title>AI Multitasking: Empowering and Exhausting</title>
+  <meta name="description" content="How AI tools are making us more productive but also creating new forms of burnout. Finding balance in the age of AI assistance.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/style.css">
+  <script>
+    (function() {
+      const savedTheme = localStorage.getItem('theme');
+      const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+      const theme = savedTheme || (prefersDark ? 'dark' : 'light');
+      document.documentElement.setAttribute('data-theme', theme);
+    })();
+  </script>
+</head>
+<body>
+  
+  
+
+  <div class="app-shell">
+    <nav class="nav-rail" aria-label="Primary">
+      <a href="/" class="nav-rail-brand" aria-label="Home">MB</a>
+      <ul>
+        
+          
+          
+          
+          <li>
+            <a href="/" class="nav-item">
+              <span class="material-symbols-outlined">home</span>
+              <span class="nav-label">Home</span>
+            </a>
+          </li>
+        
+          
+          
+          
+          <li>
+            <a href="/resume/" class="nav-item">
+              <span class="material-symbols-outlined">description</span>
+              <span class="nav-label">Resume</span>
+            </a>
+          </li>
+        
+          
+          
+          
+          <li>
+            <a href="/blog/" class="nav-item active">
+              <span class="material-symbols-outlined">article</span>
+              <span class="nav-label">Blog</span>
+            </a>
+          </li>
+        
+      </ul>
+    </nav>
+
+    <div class="app-column">
+      <header class="top-app-bar">
+        <h1 class="top-app-bar-title">Blog</h1>
+        <div class="top-app-bar-actions">
+          <button id="theme-toggle-btn" class="theme-toggle-btn" onclick="toggleTheme()" aria-label="Toggle light or dark theme" title="Toggle theme">
+            <span class="material-symbols-outlined theme-icon-light">dark_mode</span>
+            <span class="material-symbols-outlined theme-icon-dark">light_mode</span>
+          </button>
+        </div>
+      </header>
+
+      <main class="app-content">
+        
+
+
+<article class="post-page post-page-with-toc">
+  <div class="post-page-layout">
+    <aside class="post-toc-sidebar">
+      <nav class="post-toc" id="toc">
+        <h4 class="post-toc-title">Table of Contents</h4>
+        <ul class="post-toc-list" id="toc-list"></ul>
+      </nav>
+    </aside>
+
+    <div class="post-page-main">
+      <header class="post-page-header">
+        <div class="post-page-header-content">
+          <a href="/blog/" class="back-to-blog">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M19 12H5M12 19l-7-7 7-7"/>
+            </svg>
+            Back to Blog
+          </a>
+          <h1>AI Multitasking: Empowering and Exhausting</h1>
+          <div class="post-page-meta">
+            <time datetime="2026-04-19T00:00:00-05:00">April 19, 2026</time>
+            <span class="separator">•</span>
+            <span class="read-time">
+              <svg class="read-time-icon" xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="10"></circle>
+                <polyline points="12 6 12 12 16 14"></polyline>
+              </svg>
+              2 min read
+            </span>
+            
+              <span class="separator">•</span>
+              <span>Mohit Bhalla</span>
+            
+          </div>
+          
+            <div class="post-page-tags">
+              
+                <a href="/blog/tags/#ai" class="tag tag-link">AI</a>
+              
+                <a href="/blog/tags/#productivity" class="tag tag-link">Productivity</a>
+              
+                <a href="/blog/tags/#balance" class="tag tag-link">Balance</a>
+              
+                <a href="/blog/tags/#career" class="tag tag-link">Career</a>
+              
+            </div>
+          
+        </div>
+        
+          <div class="post-page-hero">
+            <img src="/images/post-2-ai-exhaustion.png" alt="AI Multitasking: Empowering and Exhausting" class="zoomable">
+          </div>
+        
+      </header>
+
+      <div class="post-page-content" id="post-content">
+        <p>In a world where we can spin up a UI in seconds or resolve complex merge conflicts with a single prompt, the exhaustion isn’t from the work itself — it’s from the sheer volume of decisions we now have to make at a breakneck pace.</p>
+
+<h2 id="the-paradox-of-infinite-productivity">The Paradox of “Infinite” Productivity</h2>
+
+<p>We’ve moved from being “coders” to “orchestrators.” Whether it’s using LLMs to manage complex mobile release builds or leaning on them for Jetpack Compose boilerplate, the speed is intoxicating.</p>
+
+<p>The empowering reality: we can now tackle projects that used to require a whole team. Anything is possible.</p>
+
+<p>The hidden cost: just because we can do more doesn’t mean our brains have evolved to process the context-switching that comes with it.</p>
+
+<h2 id="the-auditors-burden-and-mental-exhaustion">The Auditor’s Burden and Mental Exhaustion</h2>
+
+<p>Burnout in the AI era looks different. It’s not “I have too much to type” — it’s “I have too much to verify.”</p>
+
+<p>When an LLM generates 100 lines of code in three seconds, your job shifts from creating to auditing. Constant auditing is mentally taxing because you’re looking for subtle hallucinations or logic gaps while trying to maintain the big-picture architecture.</p>
+
+<p>AI allows us to run five “workstreams” at once, but our “RAM” is still single-threaded. This leads to a unique flavor of burnout: Cognitive Overflow.</p>
+
+<h2 id="embracing-the-wave-without-drowning">Embracing the Wave (Without Drowning)</h2>
+
+<p>To stay relevant, we have to use these tools, but we must use them with intent.</p>
+
+<p><strong>Intentional Friction:</strong> Sometimes, the best way to help yourself is to stop using AI for a moment. Write that logic by hand to re-engage your deep-thinking muscles.</p>
+
+<p><strong>The “Systems Architect” Mindset:</strong> Move your value proposition away from “writing code” toward “designing systems.” AI is great at the how, but it struggles with the why. Focus on the why — the business impact, the engineering excellence, and the user experience.</p>
+
+<h2 id="a-survival-guide-for-the-modern-engineer">A Survival Guide for the Modern Engineer</h2>
+
+<ul>
+  <li>
+    <p><strong>The AI Pomodoro:</strong> Dedicate specific blocks of time for “AI-assisted sprinting” and “Deep-work silence.” Do not let the LLM be an open tab all day.</p>
+  </li>
+  <li>
+    <p><strong>Talk about the fatigue:</strong> Normalize the fact that “fast” doesn’t always mean “easy.” Sharing this with your team helps reduce the pressure to produce at an inhuman rate just because the tools allow for it.</p>
+  </li>
+  <li>
+    <p><strong>Protect your off-switch:</strong> In an age where anything is possible 24/7, the most valuable skill is knowing when to close the laptop and take a walk.</p>
+  </li>
+</ul>
+
+<hr />
+
+<p>We are the first generation of engineers learning to code at the speed of thought. Let’s make sure we don’t outrun our own well-being in the process.</p>
+
+<hr />
+
+<p>What strategies have helped you find balance? Let’s continue the conversation on <a href="https://www.linkedin.com/in/mohitb117">LinkedIn</a>.</p>
+
+      </div>
+
+      
+      
+      
+
+      
+        <div class="related-posts">
+          <h3 class="related-posts-title">Related Posts</h3>
+          <div class="related-posts-grid">
+            
+              <a href="/blog/welcome-to-llm-assisted-merging/" class="related-post-card">
+                <h4>Welcome to My New Blog</h4>
+                <p>Thoughts on software engineering, mobile development, LLM coding tools, and what the future looks like on the other side of the AI revolution.</p>
+              </a>
+            
+              <a href="/blog/engineering-amazon-silk-fire-tv/" class="related-post-card">
+                <h4>Engineering the Living Room Web: Deep Dive into My Time Building Amazon Silk for Fire TV (2015-2018)</h4>
+                <p>A detailed deep dive into the major architectural challenges, performance optimizations, and advanced Android design patterns I tackled during my years on the Silk team at Amazon.</p>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      <div class="comments-section">
+        <h3 class="comments-title">Comments</h3>
+        <div id="comments">
+          <script src="https://utteranc.es/client.js"
+                  repo="mohitb117/mohitb117.github.io"
+                  issue-term="pathname"
+                  label="comment"
+                  theme="github-light"
+                  crossorigin="anonymous"
+                  async>
+          </script>
+        </div>
+      </div>
+
+      <footer class="post-page-footer">
+        <div class="share-section">
+          <span class="share-label">Share this post</span>
+          <div class="share-links">
+            <a href="https://twitter.com/intent/tweet?text=AI+Multitasking%3A+Empowering+and+Exhausting&url=https://mohitb117.github.io/blog/ai-multitasking-empowering-exhausting/" target="_blank" class="share-link twitter" title="Share on Twitter">
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+            </a>
+            <a href="https://www.linkedin.com/sharing/share-offsite/?url=https://mohitb117.github.io/blog/ai-multitasking-empowering-exhausting/" target="_blank" class="share-link linkedin" title="Share on LinkedIn">
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+            </a>
+            <a href="mailto:?subject=AI+Multitasking%3A+Empowering+and+Exhausting&body=Check out this post: https://mohitb117.github.io/blog/ai-multitasking-empowering-exhausting/" class="share-link email" title="Share via Email">
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+            </a>
+          </div>
+        </div>
+        <a href="/blog/" class="back-to-blog-bottom">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M19 12H5M12 19l-7-7 7-7"/>
+          </svg>
+          Back to Blog
+        </a>
+      </footer>
+    </div>
+  </div>
+</article>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const content = document.getElementById('post-content');
+    const tocList = document.getElementById('toc-list');
+    const toc = document.getElementById('toc');
+    
+    if (!content || !tocList) return;
+
+    const headings = content.querySelectorAll('h2, h3');
+    
+    if (headings.length < 2) {
+      toc.style.display = 'none';
+      return;
+    }
+
+    headings.forEach(function(heading, index) {
+      if (!heading.id) {
+        heading.id = 'heading-' + index;
+      }
+      
+      const li = document.createElement('li');
+      const a = document.createElement('a');
+      a.href = '#' + heading.id;
+      a.textContent = heading.textContent;
+      
+      if (heading.tagName === 'H3') {
+        a.classList.add('toc-h3');
+      }
+      
+      li.appendChild(a);
+      tocList.appendChild(li);
+    });
+
+    const tocLinks = tocList.querySelectorAll('a');
+    tocLinks.forEach(function(link) {
+      link.addEventListener('click', function(e) {
+        e.preventDefault();
+        const targetId = this.getAttribute('href').substring(1);
+        const target = document.getElementById(targetId);
+        if (target) {
+          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      });
+    });
+
+    const observer = new IntersectionObserver(function(entries) {
+      entries.forEach(function(entry) {
+        if (entry.isIntersecting) {
+          tocLinks.forEach(function(link) {
+            link.classList.remove('active');
+          });
+          const activeLink = tocList.querySelector('a[href="#' + entry.target.id + '"]');
+          if (activeLink) {
+            activeLink.classList.add('active');
+          }
+        }
+      });
+    }, { rootMargin: '-100px 0px -66% 0px' });
+
+    headings.forEach(function(heading) {
+      observer.observe(heading);
+    });
+  });
+</script>
+
+      </main>
+
+      <p class="app-caption">&copy; 2026 Mohit Bhalla</p>
+
+      <nav class="bottom-nav" aria-label="Primary">
+        
+          
+          
+          
+          <a href="/" class="nav-item">
+            <span class="material-symbols-outlined">home</span>
+            <span class="nav-label">Home</span>
+          </a>
+        
+          
+          
+          
+          <a href="/resume/" class="nav-item">
+            <span class="material-symbols-outlined">description</span>
+            <span class="nav-label">Resume</span>
+          </a>
+        
+          
+          
+          
+          <a href="/blog/" class="nav-item active">
+            <span class="material-symbols-outlined">article</span>
+            <span class="nav-label">Blog</span>
+          </a>
+        
+      </nav>
+    </div>
+  </div>
+
+  <script>
+    function toggleAccordion(header) {
+      const item = header.parentElement;
+      const wasOpen = item.classList.contains('open');
+
+      document.querySelectorAll('.accordion-item').forEach(function(i) {
+        i.classList.remove('open');
+      });
+
+      if (!wasOpen) {
+        item.classList.add('open');
+      }
+    }
+
+    function toggleShowMore(btn) {
+      const content = btn.parentElement;
+      const collapsibles = content.querySelectorAll('.testimonial-item.collapsible');
+      const isShowing = collapsibles[0].classList.contains('show');
+
+      collapsibles.forEach(function(item) {
+        item.classList.toggle('show');
+      });
+
+      btn.textContent = isShowing ? 'Show more ▼' : 'Show less ▲';
+    }
+
+    document.addEventListener('click', function(e) {
+      if (e.target.classList.contains('zoomable')) {
+        e.target.classList.toggle('zoomed');
+      } else if (e.target.classList.contains('zoomed')) {
+        e.target.classList.remove('zoomed');
+      }
+    });
+
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape') {
+        document.querySelectorAll('.zoomed').forEach(function(el) {
+          el.classList.remove('zoomed');
+        });
+      }
+    });
+
+    function toggleTheme() {
+      const currentTheme = document.documentElement.getAttribute('data-theme') || 'light';
+      const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+      document.documentElement.setAttribute('data-theme', newTheme);
+      localStorage.setItem('theme', newTheme);
+      
+      const themeMeta = document.querySelector('meta[name="theme-color"]');
+      if (themeMeta) {
+        themeMeta.setAttribute('content', newTheme === 'dark' ? '#0e1117' : '#ff6b00');
+      }
+    }
+  </script>
+</body>
+</html>
