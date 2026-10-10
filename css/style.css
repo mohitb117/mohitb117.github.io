@@ -1698,6 +1698,157 @@ section {
   }
 }
 
+/* --------------------------------------------
+   Blog Post Video & YouTube Shorts Embeds
+   -------------------------------------------- */
+.post-video-card {
+  background: var(--surface-container-low);
+  border: 1px solid var(--outline-variant);
+  border-radius: var(--shape-md);
+  margin: 1.75rem 0;
+  overflow: hidden;
+  box-shadow: var(--elevation-1);
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.post-video-card:hover {
+  border-color: var(--primary);
+  box-shadow: var(--elevation-2);
+}
+
+.post-video-wrapper {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  background: #000000;
+}
+
+.post-video-wrapper iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+.post-video-meta {
+  padding: 1rem 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  background: var(--surface-container);
+  border-top: 1px solid var(--outline-variant);
+}
+
+.post-video-meta-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.post-video-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--primary);
+  background: var(--primary-bg);
+  padding: 0.15rem 0.5rem;
+  border-radius: 4px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.post-video-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--on-surface-variant);
+  text-decoration: none;
+  transition: color 0.15s ease;
+}
+
+.post-video-link:hover {
+  color: var(--primary);
+}
+
+.post-video-link .material-symbols-outlined {
+  font-size: 16px;
+  color: #ff0000;
+}
+
+.post-video-title {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--on-surface);
+  margin: 0 !important;
+  line-height: 1.4;
+}
+
+.post-video-description {
+  font-size: 0.88rem;
+  color: var(--on-surface-variant);
+  line-height: 1.5;
+  margin: 0 !important;
+}
+
+/* YouTube Shorts Grid (2-column responsive layout) */
+.post-shorts-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.25rem;
+  margin: 1.75rem 0;
+}
+
+.post-short-card {
+  background: var(--surface-container-low);
+  border: 1px solid var(--outline-variant);
+  border-radius: var(--shape-md);
+  overflow: hidden;
+  box-shadow: var(--elevation-1);
+  display: flex;
+  flex-direction: column;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.post-short-card:hover {
+  border-color: var(--primary);
+  box-shadow: var(--elevation-2);
+}
+
+.post-short-wrapper {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 9 / 16;
+  max-height: 560px;
+  background: #000000;
+}
+
+.post-short-wrapper iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+@media (max-width: 768px) {
+  .post-shorts-grid {
+    grid-template-columns: 1fr;
+    max-width: 360px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
 /* ============================================
    PROFESSIONAL MATERIAL 3 RESUME & PORTFOLIO
    ============================================ */
@@ -2280,30 +2431,6 @@ section {
 .playlist-btn .material-symbols-outlined {
   font-size: 18px;
   color: var(--primary);
-}
-
-.video-private-tip {
-  display: flex;
-  align-items: flex-start;
-  gap: 0.4rem;
-  margin-top: 0.65rem;
-  font-size: 0.75rem;
-  color: var(--on-surface-variant);
-  line-height: 1.4;
-}
-
-.video-private-tip .tip-icon {
-  font-size: 16px;
-  color: var(--primary);
-  flex-shrink: 0;
-  margin-top: 1px;
-}
-
-.video-private-tip code {
-  font-family: var(--font-mono);
-  background: var(--surface-container-high);
-  padding: 0.1rem 0.3rem;
-  border-radius: 4px;
 }
 
 /* --------------------------------------------

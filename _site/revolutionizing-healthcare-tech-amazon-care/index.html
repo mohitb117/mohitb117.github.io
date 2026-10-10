@@ -103,7 +103,7 @@
                 <circle cx="12" cy="12" r="10"></circle>
                 <polyline points="12 6 12 12 16 14"></polyline>
               </svg>
-              3 min read
+              5 min read
             </span>
             
           </div>
@@ -143,7 +143,81 @@
 
 <p>Telehealth relies entirely on stable, reliable communication. <strong>In 2018 and 2019, I led the implementation of a rock-solid end-to-end video calling solution for medical providers.</strong> This required building the core architecture to securely send and receive calls, while also implementing complex support for Picture-in-Picture (PiP) mode so patients could navigate the app without dropping their session.</p>
 
+<div class="post-video-card">
+  <div class="post-video-wrapper">
+    <iframe src="https://www.youtube-nocookie.com/embed/COyElffSaxs?rel=0" title="End to End Persistent Callback Flow for Amazon Care" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe>
+  </div>
+  <div class="post-video-meta">
+    <div class="post-video-meta-top">
+      <span class="post-video-badge">End-to-End Flow Demo</span>
+      <a href="https://youtu.be/COyElffSaxs" target="_blank" rel="noopener noreferrer" class="post-video-link">
+        <span class="material-symbols-outlined">open_in_new</span>
+        <span>Watch on YouTube</span>
+      </a>
+    </div>
+    <h4 class="post-video-title">End-to-End Persistent Callback Flow for Amazon Care</h4>
+    <p class="post-video-description">Demonstration of the patient-initiated consultation, persistent queuing/callback dispatch, and automated provider rendezvous architecture engineered for Amazon Care.</p>
+  </div>
+</div>
+
 <p><strong>Initially, our video architecture was built entirely on Vanilla WebRTC and utilized Alexa CMDS servers.</strong> As the platform scaled, however, we needed a more robust infrastructure. In 2020, I assisted the team in migrating our existing video stack over to the new Chime SDK. Rather than just copying and pasting code, I directly mentored a peer developer to ensure my previous use cases and custom features were properly supported on the new Chime infrastructure.</p>
+
+<p>To ensure pristine call quality across varying mobile cellular connections, I developed real-time telemetry algorithms to monitor audio/video packet loss and jitter, dynamically adjusting bitrates to maintain call stability—work that resulted in granted <strong>US Patent <a href="https://patents.google.com/patent/US11038933B1/">US11038933B1</a></strong>. Additionally, to give our video tiles modern rounded corners without hardware layer clipping artifacts common to standard <code class="language-plaintext highlighter-rouge">SurfaceView</code> implementations, I migrated our video renderers to <code class="language-plaintext highlighter-rouge">TextureView</code>.</p>
+
+<div class="post-shorts-grid">
+  <div class="post-short-card">
+    <div class="post-short-wrapper">
+      <iframe src="https://www.youtube-nocookie.com/embed/bGq9uFefcPY?rel=0" title="WebRTC Real Time Metrics Visualization + Quality Adjustment" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe>
+    </div>
+    <div class="post-video-meta">
+      <div class="post-video-meta-top">
+        <span class="post-video-badge">US Patent US11038933B1</span>
+        <a href="https://youtube.com/shorts/bGq9uFefcPY" target="_blank" rel="noopener noreferrer" class="post-video-link">
+          <span class="material-symbols-outlined">open_in_new</span>
+          <span>Watch Short</span>
+        </a>
+      </div>
+      <h4 class="post-video-title">WebRTC Real-Time Telemetry &amp; Quality Adaptation</h4>
+      <p class="post-video-description">Live metrics visualization showing packet loss, jitter telemetry, and automated bandwidth adaptation in Amazon Care.</p>
+    </div>
+  </div>
+
+  <div class="post-short-card">
+    <div class="post-short-wrapper">
+      <iframe src="https://www.youtube-nocookie.com/embed/DqM70l8SU68?rel=0" title="TextureViews vs SurfaceViews: Rounded Corners for Video Calling UI" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe>
+    </div>
+    <div class="post-video-meta">
+      <div class="post-video-meta-top">
+        <span class="post-video-badge">UI Rendering Optimization</span>
+        <a href="https://youtube.com/shorts/DqM70l8SU68" target="_blank" rel="noopener noreferrer" class="post-video-link">
+          <span class="material-symbols-outlined">open_in_new</span>
+          <span>Watch Short</span>
+        </a>
+      </div>
+      <h4 class="post-video-title">TextureViews vs. SurfaceViews: Rounded Corners</h4>
+      <p class="post-video-description">Solving hardware layer clipping limitations by leveraging TextureViews to deliver elegant rounded corners and seamless alpha blending for patient video tiles.</p>
+    </div>
+  </div>
+</div>
+
+<p>Leveraging <code class="language-plaintext highlighter-rouge">TextureView</code> also unlocked fluid Picture-in-Picture (PiP) animations, allowing patients to minimize their video stream and interact with in-app medical chats or prescription reviews without dropped frames or visual stuttering:</p>
+
+<div class="post-video-card">
+  <div class="post-video-wrapper">
+    <iframe src="https://www.youtube-nocookie.com/embed/eYIFfLZvmyg?rel=0" title="Smooth Animations &amp; PiP Transitions with TextureViews" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe>
+  </div>
+  <div class="post-video-meta">
+    <div class="post-video-meta-top">
+      <span class="post-video-badge">PiP Animation Demo</span>
+      <a href="https://youtu.be/eYIFfLZvmyg" target="_blank" rel="noopener noreferrer" class="post-video-link">
+        <span class="material-symbols-outlined">open_in_new</span>
+        <span>Watch on YouTube</span>
+      </a>
+    </div>
+    <h4 class="post-video-title">Smooth Video Animations &amp; Picture-in-Picture (PiP) Transitions</h4>
+    <p class="post-video-description">Demonstrating fluid view transitions and Picture-in-Picture resizing during live calls without frame drops or hardware surface re-allocation.</p>
+  </div>
+</div>
 
 <p>My deep dive into video calling also allowed me to act as a subject matter expert beyond my immediate team. <strong>I organized a knowledge transfer with the Jadzia team to share my learnings on video calling.</strong> I proactively reached out to them to highlight architectural issues they would face in the future and provided technical alternatives to ensure their success.</p>
 
@@ -183,6 +257,11 @@
         <div class="related-posts">
           <h3 class="related-posts-title">Related Posts</h3>
           <div class="related-posts-grid">
+            
+              <a href="/blog/firetv-browser-ui-virtual-cursor-demos/" class="related-post-card">
+                <h4>Amazon Silk on Fire TV: Browser UI & Virtual Cursor Demos</h4>
+                <p>A preview and video demonstration showcase of the Amazon Silk Browser UI and Virtual Cursor navigation system on Fire TV.</p>
+              </a>
             
               <a href="/blog/engineering-amazon-silk-fire-tv/" class="related-post-card">
                 <h4>Engineering the Living Room Web: Deep Dive into My Time Building Amazon Silk for Fire TV (2015-2018)</h4>

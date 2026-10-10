@@ -15,7 +15,81 @@ My time at Amazon Care was defined by moving from a specialized Android develope
 
 Telehealth relies entirely on stable, reliable communication. **In 2018 and 2019, I led the implementation of a rock-solid end-to-end video calling solution for medical providers.** This required building the core architecture to securely send and receive calls, while also implementing complex support for Picture-in-Picture (PiP) mode so patients could navigate the app without dropping their session.
 
+<div class="post-video-card">
+  <div class="post-video-wrapper">
+    <iframe src="https://www.youtube-nocookie.com/embed/COyElffSaxs?rel=0" title="End to End Persistent Callback Flow for Amazon Care" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+  </div>
+  <div class="post-video-meta">
+    <div class="post-video-meta-top">
+      <span class="post-video-badge">End-to-End Flow Demo</span>
+      <a href="https://youtu.be/COyElffSaxs" target="_blank" rel="noopener noreferrer" class="post-video-link">
+        <span class="material-symbols-outlined">open_in_new</span>
+        <span>Watch on YouTube</span>
+      </a>
+    </div>
+    <h4 class="post-video-title">End-to-End Persistent Callback Flow for Amazon Care</h4>
+    <p class="post-video-description">Demonstration of the patient-initiated consultation, persistent queuing/callback dispatch, and automated provider rendezvous architecture engineered for Amazon Care.</p>
+  </div>
+</div>
+
 **Initially, our video architecture was built entirely on Vanilla WebRTC and utilized Alexa CMDS servers.** As the platform scaled, however, we needed a more robust infrastructure. In 2020, I assisted the team in migrating our existing video stack over to the new Chime SDK. Rather than just copying and pasting code, I directly mentored a peer developer to ensure my previous use cases and custom features were properly supported on the new Chime infrastructure.
+
+To ensure pristine call quality across varying mobile cellular connections, I developed real-time telemetry algorithms to monitor audio/video packet loss and jitter, dynamically adjusting bitrates to maintain call stability—work that resulted in granted **US Patent [US11038933B1](https://patents.google.com/patent/US11038933B1/)**. Additionally, to give our video tiles modern rounded corners without hardware layer clipping artifacts common to standard `SurfaceView` implementations, I migrated our video renderers to `TextureView`.
+
+<div class="post-shorts-grid">
+  <div class="post-short-card">
+    <div class="post-short-wrapper">
+      <iframe src="https://www.youtube-nocookie.com/embed/bGq9uFefcPY?rel=0" title="WebRTC Real Time Metrics Visualization + Quality Adjustment" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    </div>
+    <div class="post-video-meta">
+      <div class="post-video-meta-top">
+        <span class="post-video-badge">US Patent US11038933B1</span>
+        <a href="https://youtube.com/shorts/bGq9uFefcPY" target="_blank" rel="noopener noreferrer" class="post-video-link">
+          <span class="material-symbols-outlined">open_in_new</span>
+          <span>Watch Short</span>
+        </a>
+      </div>
+      <h4 class="post-video-title">WebRTC Real-Time Telemetry &amp; Quality Adaptation</h4>
+      <p class="post-video-description">Live metrics visualization showing packet loss, jitter telemetry, and automated bandwidth adaptation in Amazon Care.</p>
+    </div>
+  </div>
+
+  <div class="post-short-card">
+    <div class="post-short-wrapper">
+      <iframe src="https://www.youtube-nocookie.com/embed/DqM70l8SU68?rel=0" title="TextureViews vs SurfaceViews: Rounded Corners for Video Calling UI" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    </div>
+    <div class="post-video-meta">
+      <div class="post-video-meta-top">
+        <span class="post-video-badge">UI Rendering Optimization</span>
+        <a href="https://youtube.com/shorts/DqM70l8SU68" target="_blank" rel="noopener noreferrer" class="post-video-link">
+          <span class="material-symbols-outlined">open_in_new</span>
+          <span>Watch Short</span>
+        </a>
+      </div>
+      <h4 class="post-video-title">TextureViews vs. SurfaceViews: Rounded Corners</h4>
+      <p class="post-video-description">Solving hardware layer clipping limitations by leveraging TextureViews to deliver elegant rounded corners and seamless alpha blending for patient video tiles.</p>
+    </div>
+  </div>
+</div>
+
+Leveraging `TextureView` also unlocked fluid Picture-in-Picture (PiP) animations, allowing patients to minimize their video stream and interact with in-app medical chats or prescription reviews without dropped frames or visual stuttering:
+
+<div class="post-video-card">
+  <div class="post-video-wrapper">
+    <iframe src="https://www.youtube-nocookie.com/embed/eYIFfLZvmyg?rel=0" title="Smooth Animations &amp; PiP Transitions with TextureViews" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+  </div>
+  <div class="post-video-meta">
+    <div class="post-video-meta-top">
+      <span class="post-video-badge">PiP Animation Demo</span>
+      <a href="https://youtu.be/eYIFfLZvmyg" target="_blank" rel="noopener noreferrer" class="post-video-link">
+        <span class="material-symbols-outlined">open_in_new</span>
+        <span>Watch on YouTube</span>
+      </a>
+    </div>
+    <h4 class="post-video-title">Smooth Video Animations &amp; Picture-in-Picture (PiP) Transitions</h4>
+    <p class="post-video-description">Demonstrating fluid view transitions and Picture-in-Picture resizing during live calls without frame drops or hardware surface re-allocation.</p>
+  </div>
+</div>
 
 My deep dive into video calling also allowed me to act as a subject matter expert beyond my immediate team. **I organized a knowledge transfer with the Jadzia team to share my learnings on video calling.** I proactively reached out to them to highlight architectural issues they would face in the future and provided technical alternatives to ensure their success.
 
