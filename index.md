@@ -99,7 +99,13 @@ title: Home
   </div>
 
   <section class="journey-section">
-    <img src="{{ '/images/professional-journey.jpg' | relative_url }}" alt="Professional Journey" class="journey-image zoomable">
+    <div class="journey-container">
+      <img src="{{ '/images/professional-journey.jpg' | relative_url }}" alt="Mohit Bhalla's Professional Journey Infographic" class="journey-image zoomable">
+      <div class="journey-overlay-hint">
+        <span class="material-symbols-outlined">zoom_in</span>
+        <span>Click to expand full roadmap</span>
+      </div>
+    </div>
   </section>
 
   <section class="about-section">

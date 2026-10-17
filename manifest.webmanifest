@@ -1,0 +1,55 @@
+{
+  "name": "Mohit Bhalla | Mobile Tech Lead",
+  "short_name": "Mohit Bhalla",
+  "description": "Portfolio and Interactive Resume of Mohit Bhalla — Mobile Technical Lead & Sr. Android Engineer.",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#0e1117",
+  "theme_color": "#ff6b00",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "/images/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/images/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/images/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Interactive Resume",
+      "short_name": "Resume",
+      "description": "View Mohit's interactive resume and technical career highlights",
+      "url": "/resume/",
+      "icons": [{ "src": "/images/icon-192.png", "sizes": "192x192" }]
+    },
+    {
+      "name": "Engineering Demos",
+      "short_name": "Demos",
+      "description": "Watch live demos of Silk Browser on Fire TV and Amazon Care",
+      "url": "/resume/#demos",
+      "icons": [{ "src": "/images/icon-192.png", "sizes": "192x192" }]
+    },
+    {
+      "name": "Engineering Blog",
+      "short_name": "Blog",
+      "description": "Read engineering deep dives and architecture posts",
+      "url": "/blog/",
+      "icons": [{ "src": "/images/icon-192.png", "sizes": "192x192" }]
+    }
+  ],
+  "categories": ["portfolio", "resume", "developer", "productivity"]
+}

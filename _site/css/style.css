@@ -187,11 +187,14 @@ body {
   position: sticky;
   top: 0;
   z-index: 20;
-  height: var(--top-bar-height);
+  height: calc(var(--top-bar-height) + env(safe-area-inset-top, 0px));
+  padding-top: env(safe-area-inset-top, 0px);
+  padding-left: max(1.25rem, env(safe-area-inset-left, 0px));
+  padding-right: max(1.25rem, env(safe-area-inset-right, 0px));
+  padding-bottom: 0;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0 1.25rem;
   background: var(--top-bar-bg);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
@@ -278,8 +281,10 @@ body {
   display: flex;
   justify-content: space-around;
   align-items: stretch;
-  min-height: var(--bottom-nav-height);
-  padding-bottom: env(safe-area-inset-bottom);
+  min-height: calc(var(--bottom-nav-height) + env(safe-area-inset-bottom, 0px));
+  padding-bottom: env(safe-area-inset-bottom, 0px);
+  padding-left: max(0.25rem, env(safe-area-inset-left, 0px));
+  padding-right: max(0.25rem, env(safe-area-inset-right, 0px));
   background: var(--surface-container);
   border-top: 1px solid var(--outline-variant);
   box-shadow: 0 -1px 8px rgba(28, 27, 26, 0.06);
@@ -583,14 +588,56 @@ body {
   padding: 0;
   background: transparent;
   box-shadow: none;
+  margin-bottom: 1.5rem;
+}
+
+.journey-container {
+  position: relative;
+  border-radius: var(--shape-lg);
+  overflow: hidden;
+  border: 1px solid var(--outline-variant);
+  background: var(--surface-container);
+  box-shadow: var(--elevation-1);
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+}
+
+.journey-container:hover {
+  border-color: var(--primary);
+  box-shadow: var(--elevation-2);
 }
 
 .journey-image {
   width: 100%;
   height: auto;
-  border-radius: var(--shape-md);
+  border-radius: var(--shape-lg);
   display: block;
   cursor: zoom-in;
+}
+
+.journey-overlay-hint {
+  position: absolute;
+  bottom: 12px;
+  right: 12px;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(14, 17, 23, 0.82);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  color: #ffffff;
+  font-size: 0.78rem;
+  font-weight: 500;
+  padding: 5px 12px;
+  border-radius: 999px;
+  pointer-events: none;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  transition: opacity 0.2s ease, background 0.2s ease;
+}
+
+.journey-container:hover .journey-overlay-hint {
+  background: rgba(0, 0, 0, 0.95);
+  border-color: var(--primary);
+  color: var(--primary);
 }
 
 .zoomable {
