@@ -3,9 +3,29 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="color-scheme" content="light dark">
   <meta name="theme-color" content="#ff6b00">
-  <title>Resume & Portfolio</title>
-  <meta name="description" content="Software Engineer | Android Developer | Tech Lead">
+  <meta name="view-transition" content="same-origin">
+  <!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Resume &amp; Portfolio | Mohit Bhalla</title>
+<meta name="generator" content="Jekyll v4.4.1" />
+<meta property="og:title" content="Resume &amp; Portfolio" />
+<meta name="author" content="Mohit Bhalla" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Senior Software Engineer and Mobile Technical Lead specializing in Android, Jetpack Compose, Kotlin, Server-Driven UI (SDUI), and WebRTC at scale (DoorDash, Amazon)." />
+<meta property="og:description" content="Senior Software Engineer and Mobile Technical Lead specializing in Android, Jetpack Compose, Kotlin, Server-Driven UI (SDUI), and WebRTC at scale (DoorDash, Amazon)." />
+<link rel="canonical" href="https://mohitb117.github.io/resume/" />
+<meta property="og:url" content="https://mohitb117.github.io/resume/" />
+<meta property="og:site_name" content="Mohit Bhalla" />
+<meta property="og:image" content="https://mohitb117.github.io/images/professional-journey.jpg" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta property="twitter:image" content="https://mohitb117.github.io/images/professional-journey.jpg" />
+<meta property="twitter:title" content="Resume &amp; Portfolio" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","author":{"@type":"Person","name":"Mohit Bhalla"},"description":"Senior Software Engineer and Mobile Technical Lead specializing in Android, Jetpack Compose, Kotlin, Server-Driven UI (SDUI), and WebRTC at scale (DoorDash, Amazon).","headline":"Resume &amp; Portfolio","image":"https://mohitb117.github.io/images/professional-journey.jpg","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://mohitb117.github.io/images/icon-512.png"},"name":"Mohit Bhalla"},"url":"https://mohitb117.github.io/resume/"}</script>
+<!-- End Jekyll SEO tag -->
+
 
   <!-- PWA & Mobile Web App Meta -->
   <link rel="manifest" href="/manifest.webmanifest">
@@ -24,15 +44,45 @@
   <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/css/style.css">
   <script>
-    (function() {
-      const savedTheme = localStorage.getItem('theme');
-      const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-      const theme = savedTheme || (prefersDark ? 'dark' : 'light');
+    function syncBrowserShellTheme(theme) {
+      var shellColor = theme === 'dark' ? '#0d2818' : '#ff6b00';
       document.documentElement.setAttribute('data-theme', theme);
-      const themeMeta = document.querySelector('meta[name="theme-color"]');
-      if (themeMeta) {
-        themeMeta.setAttribute('content', theme === 'dark' ? '#0e1117' : '#ff6b00');
+      document.documentElement.style.colorScheme = theme;
+
+      var colorSchemeMeta = document.querySelector('meta[name="color-scheme"]');
+      if (colorSchemeMeta) {
+        colorSchemeMeta.setAttribute('content', theme === 'dark' ? 'dark light' : 'light dark');
       }
+
+      // Remove and re-insert meta[name="theme-color"] so Chrome Mobile & iOS Safari repaint immediately
+      var existingMetas = document.querySelectorAll('meta[name="theme-color"]');
+      existingMetas.forEach(function(m) { m.parentNode.removeChild(m); });
+
+      var newMeta = document.createElement('meta');
+      newMeta.setAttribute('name', 'theme-color');
+      newMeta.setAttribute('content', shellColor);
+      document.head.appendChild(newMeta);
+
+      var tileMeta = document.querySelector('meta[name="msapplication-TileColor"]');
+      if (tileMeta) {
+        tileMeta.setAttribute('content', shellColor);
+      }
+
+      // Sync Utterances blog comments iframe if present
+      var utterancesFrame = document.querySelector('iframe.utterances-frame');
+      if (utterancesFrame && utterancesFrame.contentWindow) {
+        utterancesFrame.contentWindow.postMessage(
+          { type: 'set-theme', theme: theme === 'dark' ? 'github-dark' : 'github-light' },
+          'https://utteranc.es'
+        );
+      }
+    }
+
+    (function() {
+      var savedTheme = localStorage.getItem('theme');
+      var prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+      var theme = savedTheme || (prefersDark ? 'dark' : 'light');
+      syncBrowserShellTheme(theme);
     })();
   </script>
 </head>
@@ -929,33 +979,32 @@
           <h3>Sr. Software Engineer &bull; Mobile Technical Lead</h3>
           <div>
             <span class="experience-company-name">DoorDash</span>
-            <span class="experience-company-team">&mdash; New Verticals &amp; Grocery</span>
           </div>
         </div>
       </div>
-      <div class="experience-date-badge">Nov '21 &ndash; Present (3+ yrs)</div>
+      <div class="experience-date-badge">Nov '21 &ndash; Present (4+ yrs)</div>
     </div>
 
     <div class="experience-divider"></div>
 
     <ul class="experience-bullets">
       <li>
-        <strong>Mobile Consumer Experience &amp; Order Confirmation:</strong> Served as Mobile Technical Lead driving both Android and iOS feature parity; engineered the <strong>Order Confirmation UI flow from scratch</strong> to serve millions of daily grocery orders, delivering an extensible surface for dynamic ETA estimation, multi-store order details (split pickup/delivery fulfillment), and targeted promotional placements.
+        <strong>Mobile Consumer Experience &amp; Order Confirmation:</strong> Served as Mobile Technical Lead driving both Android and iOS feature parity; engineered the <strong>Order Confirmation UI flow from scratch</strong> to serve millions of daily orders, delivering an extensible surface for dynamic ETA estimation, multi-store order details (split pickup/delivery fulfillment), and targeted promotional placements.
       </li>
       <li>
         <strong>Dynamic Delivery Options Architecture:</strong> Designed and deployed the backend-driven <strong>Dynamic Delivery Options framework</strong>, orchestrating backend infrastructure configurations with reactive Android UI logic and leading iOS cross-functional adoption to enable zero-app-release delivery window experimentation.
       </li>
       <li>
-        <strong>Unified Platform Migration:</strong> Migrated <strong>30+ post-checkout features</strong> to the unified DoorDash Consumer Android application, adding split-shipment support to facilitate complex multi-store order fulfillment across retail partners.
+        <strong>Hardware Integration (Hardware Peripherals):</strong> Led end-to-end mobile hardware integration for connected external hardware peripherals and fulfillment devices.
+      </li>
+      <li>
+        <strong>CI Build Time &amp; Visual Regression Testing:</strong> Drove CI build time optimizations and established automated <strong>Jetpack Compose visual regression / screenshot testing</strong> pipelines across the mobile organization.
       </li>
       <li>
         <strong>Server-Driven UI (SDUI) Modernization:</strong> Implemented <strong>Cart Redirection</strong> (single and multi-item) leveraging DoorDash's proprietary SDUI framework and led the mobile rescheduling UI redesign.
       </li>
       <li>
-        <strong>Observability &amp; Reliability:</strong> Consolidated pre-checkout telemetry with analytics and data science teams to enable trustworthy experiment reads and rapid incident diagnostics; led on-call leadership rotations, operational reviews, and post-mortems while preserving exceptional crash-free session rates.
-      </li>
-      <li>
-        <strong>Engineering Excellence &amp; Mentorship:</strong> Championed org-wide Kotlin craftsmanship initiatives through technical newsletters, established <strong>Jetpack Compose screenshot testing</strong> pipelines, conducted cross-team architectural RFC reviews, and actively mentored engineers across mobile and backend domains.
+        <strong>Observability, Reliability &amp; Mentorship:</strong> Consolidated pre-checkout telemetry with analytics and data science teams; led on-call leadership rotations, operational reviews, and post-mortems while championing org-wide Kotlin craftsmanship through technical newsletters and RFC reviews.
       </li>
     </ul>
 
@@ -964,9 +1013,9 @@
       <span class="stack-chip">Jetpack Compose</span>
       <span class="stack-chip">Kotlin Coroutines</span>
       <span class="stack-chip">SDUI</span>
-      <span class="stack-chip">GraphQL</span>
-      <span class="stack-chip">A/B Testing &amp; Telemetry</span>
-      <span class="stack-chip">Screenshot Testing</span>
+      <span class="stack-chip">Hardware Peripherals</span>
+      <span class="stack-chip">Visual Regression Testing</span>
+      <span class="stack-chip">CI/CD Optimization</span>
       <span class="stack-chip">Multi-Module Architecture</span>
     </div>
   </div>
@@ -979,7 +1028,7 @@
           <img src="/images/amazon-care.webp" alt="Amazon Care" />
         </div>
         <div class="experience-title-group">
-          <h3>Sr. Software Engineer</h3>
+          <h3>Sr. Software Engineer &bull; Video / Audio &amp; App Platform Engineer</h3>
           <div>
             <span class="experience-company-name">Amazon</span>
             <span class="experience-company-team">&mdash; Amazon Care</span>
@@ -1146,10 +1195,10 @@
 
     <ul class="experience-bullets">
       <li>
-        <strong>Award-Winning Bio-Surveillance System:</strong> Primary Android developer for a mobile bio-surveillance application using Java EE; engineered real-time client-server synchronization, push notification alerts, and dynamic news feed aggregation.
+        <strong>FoodFeed Food Health &amp; Bio-Surveillance App:</strong> Primary Android developer for the <strong>FoodFeed</strong> food health and mobile bio-surveillance application using Java EE; engineered real-time client-server synchronization, push notification alerts, and dynamic news feed aggregation.
       </li>
       <li>
-        <strong>Competition Winner:</strong> <strong>Won 1st Place</strong> in the Mobile App Development Competition among interdisciplinary intern teams across the national laboratory.
+        <strong>DOE Mobile Challenge Winner:</strong> <strong>Won 1st Place</strong> in the US Department of Energy Mobile App Development Competition among interdisciplinary intern teams across the national laboratory.
       </li>
     </ul>
 
@@ -1409,7 +1458,7 @@
       </div>
       <div>
         <h4>Master of Science in Computer Engineering</h4>
-        <div class="education-meta">Syracuse University &bull; Syracuse, NY</div>
+        <div class="education-meta">Syracuse University &bull; Software Engineering &amp; Mobile Systems &bull; Syracuse, NY</div>
       </div>
     </div>
     <div class="education-badge">May 2014 &bull; GPA: 3.55 / 4.0</div>
@@ -1521,13 +1570,8 @@
       triggerHaptic(14);
       const currentTheme = document.documentElement.getAttribute('data-theme') || 'light';
       const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
-      document.documentElement.setAttribute('data-theme', newTheme);
       localStorage.setItem('theme', newTheme);
-      
-      const themeMeta = document.querySelector('meta[name="theme-color"]');
-      if (themeMeta) {
-        themeMeta.setAttribute('content', newTheme === 'dark' ? '#0e1117' : '#ff6b00');
-      }
+      syncBrowserShellTheme(newTheme);
     }
 
     // Attach haptics to navigation and interactive elements

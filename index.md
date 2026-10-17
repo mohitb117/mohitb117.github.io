@@ -8,12 +8,12 @@ title: Home
       <div class="hero">
         <div class="hero-content">
           <div class="profile-photos">
-            <img src="https://images.weserv.nl/?url=avatars.githubusercontent.com/u/3359983?v=4&h=300&w=300&fit=cover&mask=circle" alt="Mohit Bhalla" class="profile-photo">
-            <img src="{{ '/images/profile-linkedin.jpg' | relative_url }}" alt="Mohit Bhalla" class="profile-photo">
+            <img src="https://images.weserv.nl/?url=avatars.githubusercontent.com/u/3359983?v=4&h=300&w=300&fit=cover&mask=circle" alt="Mohit Bhalla" class="profile-photo" fetchpriority="high" decoding="async">
+            <img src="{{ '/images/profile-linkedin.jpg' | relative_url }}" alt="Mohit Bhalla" class="profile-photo" fetchpriority="high" decoding="async">
           </div>
           <div class="hero-text">
             <h1>Mohit Bhalla</h1>
-            <p class="tagline">Sr. Software Engineer | New Verticals Mobile Tech Lead</p>
+            <p class="tagline">Sr. Software Engineer | Mobile Technical Lead</p>
             <p class="hero-blurb">An Android Engineer driven by a love for solving complex problems and creating seamless user experiences. From integrating scalable backend systems for the US Department of Energy to collaborating on customer-focused products at Amazon and DoorDash, I thrive on pushing technical boundaries and staying ahead of industry trends.</p>
             <div class="social-links">
               <a href="https://github.com/mohitb117" target="_blank" title="GitHub">
@@ -222,23 +222,24 @@ title: Home
     <h2 class="section-title">Work Experience</h2>
     
     <div class="timeline-item">
-      <div class="timeline-date">Nov '21 - Present<br><small>3+ years</small></div>
+      <div class="timeline-date">Nov '21 - Present<br><small>4+ years</small></div>
       <div class="timeline-content">
         <div class="timeline-header">
-          <img src="{{ '/images/DoorDash_Logo.svg.png' | relative_url }}" alt="DoorDash" class="company-icon">
+          <img src="{{ '/images/DoorDash_Logo.svg.png' | relative_url }}" alt="DoorDash" class="company-icon" loading="lazy" decoding="async">
           <div>
-            <h3>Sr. Software Engineer | New Verticals Mobile Tech Lead</h3>
-            <span class="timeline-company">DoorDash - Grocery</span>
+            <h3>Sr. Software Engineer | Mobile Technical Lead</h3>
+            <span class="timeline-company">DoorDash</span>
           </div>
         </div>
-        <p><strong>Mobile Consumer Experience</strong> - Mobile Technical Lead building Android and backend features while leading iOS engineers. Key deliverables:</p>
+        <p><strong>Mobile Consumer Experience &amp; Platform Architecture</strong> - Mobile Technical Lead building Android and backend features while leading iOS engineers. Key deliverables:</p>
         <ul>
-          <li>Built Order Confirmation UI flow from scratch to match iOS parity - surface for ETA, order details, and ad placements</li>
-          <li>Architected backend-driven Dynamic Delivery Options framework with backend infrastructure + Android UI logic</li>
-          <li>Migrated 30+ post-checkout features to unified Consumer Android app with split shipment support</li>
-          <li>Implemented Cart Redirection using DoorDash's SDUI framework</li>
+          <li>Built Order Confirmation UI flow from scratch to match iOS parity — surface for ETA, order details, and ad placements</li>
+          <li>Architected backend-driven Dynamic Delivery Options framework with backend infrastructure + reactive Android UI logic</li>
+          <li>Led Hardware Integration for connected hardware peripherals and external devices</li>
+          <li>Drove CI Build Time improvements and instituted Jetpack Compose Visual Regression Testing pipelines</li>
+          <li>Implemented Cart Redirection using DoorDash's Server-Driven UI (SDUI) framework</li>
         </ul>
-        <p><strong>Observability & Developer Velocity</strong> - Led on-call leadership, ops reviews, and incident PMs while improving reliability.</p>
+        <p><strong>Observability &amp; Developer Velocity</strong> - Led on-call leadership, ops reviews, and incident PMs while improving reliability.</p>
         <p><strong>Engineering Excellence</strong> - Drove code craftsmanship via organization-wide newsletters and mentoring engineers.</p>
       </div>
     </div>
@@ -247,13 +248,13 @@ title: Home
       <div class="timeline-date">Apr '18 - Nov '21<br><small>3.5 years</small></div>
       <div class="timeline-content">
         <div class="timeline-header">
-          <img src="{{ '/images/amazon-care.webp' | relative_url }}" alt="Amazon Care" class="company-icon">
+          <img src="{{ '/images/amazon-care.webp' | relative_url }}" alt="Amazon Care" class="company-icon" loading="lazy" decoding="async">
           <div>
-            <h3>Sr. Software Engineer</h3>
+            <h3>Sr. Software Engineer | Video / Audio &amp; App Platform Engineer</h3>
             <span class="timeline-company">Amazon - Amazon Care</span>
           </div>
         </div>
-        <p>Built Audio/Video conferencing capability using WebRTC with real-time quality monitoring. Led Kotlin migration and Coroutines adoption across Android team. Modularized codebase for faster compilation. <a href="https://patents.google.com/patent/US11038933B1/" target="_blank">US Patent 11038933B1</a></p>
+        <p>Built Telehealth Audio/Video conferencing engine using WebRTC with real-time quality monitoring. Led Kotlin migration and Coroutines adoption across Android team. Modularized codebase for faster compilation. <a href="https://patents.google.com/patent/US11038933B1/" target="_blank">US Patent 11038933B1</a></p>
       </div>
     </div>
 
@@ -261,13 +262,13 @@ title: Home
       <div class="timeline-date">Sept '17 - Apr '18<br><small>8 months</small></div>
       <div class="timeline-content">
         <div class="timeline-header">
-          <img src="{{ '/images/Amazon_icon.svg.png' | relative_url }}" alt="Amazon" class="company-icon">
+          <img src="{{ '/images/Amazon_icon.svg.png' | relative_url }}" alt="Amazon" class="company-icon" loading="lazy" decoding="async">
           <div>
             <h3>Software Engineer</h3>
             <span class="timeline-company">Amazon - Amazon Flex</span>
           </div>
         </div>
-        <p>Optimized large-scale performance issues and built in-app profiling mechanism for customer-facing features.</p>
+        <p>Optimized large-scale JVM memory and GC performance issues and built in-app profiling mechanism for customer-facing features.</p>
       </div>
     </div>
 
@@ -275,13 +276,13 @@ title: Home
       <div class="timeline-date">Dec '15 - Sept '17<br><small>2 years</small></div>
       <div class="timeline-content">
         <div class="timeline-header">
-          <img src="{{ '/images/Amazon_Silk_Logo.webp' | relative_url }}" alt="Amazon Silk" class="company-icon">
+          <img src="{{ '/images/Amazon_Silk_Logo.webp' | relative_url }}" alt="Amazon Silk" class="company-icon" loading="lazy" decoding="async">
           <div>
             <h3>Software Engineer</h3>
             <span class="timeline-company">Amazon - AWS Silk Browser</span>
           </div>
         </div>
-        <p>Led development of leanback experience for Silk on FireTV including HomeMenu launcher and Optimal Navigational Cursor. Implemented complex Intent Handling for FireTablets/FireTV. Optimized memory usage and performance.</p>
+        <p>Led development of leanback experience for Silk on Fire TV (20M+ devices) including HomeMenu launcher and Optimal Navigational Cursor. Implemented complex Intent Handling for Fire Tablets/Fire TV. Optimized memory usage and performance.</p>
       </div>
     </div>
 
@@ -289,27 +290,27 @@ title: Home
       <div class="timeline-date">Oct '14 - Dec '15<br><small>1.5 years</small></div>
       <div class="timeline-content">
         <div class="timeline-header">
-          <img src="{{ '/images/INRIX_logo.png' | relative_url }}" alt="INRIX" class="company-icon">
+          <img src="{{ '/images/INRIX_logo.png' | relative_url }}" alt="INRIX" class="company-icon" loading="lazy" decoding="async">
           <div>
             <h3>Software Development Engineer</h3>
             <span class="timeline-company">INRIX Inc.</span>
           </div>
         </div>
-        <p>Android Mobile Development for real-time traffic information delivery platform serving business and consumer markets.</p>
+        <p>Engineered Connected Car Mobility SDK and Android real-time traffic information delivery platform serving business and consumer markets.</p>
       </div>
     </div>
 
     <div class="timeline-item">
-      <div class="timeline-date">Summer 2013 & 2014</div>
+      <div class="timeline-date">Summer 2013 &amp; 2014</div>
       <div class="timeline-content">
         <div class="timeline-header">
-          <img src="{{ '/images/PNNL_CENTER_FullColorSMALL.jpg' | relative_url }}" alt="PNNL" class="company-icon">
+          <img src="{{ '/images/PNNL_CENTER_FullColorSMALL.jpg' | relative_url }}" alt="PNNL" class="company-icon" loading="lazy" decoding="async">
           <div>
             <h3>Software Engineering Intern</h3>
             <span class="timeline-company">Pacific Northwest National Laboratory (US Dept. of Energy)</span>
           </div>
         </div>
-        <p>Primary developer for Android bio surveillance application using Java EE Framework. Built real-time server-client architecture with push notifications. <strong>Won 1st Place</strong> in Mobile App Development Competition among team of 4 interns.</p>
+        <p>Primary developer for the <strong>FoodFeed Food Health App</strong> and Android bio-surveillance platform using Java EE Framework. Built real-time server-client architecture with push notifications. <strong>Won 1st Place</strong> in the DOE Mobile Challenge among a team of 4 interns.</p>
       </div>
     </div>
   </section>
@@ -322,7 +323,7 @@ title: Home
       <div class="timeline-content">
         <h3>Master of Science in Computer Engineering</h3>
         <span class="timeline-company">Syracuse University</span>
-        <p>GPA: 3.55/4.0</p>
+        <p>Software Engineering &amp; Mobile Systems &bull; GPA: 3.55/4.0</p>
       </div>
     </div>
 

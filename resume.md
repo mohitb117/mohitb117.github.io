@@ -205,33 +205,32 @@ permalink: /resume/
           <h3>Sr. Software Engineer &bull; Mobile Technical Lead</h3>
           <div>
             <span class="experience-company-name">DoorDash</span>
-            <span class="experience-company-team">&mdash; New Verticals &amp; Grocery</span>
           </div>
         </div>
       </div>
-      <div class="experience-date-badge">Nov '21 &ndash; Present (3+ yrs)</div>
+      <div class="experience-date-badge">Nov '21 &ndash; Present (4+ yrs)</div>
     </div>
 
     <div class="experience-divider"></div>
 
     <ul class="experience-bullets">
       <li>
-        <strong>Mobile Consumer Experience &amp; Order Confirmation:</strong> Served as Mobile Technical Lead driving both Android and iOS feature parity; engineered the <strong>Order Confirmation UI flow from scratch</strong> to serve millions of daily grocery orders, delivering an extensible surface for dynamic ETA estimation, multi-store order details (split pickup/delivery fulfillment), and targeted promotional placements.
+        <strong>Mobile Consumer Experience &amp; Order Confirmation:</strong> Served as Mobile Technical Lead driving both Android and iOS feature parity; engineered the <strong>Order Confirmation UI flow from scratch</strong> to serve millions of daily orders, delivering an extensible surface for dynamic ETA estimation, multi-store order details (split pickup/delivery fulfillment), and targeted promotional placements.
       </li>
       <li>
         <strong>Dynamic Delivery Options Architecture:</strong> Designed and deployed the backend-driven <strong>Dynamic Delivery Options framework</strong>, orchestrating backend infrastructure configurations with reactive Android UI logic and leading iOS cross-functional adoption to enable zero-app-release delivery window experimentation.
       </li>
       <li>
-        <strong>Unified Platform Migration:</strong> Migrated <strong>30+ post-checkout features</strong> to the unified DoorDash Consumer Android application, adding split-shipment support to facilitate complex multi-store order fulfillment across retail partners.
+        <strong>Hardware Integration (Hardware Peripherals):</strong> Led end-to-end mobile hardware integration for connected external hardware peripherals and fulfillment devices.
+      </li>
+      <li>
+        <strong>CI Build Time &amp; Visual Regression Testing:</strong> Drove CI build time optimizations and established automated <strong>Jetpack Compose visual regression / screenshot testing</strong> pipelines across the mobile organization.
       </li>
       <li>
         <strong>Server-Driven UI (SDUI) Modernization:</strong> Implemented <strong>Cart Redirection</strong> (single and multi-item) leveraging DoorDash's proprietary SDUI framework and led the mobile rescheduling UI redesign.
       </li>
       <li>
-        <strong>Observability &amp; Reliability:</strong> Consolidated pre-checkout telemetry with analytics and data science teams to enable trustworthy experiment reads and rapid incident diagnostics; led on-call leadership rotations, operational reviews, and post-mortems while preserving exceptional crash-free session rates.
-      </li>
-      <li>
-        <strong>Engineering Excellence &amp; Mentorship:</strong> Championed org-wide Kotlin craftsmanship initiatives through technical newsletters, established <strong>Jetpack Compose screenshot testing</strong> pipelines, conducted cross-team architectural RFC reviews, and actively mentored engineers across mobile and backend domains.
+        <strong>Observability, Reliability &amp; Mentorship:</strong> Consolidated pre-checkout telemetry with analytics and data science teams; led on-call leadership rotations, operational reviews, and post-mortems while championing org-wide Kotlin craftsmanship through technical newsletters and RFC reviews.
       </li>
     </ul>
 
@@ -240,9 +239,9 @@ permalink: /resume/
       <span class="stack-chip">Jetpack Compose</span>
       <span class="stack-chip">Kotlin Coroutines</span>
       <span class="stack-chip">SDUI</span>
-      <span class="stack-chip">GraphQL</span>
-      <span class="stack-chip">A/B Testing &amp; Telemetry</span>
-      <span class="stack-chip">Screenshot Testing</span>
+      <span class="stack-chip">Hardware Peripherals</span>
+      <span class="stack-chip">Visual Regression Testing</span>
+      <span class="stack-chip">CI/CD Optimization</span>
       <span class="stack-chip">Multi-Module Architecture</span>
     </div>
   </div>
@@ -255,7 +254,7 @@ permalink: /resume/
           <img src="{{ '/images/amazon-care.webp' | relative_url }}" alt="Amazon Care">
         </div>
         <div class="experience-title-group">
-          <h3>Sr. Software Engineer</h3>
+          <h3>Sr. Software Engineer &bull; Video / Audio &amp; App Platform Engineer</h3>
           <div>
             <span class="experience-company-name">Amazon</span>
             <span class="experience-company-team">&mdash; Amazon Care</span>
@@ -422,10 +421,10 @@ permalink: /resume/
 
     <ul class="experience-bullets">
       <li>
-        <strong>Award-Winning Bio-Surveillance System:</strong> Primary Android developer for a mobile bio-surveillance application using Java EE; engineered real-time client-server synchronization, push notification alerts, and dynamic news feed aggregation.
+        <strong>FoodFeed Food Health &amp; Bio-Surveillance App:</strong> Primary Android developer for the <strong>FoodFeed</strong> food health and mobile bio-surveillance application using Java EE; engineered real-time client-server synchronization, push notification alerts, and dynamic news feed aggregation.
       </li>
       <li>
-        <strong>Competition Winner:</strong> <strong>Won 1st Place</strong> in the Mobile App Development Competition among interdisciplinary intern teams across the national laboratory.
+        <strong>DOE Mobile Challenge Winner:</strong> <strong>Won 1st Place</strong> in the US Department of Energy Mobile App Development Competition among interdisciplinary intern teams across the national laboratory.
       </li>
     </ul>
 
@@ -685,7 +684,7 @@ permalink: /resume/
       </div>
       <div>
         <h4>Master of Science in Computer Engineering</h4>
-        <div class="education-meta">Syracuse University &bull; Syracuse, NY</div>
+        <div class="education-meta">Syracuse University &bull; Software Engineering &amp; Mobile Systems &bull; Syracuse, NY</div>
       </div>
     </div>
     <div class="education-badge">May 2014 &bull; GPA: 3.55 / 4.0</div>

@@ -58,6 +58,10 @@
   --phone-frame-border: #30363d;
 }
 
+@view-transition {
+  navigation: auto;
+}
+
 * {
   box-sizing: border-box;
   margin: 0;
@@ -74,6 +78,18 @@ body {
   color: var(--on-surface);
   background: var(--surface);
   animation: fadeIn 0.4s ease-out;
+}
+
+.reading-progress-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 3px;
+  width: 0%;
+  background: var(--primary);
+  z-index: 100;
+  transition: width 0.1s ease-out;
+  box-shadow: 0 0 8px var(--primary);
 }
 
 @keyframes fadeIn {
@@ -195,9 +211,10 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background: var(--top-bar-bg);
+  background: linear-gradient(180deg, var(--primary-bg) 0%, var(--top-bar-bg) 100%);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
+  border-top: 3px solid var(--primary);
   border-bottom: 1px solid var(--outline-variant);
   transition: background 0.25s ease, border-color 0.25s ease;
 }

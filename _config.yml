@@ -1,8 +1,30 @@
 title: Mohit Bhalla
-description: Software Engineer | Android Developer | Tech Lead
+tagline: Senior Software Engineer & Mobile Technical Lead
+description: Senior Software Engineer and Mobile Technical Lead specializing in Android, Jetpack Compose, Kotlin, Server-Driven UI (SDUI), and WebRTC at scale (DoorDash, Amazon).
 
 url: "https://mohitb117.github.io"
 baseurl: ""
+
+author:
+  name: Mohit Bhalla
+  email: mohitb117@gmail.com
+  uri: https://mohitb117.github.io
+
+image: /images/professional-journey.jpg
+logo: /images/icon-512.png
+
+defaults:
+  - scope:
+      path: ""
+    values:
+      image: /images/professional-journey.jpg
+
+social:
+  name: Mohit Bhalla
+  links:
+    - https://github.com/mohitb117
+    - https://www.linkedin.com/in/mohitb117
+    - https://topmate.io/mohitb117
 
 permalink: /:title/
 

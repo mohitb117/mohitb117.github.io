@@ -5,7 +5,7 @@ date: 2026-04-19
 author: Mohit Bhalla
 description: "How AI tools are making us more productive but also creating new forms of burnout. Finding balance in the age of AI assistance."
 tags: ["AI", "Productivity", "Balance", "Career"]
-image: /images/post-2-ai-exhaustion.png
+image: /images/post-2-ai-exhaustion.jpg
 permalink: /blog/ai-multitasking-empowering-exhausting/
 ---
 

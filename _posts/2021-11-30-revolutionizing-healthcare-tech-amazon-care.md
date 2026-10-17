@@ -4,7 +4,7 @@ title: "Revolutionizing Healthcare Tech: Building Amazon Care from the Ground Up
 date: 2021-11-30 09:00:00 -0800
 categories: [Career, Engineering, Android]
 tags: [Amazon Care, Android, Kotlin, Healthcare, WebRTC, Chime SDK, Engineering Leadership]
-image: images/amazon-care-blog.png
+image: /images/amazon-care-blog.jpg
 demos:
   - id: "COyElffSaxs"
     title: "Amazon Care: End-to-End Telehealth Callback"
