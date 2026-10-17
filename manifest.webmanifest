@@ -1,12 +1,12 @@
 {
   "name": "Mohit Bhalla | Mobile Tech Lead",
   "short_name": "Mohit Bhalla",
-  "description": "Portfolio and Interactive Resume of Mohit Bhalla — Mobile Technical Lead & Sr. Android Engineer.",
+  "description": "Portfolio and Interactive Resume of Mohit Bhalla — Mobile Technical Lead & Sr. Software Engineer.",
   "start_url": "/",
   "scope": "/",
   "display": "standalone",
+  "display_override": ["window-controls-overlay", "standalone", "minimal-ui"],
   "background_color": "#0e1117",
-  "theme_color": "#ff6b00",
   "orientation": "portrait-primary",
   "icons": [
     {
