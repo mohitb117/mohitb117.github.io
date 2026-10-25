@@ -33,6 +33,8 @@ navigation:
     url: /
   - name: Resume
     url: /resume/
+  - name: Apps
+    url: /apps/
   - name: Blog
     url: /blog/
 
@@ -51,3 +53,12 @@ exclude:
   - node_modules
   - package.json
   - package-lock.json
+  - composeApp
+  - gradle
+  - gradlew
+  - gradlew.bat
+  - build.gradle.kts
+  - settings.gradle.kts
+  - gradle.properties
+  - .gradle
+  - build

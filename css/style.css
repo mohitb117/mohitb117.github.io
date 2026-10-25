@@ -2248,23 +2248,103 @@ section {
   grid-template-columns: 320px 1fr;
   gap: 1.75rem;
   align-items: center;
+  transition: grid-template-columns 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.device-showcase-grid.tv-showcase-mode {
+  grid-template-columns: 440px 1fr;
 }
 
 .phone-frame-wrapper {
   display: flex;
+  flex-direction: column;
+  align-items: center;
   justify-content: center;
   perspective: 1000px;
 }
 
+/* Portrait Phone Screen for All Mobile Demos (Amazon Care & PNNL FoodFeed) */
 .phone-device {
-  width: 290px;
+  width: 265px;
   background: var(--phone-bezel);
   border: 8px solid var(--phone-bezel);
-  border-radius: 36px;
+  border-radius: 38px;
   box-shadow: 0 16px 36px rgba(0, 0, 0, 0.4), 0 0 0 1px var(--phone-frame-border);
   overflow: hidden;
   position: relative;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transition: all 0.32s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* Widescreen Amazon Fire TV Monitor Mode (Used ONLY for Silk Fire TV Demos) */
+.phone-device.tv-device-mode {
+  width: 100%;
+  max-width: 440px;
+  border-radius: 14px;
+  border: 4px solid #3c424d;
+  background: linear-gradient(160deg, #2b2f36 0%, #0f1115 65%, #1c1f24 100%);
+  box-shadow: 0 22px 46px rgba(0, 0, 0, 0.55), 0 0 18px rgba(56, 189, 248, 0.22);
+}
+
+.phone-device.tv-device-mode .phone-top-bar,
+.phone-device.tv-device-mode .phone-bottom-bar {
+  display: none;
+}
+
+.phone-device.tv-device-mode .phone-screen {
+  border-radius: 8px;
+}
+
+.phone-device.tv-device-mode .phone-video-wrap {
+  padding-bottom: 56.25% !important; /* 16:9 Widescreen ONLY for AWS Silk Fire TV */
+}
+
+.tv-chin-bar {
+  display: none;
+  height: 20px;
+  background: #14171d;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  font-size: 0.56rem;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  color: #8b949e;
+}
+
+.phone-device.tv-device-mode .tv-chin-bar {
+  display: flex;
+}
+
+.tv-power-led {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #38bdf8;
+  box-shadow: 0 0 8px #38bdf8;
+}
+
+.tv-stand-assembly {
+  display: none;
+  flex-direction: column;
+  align-items: center;
+}
+
+.device-showcase-grid.tv-showcase-mode .tv-stand-assembly {
+  display: flex;
+}
+
+.tv-stand-neck {
+  width: 48px;
+  height: 14px;
+  background: linear-gradient(90deg, #1b1e24, #373d48, #1b1e24);
+}
+
+.tv-stand-base {
+  width: 170px;
+  height: 7px;
+  background: linear-gradient(90deg, #14161a, #49505e, #14161a);
+  border-radius: 999px;
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.45);
 }
 
 [data-theme="dark"] .phone-device {
@@ -2306,7 +2386,7 @@ section {
 .phone-video-wrap {
   position: relative;
   width: 100%;
-  padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+  padding-bottom: 177.77%; /* 9:16 Portrait Mobile Phone Cutout by default */
   height: 0;
   background: #000;
 }
@@ -2737,111 +2817,173 @@ section {
   font-size: 18px;
 }
 
-/* 4. Carousel Indicators Tray (Horizontal Scrolling) */
+/* 4. Carousel Indicators Tray (Each Item IS a Phone Cutout or TV Cutout with Caption Below) */
 .carousel-indicators-tray {
   display: flex;
-  gap: 1rem;
+  align-items: flex-start;
+  gap: 1.15rem;
   overflow-x: auto;
   scroll-snap-type: x mandatory;
-  padding: 0.4rem 0.2rem 0.85rem;
+  padding: 0.4rem 0.25rem 0.85rem;
   scrollbar-width: thin;
   -webkit-overflow-scrolling: touch;
 }
 
 .carousel-indicator-tile {
-  flex: 0 0 250px;
+  flex: 0 0 146px;
+  width: 146px;
   scroll-snap-align: start;
-  background: var(--surface-container-low);
-  border: 1.5px solid var(--outline-variant);
-  border-radius: var(--shape-md);
-  overflow: hidden;
+  background: transparent;
+  border: none;
   cursor: pointer;
   display: flex;
   flex-direction: column;
-  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
-  text-align: left;
+  align-items: center;
+  gap: 8px;
+  transition: transform 0.2s cubic-bezier(0.22, 1, 0.36, 1);
+  text-align: center;
+}
+
+.carousel-indicator-tile.tv-tile {
+  flex: 0 0 214px;
+  width: 214px;
 }
 
 .carousel-indicator-tile:hover {
   transform: translateY(-3px);
-  border-color: var(--primary);
-  box-shadow: var(--elevation-2);
-}
-
-.carousel-indicator-tile.active {
-  border-color: var(--primary);
-  background: var(--surface-container-high);
-  box-shadow: 0 4px 16px rgba(61, 220, 132, 0.25);
-  transform: translateY(-2px);
 }
 
 .indicator-thumb-wrapper {
   position: relative;
   width: 100%;
-  aspect-ratio: 16 / 9;
-  background: #000;
-  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
-.indicator-thumb-img {
+/* Shared Mini Upright 9:16 Mobile Phone & Widescreen Fire TV Bezel Cutouts (Used on both /resume/ and /apps/) */
+.cmp-thumb-phone-cutout {
+  position: relative;
+  width: 126px;
+  height: 218px;
+  border-radius: 22px;
+  border: 3.5px solid #3c424d;
+  background: #0b0e14;
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.55), inset 0 0 0 1px rgba(255, 255, 255, 0.14);
+  overflow: hidden;
+  flex-shrink: 0;
+  transition: all 0.2s ease;
+}
+
+.cmp-thumb-phone-cutout::before {
+  content: '';
+  position: absolute;
+  top: 6px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 22px;
+  height: 5px;
+  border-radius: 999px;
+  background: #05070a;
+  z-index: 3;
+  border: 0.5px solid rgba(255, 255, 255, 0.28);
+}
+
+.cmp-thumb-phone-cutout::after {
+  content: '';
+  position: absolute;
+  bottom: 5px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 38px;
+  height: 3px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.65);
+  z-index: 3;
+}
+
+.cmp-thumb-tv-cutout-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
+.cmp-thumb-tv-cutout {
+  position: relative;
+  width: 210px;
+  height: 132px;
+  border-radius: 10px;
+  border: 3.5px solid #3c424d;
+  background: #0b0e14;
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.6);
+  overflow: hidden;
+  transition: all 0.2s ease;
+}
+
+.cmp-thumb-tv-stand {
+  width: 68px;
+  height: 5px;
+  background: #475569;
+  border-radius: 0 0 5px 5px;
+  margin-top: 2px;
+}
+
+.carousel-indicator-tile:hover .cmp-thumb-phone-cutout,
+.carousel-indicator-tile:hover .cmp-thumb-tv-cutout {
+  border-color: var(--primary);
+}
+
+.carousel-indicator-tile.active .cmp-thumb-phone-cutout,
+.carousel-indicator-tile.active .cmp-thumb-tv-cutout {
+  border-color: var(--android-green);
+  box-shadow: 0 0 0 2px rgba(61, 220, 132, 0.35), 0 12px 26px rgba(0, 0, 0, 0.65);
+}
+
+.cmp-thumb-phone-cutout .indicator-thumb-img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  opacity: 0.85;
-  transition: opacity 0.2s ease, transform 0.2s ease;
+  transform: scale(1.38);
+  opacity: 0.94;
 }
 
-.carousel-indicator-tile:hover .indicator-thumb-img {
-  opacity: 1;
-  transform: scale(1.03);
+.cmp-thumb-tv-cutout .indicator-thumb-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.94;
 }
 
 .indicator-index-pill {
   position: absolute;
-  top: 8px;
+  top: 14px;
   left: 8px;
   font-family: var(--font-mono);
-  font-size: 0.7rem;
-  font-weight: 700;
+  font-size: 0.62rem;
+  font-weight: 800;
   color: #fff;
-  background: rgba(0, 0, 0, 0.75);
-  padding: 0.15rem 0.45rem;
+  background: rgba(0, 0, 0, 0.78);
+  padding: 0.1rem 0.38rem;
   border-radius: 4px;
-}
-
-.indicator-type-pill {
-  position: absolute;
-  top: 8px;
-  right: 8px;
-  font-family: var(--font-mono);
-  font-size: 0.68rem;
-  font-weight: 700;
-  color: #fff;
-  background: rgba(0, 0, 0, 0.75);
-  padding: 0.15rem 0.45rem;
-  border-radius: 4px;
-}
-
-.indicator-type-pill.short-badge {
-  background: #ea4335;
+  z-index: 4;
 }
 
 .indicator-playing-overlay {
   display: none;
   position: absolute;
   inset: 0;
-  background: rgba(0, 0, 0, 0.65);
+  background: rgba(0, 0, 0, 0.48);
   align-items: center;
   justify-content: center;
-  gap: 0.35rem;
   color: var(--android-green);
-  font-family: var(--font-mono);
-  font-size: 0.75rem;
-  font-weight: 700;
+  z-index: 2;
 }
 
 .indicator-playing-overlay .material-symbols-outlined {
-  font-size: 22px;
+  font-size: 28px;
 }
 
 .carousel-indicator-tile.active .indicator-playing-overlay {
@@ -2849,19 +2991,19 @@ section {
 }
 
 .indicator-tile-body {
-  padding: 0.85rem;
+  width: 100%;
+  padding: 0 2px;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-  flex: 1;
-  gap: 0.45rem;
+  align-items: center;
+  gap: 3px;
 }
 
 .indicator-badge-row {
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  font-size: 0.72rem;
+  justify-content: center;
+  font-size: 0.66rem;
 }
 
 .indicator-badge {
@@ -2869,19 +3011,14 @@ section {
   font-weight: 700;
   color: var(--primary);
   text-transform: uppercase;
-  letter-spacing: 0.5px;
-}
-
-.indicator-year {
-  color: var(--on-surface-variant);
-  font-family: var(--font-mono);
+  letter-spacing: 0.3px;
 }
 
 .indicator-title {
-  font-size: 0.88rem;
-  font-weight: 700;
+  font-size: 0.76rem;
+  font-weight: 800;
   color: var(--on-surface);
-  line-height: 1.35;
+  line-height: 1.25;
   margin: 0 !important;
   display: -webkit-box;
   -webkit-line-clamp: 2;
@@ -2891,23 +3028,20 @@ section {
 
 /* Small Tile / Link to the Actual Blog Post Where it is Hosted */
 .indicator-blog-link-wrapper {
-  margin-top: 0.4rem;
-  padding-top: 0.5rem;
-  border-top: 1px dashed var(--outline-variant);
+  margin-top: 2px;
 }
 
 .indicator-blog-link-tile {
-  display: flex;
+  display: inline-flex;
   align-items: center;
-  justify-content: space-between;
-  gap: 0.3rem;
-  padding: 0.32rem 0.6rem;
-  background: var(--primary-bg);
-  border: 1px solid var(--primary);
+  gap: 0.25rem;
+  padding: 0.2rem 0.55rem;
+  background: var(--surface-container-low);
+  border: 1px solid var(--outline-variant);
   border-radius: 6px;
   color: var(--primary);
-  font-size: 0.75rem;
-  font-weight: 600;
+  font-size: 0.66rem;
+  font-weight: 700;
   text-decoration: none;
   transition: all 0.15s ease;
 }
@@ -2915,7 +3049,7 @@ section {
 .indicator-blog-link-tile:hover {
   background: var(--primary);
   color: var(--on-primary);
-  transform: translateY(-1px);
+  border-color: var(--primary);
 }
 
 .indicator-blog-link-tile .material-symbols-outlined {

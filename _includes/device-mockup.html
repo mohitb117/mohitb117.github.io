@@ -83,19 +83,19 @@
     </a>
   </div>
 
-  <!-- 3. Main Interactive Showcase (Smartphone Mockup + Detail Panel) -->
-  <div class="device-showcase-grid">
-    <!-- Smartphone Bezel Mockup -->
+  <!-- 3. Main Interactive Showcase (Smartphone Mockup OR Fire TV Mockup + Detail Panel) -->
+  <div class="device-showcase-grid" id="deviceShowcaseGrid">
+    <!-- Device Bezel Mockup Wrapper -->
     <div class="phone-frame-wrapper" id="phoneFrameWrapper">
       <div class="phone-device" id="phoneDevice">
-        <!-- Top Sensor / Camera Bar -->
-        <div class="phone-top-bar">
+        <!-- Top Sensor / Camera Bar (Shown in Phone Mode) -->
+        <div class="phone-top-bar" id="phoneTopBar">
           <div class="phone-speaker"></div>
           <div class="phone-camera"></div>
         </div>
 
-        <!-- Phone Screen Content -->
-        <div class="phone-screen">
+        <!-- Screen Content (Shared YouTube Iframe) -->
+        <div class="phone-screen" id="phoneScreen">
           <div class="phone-video-wrap" id="phoneVideoWrap">
             <iframe
               id="activeVideoIframe"
@@ -108,11 +108,24 @@
           </div>
         </div>
 
-        <!-- Bottom Gesture Navigation Pill -->
-        <div class="phone-bottom-bar">
+        <!-- Bottom Gesture Navigation Pill (Phone Mode) -->
+        <div class="phone-bottom-bar" id="phoneBottomBar">
           <div class="phone-home-indicator"></div>
         </div>
+
+        <!-- Widescreen Fire TV Chin & Power LED (Shown in Fire TV Mode) -->
+        <div class="tv-chin-bar" id="tvChinBar">
+          <span class="tv-power-led"></span>
+          <span>AMAZON FIRE TV &bull; 10-FOOT SILK BROWSER</span>
+        </div>
       </div>
+
+      <!-- Widescreen Fire TV Pedestal Stand (Shown in Fire TV Mode) -->
+      <div class="tv-stand-assembly" id="tvStandAssembly">
+        <div class="tv-stand-neck"></div>
+        <div class="tv-stand-base"></div>
+      </div>
+
       <div class="phone-reflection"></div>
     </div>
 
@@ -166,39 +179,54 @@
 
     <div class="carousel-indicators-tray" id="carouselIndicatorsTray">
       {% for vid in videos %}
+      {% assign is_tv_vid = false %}
+      {% if vid.category == 'Fire TV' or vid.badge contains 'Fire TV' %}
+        {% assign is_tv_vid = true %}
+      {% endif %}
       <div
-        class="carousel-indicator-tile{% if forloop.first %} active{% endif %}"
+        class="carousel-indicator-tile{% if is_tv_vid %} tv-tile{% endif %}{% if forloop.first %} active{% endif %}"
         id="indicatorTile-{{ forloop.index0 }}"
         data-index="{{ forloop.index0 }}"
         data-category="{{ vid.category }}"
         onclick="selectDemoByIndex({{ forloop.index0 }}, true)">
         
         <div class="indicator-thumb-wrapper">
-          <img
-            src="https://img.youtube.com/vi/{{ vid.id }}/mqdefault.jpg"
-            alt="{{ vid.title }}"
-            class="indicator-thumb-img"
-            loading="lazy">
-          <span class="indicator-index-pill">{{ forloop.index | prepend: '0' | slice: -2, 2 }}</span>
-          {% if vid.type == 'short' %}
-          <span class="indicator-type-pill short-badge">Short</span>
-          {% else %}
-          <span class="indicator-type-pill">16:9</span>
-          {% endif %}
-          <div class="indicator-playing-overlay">
-            <span class="material-symbols-outlined">play_circle</span>
-            <span class="playing-text">PLAYING</span>
+          {% if is_tv_vid %}
+          <div class="cmp-thumb-tv-cutout-wrap">
+            <div class="cmp-thumb-tv-cutout">
+              <img
+                src="https://img.youtube.com/vi/{{ vid.id }}/mqdefault.jpg"
+                alt="{{ vid.title }}"
+                class="indicator-thumb-img"
+                loading="lazy">
+              <span class="indicator-index-pill">{{ forloop.index | prepend: '0' | slice: -2, 2 }}</span>
+              <div class="indicator-playing-overlay">
+                <span class="material-symbols-outlined">play_circle</span>
+              </div>
+            </div>
+            <div class="cmp-thumb-tv-stand"></div>
           </div>
+          {% else %}
+          <div class="cmp-thumb-phone-cutout">
+            <img
+              src="https://img.youtube.com/vi/{{ vid.id }}/mqdefault.jpg"
+              alt="{{ vid.title }}"
+              class="indicator-thumb-img"
+              loading="lazy">
+            <span class="indicator-index-pill">{{ forloop.index | prepend: '0' | slice: -2, 2 }}</span>
+            <div class="indicator-playing-overlay">
+              <span class="material-symbols-outlined">play_circle</span>
+            </div>
+          </div>
+          {% endif %}
         </div>
 
         <div class="indicator-tile-body">
           <div class="indicator-badge-row">
-            <span class="indicator-badge">{{ vid.badge }}</span>
-            <span class="indicator-year">{{ vid.year }}</span>
+            <span class="indicator-badge">{{ vid.badge }} &bull; {{ vid.year }}</span>
           </div>
           <h4 class="indicator-title">{{ vid.title }}</h4>
 
-          <!-- Small Tile / Link to the Actual Blog Post Where it is Hosted -->
           <div class="indicator-blog-link-wrapper">
             {% if vid.post_url and vid.post_url != '' %}
             <a
@@ -207,8 +235,7 @@
               title="Read blog post: {{ vid.post_title }}"
               onclick="event.stopPropagation();">
               <span class="material-symbols-outlined">article</span>
-              <span class="indicator-blog-link-label">Read Blog Post</span>
-              <span class="material-symbols-outlined external-chevron">north_east</span>
+              <span class="indicator-blog-link-label">Blog ↗</span>
             </a>
             {% else %}
             <span class="indicator-standalone-pill">
@@ -271,15 +298,29 @@
         iframe.title = demo.title;
       }
 
-      // Handle vertical Short mode on phone screen
+      // Handle Device Frame: Fire TV Widescreen Monitor vs. Mobile Phone Bezel
+      const showcaseGrid = document.getElementById('deviceShowcaseGrid');
       const phoneDevice = document.getElementById('phoneDevice');
       const phoneVideoWrap = document.getElementById('phoneVideoWrap');
-      if (demo.type === 'short') {
-        if (phoneDevice) phoneDevice.classList.add('short-video-mode');
-        if (phoneVideoWrap) phoneVideoWrap.classList.add('short-aspect');
-      } else {
-        if (phoneDevice) phoneDevice.classList.remove('short-video-mode');
+      const isTvDemo = demo.category === 'Fire TV' || (demo.badge && demo.badge.indexOf('Fire TV') !== -1);
+
+      if (isTvDemo) {
+        if (showcaseGrid) showcaseGrid.classList.add('tv-showcase-mode');
+        if (phoneDevice) {
+          phoneDevice.classList.add('tv-device-mode');
+          phoneDevice.classList.remove('short-video-mode');
+        }
         if (phoneVideoWrap) phoneVideoWrap.classList.remove('short-aspect');
+      } else {
+        if (showcaseGrid) showcaseGrid.classList.remove('tv-showcase-mode');
+        if (phoneDevice) phoneDevice.classList.remove('tv-device-mode');
+        if (demo.type === 'short') {
+          if (phoneDevice) phoneDevice.classList.add('short-video-mode');
+          if (phoneVideoWrap) phoneVideoWrap.classList.add('short-aspect');
+        } else {
+          if (phoneDevice) phoneDevice.classList.remove('short-video-mode');
+          if (phoneVideoWrap) phoneVideoWrap.classList.remove('short-aspect');
+        }
       }
 
       // 2. Update Details Panel
