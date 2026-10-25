@@ -100,11 +100,17 @@ title: Home
 
   <section class="journey-section">
     <div class="journey-container">
-      <img src="{{ '/images/professional-journey.jpg' | relative_url }}" alt="Mohit Bhalla's Professional Journey Infographic" class="journey-image zoomable">
+      <img src="{{ '/images/professional-journey.jpg' | relative_url }}" alt="Mohit Bhalla's Professional Journey Infographic" class="journey-image zoomable" fetchpriority="high" decoding="async">
       <div class="journey-overlay-hint">
         <span class="material-symbols-outlined">zoom_in</span>
         <span>Click to expand full roadmap</span>
       </div>
+    </div>
+    <div style="margin-top: 0.75rem; display: flex; justify-content: flex-end;">
+      <a href="{{ '/apps/' | relative_url }}" class="btn-testimonials" style="display: inline-flex; align-items: center; gap: 0.45rem; width: auto; padding: 0.55rem 1.1rem; margin-top: 0;">
+        <span class="material-symbols-outlined" style="font-size: 18px;">widgets</span>
+        <span>Launch Interactive Compose Multiplatform (CMP) Apps &amp; SDUI Studio &rarr;</span>
+      </a>
     </div>
   </section>
 

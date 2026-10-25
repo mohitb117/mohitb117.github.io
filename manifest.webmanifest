@@ -30,6 +30,13 @@
   ],
   "shortcuts": [
     {
+      "name": "CMP App Playground",
+      "short_name": "CMP Apps",
+      "description": "Launch interactive Compose Multiplatform apps, SDUI Studio & WebRTC simulator",
+      "url": "/apps/",
+      "icons": [{ "src": "/images/icon-192.png", "sizes": "192x192" }]
+    },
+    {
       "name": "Interactive Resume",
       "short_name": "Resume",
       "description": "View Mohit's interactive resume and technical career highlights",
