@@ -37,7 +37,7 @@ object PortfolioRepository {
             stageTitle = "CURRENT ROLE: DOORDASH",
             organization = "DoorDash",
             roleTitle = "Senior Software Engineer | Mobile Technical Lead",
-            period = "Nov 2021 – Present (4+ yrs)",
+            period = "Nov 2021 – Present (5 yrs)",
             brandHex = 0xFFFF3008,
             deliverables = listOf(
                 DeliverableItem(

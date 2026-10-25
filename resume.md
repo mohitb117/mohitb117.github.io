@@ -208,7 +208,7 @@ permalink: /resume/
           </div>
         </div>
       </div>
-      <div class="experience-date-badge">Nov '21 &ndash; Present (4+ yrs)</div>
+      <div class="experience-date-badge">Nov '21 &ndash; Present (5 yrs)</div>
     </div>
 
     <div class="experience-divider"></div>
